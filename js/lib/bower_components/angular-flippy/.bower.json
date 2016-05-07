@@ -1,0 +1,33 @@
+{
+  "name": "angular-flippy",
+  "version": "2.0.2",
+  "description": "AngularJS directive implementation with a CSS3 flip animation",
+  "homepage": "https://github.com/zwacky/angular-flippy",
+  "license": "MIT",
+  "main": [
+    "./dist/js/angular-flippy.js",
+    "./dist/css/angular-flippy.css",
+    "./dist/css/angular-flippy-fancy.css"
+  ],
+  "ignore": [],
+  "keywords": [
+    "angular",
+    "css3",
+    "flip",
+    "animation"
+  ],
+  "author": {
+    "name": "Simon Wicki",
+    "web": "https://github.com/zwacky"
+  },
+  "_release": "2.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.0.2",
+    "commit": "1307c7f7242c0b6a14091044a0b815d5031cf0b8"
+  },
+  "_source": "git://github.com/zwacky/angular-flippy.git",
+  "_target": "^2.0.2",
+  "_originalSource": "angular-flippy",
+  "_direct": true
+}

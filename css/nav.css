@@ -1,0 +1,122 @@
+nav{
+	height : 75px;
+	padding-top : 6px;
+	margin-bottom : 40px;
+	background-color: #490a3d;
+	padding-bottom : 10px;
+	
+}
+
+
+/*-------------        Titre           ------------------*/
+nav h1{
+	margin-top:0;
+	vertical-align:middle;
+	text-align: left;
+	color:  #f8ca00;
+	font-size : 35px;
+	font-family: 'Philosopher', sans-serif;
+	display:inline;
+}
+nav img{
+	height : 50px;
+	width: auto;
+	margin:auto;
+	vertical-align:middle;
+	margin-left:50px;
+		
+}
+
+nav .titre {
+	padding-top : 5px;
+	display:inline-block;
+	float: left;
+	
+	
+}
+
+
+/*-------------        block login           ------------------*/
+
+nav .not_connected{
+	display: inline-block;
+	width : 80vw;
+	float:right;
+}
+
+nav p {
+	display: inline;
+	text-align: center;
+	color: rgba(255,255,255,0.9);
+	text-decoration : none;
+	margin-left: 140px;
+	font-size : 20px;
+	padding :10px;
+	vertical-align:middle;
+	margin: auto;
+	float : left;
+	padding-top : 23px;
+}
+
+
+nav form {
+	float: right;
+	display : inline-block;
+	padding-top:5px;
+	width : 34vw;
+	}
+
+nav input {
+	text-align:center;
+	display:inline-block;
+	margin :10px;
+	line-height:15px;
+	font-size : 15px;
+	color : black;
+
+}
+
+nav input[type=submit] {
+	width : 10%;
+	line-height:30px;
+	line-height:30px;
+	color : #f8ca00;
+	background-image: linear-gradient(#bd1550,#7F3571);
+	box-shadow:none;
+	border:1px solid #bd1550;
+	border-radius:3px;
+	vertical-align:middle;
+}
+
+
+
+
+/*-------------        block menu           ------------------*/
+
+nav .connected{
+	display: inline-block;
+	width : 80vw;
+	float:right;
+}
+
+nav a {
+	float: right;
+	color: rgba(255,255,255,0.9);
+	text-decoration : none;
+	margin-right:50px;
+	font-size : 20px;
+	padding :10px;
+	padding-top : 23px;
+
+}
+
+nav a:hover{
+	color: rgba(255,255,255,0.9);
+	
+}
+
+nav .fa {
+	color:#f8ca00;
+}
+
+

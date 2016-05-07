@@ -1,0 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Philosopher:400,700);
+html, body {
+	margin:0;
+	padding:0;
+	background-image: linear-gradient(to bottom right, white, rgba(73, 10, 61,0.4));
+	background-attachment: fixed;
+	height:100%;
+}
+
+html {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+.deckgrid[deckgrid]::before {
+    /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
+    content: '4 .column.column-1-4';
+    font-size: 0; /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
+    visibility: hidden;
+}
+
+.deckgrid .column {
+    float: left;
+}
+
+.deckgrid .column-1-4 {
+    width: 25%;
+}

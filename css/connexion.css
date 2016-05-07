@@ -1,0 +1,92 @@
+.main_content {
+	width:100%;
+	
+}
+
+.main_content section {
+	width:50%;
+	float:right;
+	text-align : center;
+	
+}
+
+.main_content section h2 {
+	color : #490a3d;
+	font-weight:bold;
+	text-align:center;
+}
+
+.main_content section h2 span {
+	font-family: 'Philosopher', sans-serif;
+	font-size : 40px;
+}
+
+.main_content section form input {
+	display : block;
+	margin : auto;
+	margin-bottom: 10px;
+	margin-top:10px;
+	text-align : center; 
+	
+}
+
+.main_content section form input[type=text],section form input[type=password],section form input[type=email]{
+	width : 300px;
+	border-radius:5px;
+	padding-left:10px;
+	line-height:25px;
+	text-align : left;
+}
+
+section form input[type=text]:focus,section form input[type=password]:focus,section form input[type=email]:focus{
+  outline : none;
+}
+
+section form input[type=submit] {
+	color : #f8ca00;
+	background-image: linear-gradient(#bd1550,#7F3571);
+	box-shadow:none;
+	border:1px solid #bd1550;
+	border-radius:3px;
+	padding : 10px;
+	padding-left : 20px;
+	padding-right : 20px;
+}
+
+.register {
+	text-align : center;
+	margin:auto;
+}
+
+.register > .wrapper {
+	width : 60%;
+	height : auto;
+	padding : 20px;
+	box-shadow:1px 1px 5px #7F3571;
+	border-radius:5px;
+	text-align:center;
+	margin:auto;
+	margin-top:10%;
+	padding-bottom: 35px;
+	
+}
+
+.titreRegister {
+	width : 450px;
+	height : auto;
+	text-align : left;
+	margin:auto;
+	margin-bottom : 50px;
+		text-align:center;
+}
+
+
+
+.bigLogo {
+	display:inline-block;
+	width:49vw;
+	height:80vh;
+	background-image:url('../images/tansu.png');
+	background-repeat:no-repeat;
+	background-position:center;
+}

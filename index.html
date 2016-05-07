@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="tansu">
+	<head>
+
+		<link rel="stylesheet" href="js/lib/bower_components/angular-flippy/dist/css/angular-flippy.css">
+        <link rel="stylesheet" href="js/lib/bower_components/angular-flippy/dist/css/angular-flippy-fancy.css">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Philosopher:400,700' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/nav.css">
+		<link rel="stylesheet" type="text/css" href="css/modal.css">
+
+
+  
+		<!-- Meta -->
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="description" content="kimono collection manager"/>
+		<meta name="keywords" content="kimono, obi" />
+		<title>Tansu : Your kimono shelf</title>
+		
+	</head>
+	<body>
+	<nav ng-controller="navController">
+		<div class="titre"><img src="images/logo.png"><h1> Tansu </h1></div>
+		<div class="not_connected" ng-if="!connexion">
+		<p >Welcome in your Tansu!</p>
+			<form>
+			<input type="text" name="pseudo" placeholder="Login" ng-model="pseudo" required />
+			<input type="password" name="password" placeholder="Password" required />
+			<input type="submit" value="Login" ng-click="login(pseudo)" />
+			</form>
+		</div>
+		<div class="connected" ng-if="connexion">
+			<p>Welcome {{name}}!</p>
+			<a href="#"><i class="fa fa-sign-out"></i> LogOut</a>
+			<a href="#"> <i class="fa fa-search"></i> Browse </a>
+			<a href="#"> <i class="fa fa-star-o"></i> Favoris </a>
+			<a href="#"> <i class="fa fa-pencil"></i> Edit </a>
+		</div>
+	</nav>
+	<section class="main_content" ng-view>
+	</section>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+		
+	  	<script src="js/lib/bower_components/angular-deckgrid/angular-deckgrid.js"></script>
+		<script src="js/lib/bower_components/angular-flippy/dist/js/angular-flippy.js"></script>
+		<script src="js/lib/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+		<script src="js/lib/bower_components/flow.js/dist/flow.min.js"></script>
+		<script src="js/lib/bower_components/ng-flow/dist/ng-flow.min.js"></script>
+		
+		<script type="text/javascript" src="js/router.js"></script>
+		<script type="text/javascript" src="js/controllers/connexion.js"></script>
+		<script type="text/javascript" src="js/controllers/tansu.js"></script>
+
+	</body>
+</html>
+		
