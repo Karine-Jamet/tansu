@@ -1,5 +1,8 @@
 {"fav_nb":"4",
-"comment_nb":"2",
+"comment_nb" : "2",
+"description" : "multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere",
+"kimono" : {"type" : "iromuji", "color" : "pink"},
+"obi" : {"type" : "nagoya", "color" : "red"},
 "comments": [
 	{"name":"Kaeru",
 	"profile":"images/profile/05.jpg",

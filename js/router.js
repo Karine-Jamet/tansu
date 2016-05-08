@@ -24,7 +24,8 @@ tansu.config(['$routeProvider',
         controller: 'browseController'
       }).when('/tansu/:user/edit', {
         templateUrl: 'partials/edit.html',
-        controller: 'editController'
+        controller: 'editController',
+		css:"css/edit.css"
       }).when('/tansu/:user/profile', {
         templateUrl: 'partials/profile.html',
         controller: 'profileController'
@@ -36,9 +37,11 @@ tansu.config(['$routeProvider',
   
   tansu.controller('navController',function($scope, $rootScope, $http ){
 		$scope.connexion = false;
-	  
+		$rootScope.connexionAll = false;
+		
 		$scope.login = function(x,y){
 			$scope.connexion = true;
+			$rootScope.connexionAll = true;
 			$scope.name = x;
 			var password = y;
 			

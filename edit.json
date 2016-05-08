@@ -1,0 +1,50 @@
+{"pseudo":"Karine",
+"mail" : "truc@mail.com",
+"avatar" : "images/profile/avatar_tansu_default-01.png",
+"kimonos": [
+	{
+	"id":1,
+	"style":"tomesode",
+	"main":"images/main/IMG_6061.jpg"
+	},
+	{
+	"id":2,
+	"style":"furisode",
+	"main":"images/main/IMG_6061.jpg"
+	},
+	{
+	"id":3,
+	"style":"tomesode",
+	"main":"images/main/IMG_6061.jpg"
+	}],
+"obis": [
+	{
+	"id":1,
+	"style":"nagoya",
+	"main":"images/main/IMG_6334.jpg"
+	},
+	{
+	"id":2,
+	"style":"maru",
+	"main":"images/main/IMG_6334.jpg"
+	},
+	{
+	"id":3,
+	"style":"nagoya",
+	"main":"images/main/IMG_6334.jpg"
+	}], 
+"kitsukes" : [
+	{
+	"id":1,
+	"kimono" : 2,
+	"obi": 3,
+	"main":"images/gallery/obi01/DSCF1130.jpg"
+	},	{
+	"id":2,
+	"kimono" : 1,
+	"obi": 1,
+	"main":"images/gallery/obi01/DSCF3415.jpg"
+	}
+	
+	]
+}

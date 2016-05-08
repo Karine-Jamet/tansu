@@ -11,49 +11,58 @@
 }
 
 .modal-header {
-	border-bottom-color : #f8ca00;
+	border-bottom-color : rgba(0,0,0,0);
+	padding-bottom : 0px;
+	padding-left : 30px;
+	padding-right : 30px;
+	color : rgba(255,255,255,0.8);
 }
 
-.modal-header .fa, .modal-header p{
+.body-header {
+	text-align : center;
+}
+.body-header .fa, .body-header p{
 	display:inline-block;
 	font-size : 20px;
 	
 }
 
-.modal-header .fa:hover{
+.body-header .fa-paper-plane {
+	margin-left : 10px;
+}
+
+.body-header .fa:hover{
 	font-weight :bold;
 	cursor:pointer;
 }
 
-form {
+.body-header form {
 	display:inline-block;
-	width : 70%;
+	width : 50%;
 }
 
-.modal-header p {
+.body-header p {
 	margin-right : 15px;
 	margin-left : 5px;
 }
 
-.modal-header  textarea {
-	width : 70%;
+.body-header  textarea {
+	width : 80%;
 	line-height:30px;
 	color : black;
 	padding-left : 10px;
-	/*background-color:#f8ca00;*/
 	border:none;
 	box-shadow:none;
-	/*border:2px solid #f8ca00;*/
 	vertical-align: middle;
 	
 }
 
-.modal-header textarea:focus {
+.body-header textarea:focus {
 	outline:none;
 }
 
 
-.modal-header input[type=submit] {
+.body-header input[type=submit] {
 	width : 10%;
 	line-height:30px;
 	line-height:30px;
@@ -76,7 +85,7 @@ form {
 		
 }
 
-.modal-header button:hover {
+.body-header button:hover {
 color:#f8ca00;
 		
 }
@@ -85,6 +94,7 @@ color:#f8ca00;
 	height:80vh;
 	width:auto;
 	float : left;
+	margin-top : 38px;
 }
 
 .modal-body .com{
@@ -94,10 +104,11 @@ color:#f8ca00;
 }
 
 .modal-body .avatar{
-	width : 100px;
+	width : 60px;
 	height : auto;
 	margin-right : 10px;
 	margin-bottom : 10px;
+	margin-top : 0;
 }
 
 .modal-body .comment-space{
@@ -117,7 +128,7 @@ color:#f8ca00;
 }
 
 .modal-body a:hover {
-	/*color : #f8ca00;*/
-		color:black;
+	color : #7F3571;
+		/*color:black;*/
 	font-weight : bolder;
 }

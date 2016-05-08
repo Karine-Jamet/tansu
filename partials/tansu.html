@@ -2,93 +2,13 @@
 		
 		<div deckgrid source="collection" class="deckgrid">
 		
-		<flippy  class="fancy {{card.what}}"  ng-class="{'edition': card.isFirst}" flip="['mouseenter']"  flip-back="['mouseleave']"  duration="800"  timing-function="ease-in-out">
+		<flippy  class="fancy {{card.what}}"  ng-class="{'edition': card.isFirst}" flip="['mouseenter']"  flip-back="['mouseleave']"  duration="800"  timing-function="ease-in-out" >
 		
-			<div class="newCard" ng-class="{'hide': card.what}" >
-				<div  class="divEditClose" ng-class="{'divEditOn': isActive}" >
-				
-					<i class="fa fa-plus-circle"  ng-class="{'editOn': isActive, 'editOnTime': isActiveTimeout}" ng-click="activeButton();"></i>
-					
-					<div class="formEdit" ng-class="{'titleShow':isActive}" >
-					<h2 >New Item</h2>
-					<p ><input  ng-class="{'titleShow':isActive}" type="radio"  ng-model="item.sex" value="male" > Male 
-					<input  type="radio"  ng-model="item.sex" value="female" > Female</p>
-					
-					<p><input   type="radio" ng-model="item.what" value="kimono" > Kimono 
-					<input  type="radio" ng-model="item.what" value="obi"  /> Obi</p>
-					
-					
-					<select  ng-show="item.sex === 'female' && item.what === 'kimono'">
-						<option value="furisode">Furisode</option>
-						<option value="tomesode">Tomesode</option>
-						<option value="houmongi">Houmongi/Tsukesage</option>
-						<option value="Iromuji">Iromuji</option>
-						<option value="Komon">Komon</option>
-						<option value="Yukata">Yukata</option>
-						<option value="Kakeshita">Kakeshita</option>
-						<option value="Uchikake">Uchikake</option>
-					</select>
-					
-					<select  ng-show="item.sex === 'male' && item.what==='kimono'">
-						<option value="Iromuji">Iromuji</option>
-						<option value="Komon">Komon</option>
-						<option value="Yukata">Yukata</option>
-					</select>
-					
-					<select  ng-show="item.sex === 'female' && item.what==='obi'" >
-						<option value="Maru">Maru</option>
-						<option value="Fukuro">Fukuro</option>
-						<option value="Nagoya">Nagoya</option>
-						<option value="hanhaba">Hanhaba</option>
-						<option value="heko">Heko</option>
-					</select>
-					
-					<select  ng-show="item.sex === 'male' && item.what==='obi'">
-						<option value="hanhaba">Kaku</option>
-						<option value="heko">Heko</option>
-					</select>
-					
-					<select  class="editColor" >
-						<option class="black">Black</option>/option>
-						<option class="grey">Grey</option>
-						<option class="white">White</option>
-						<option class="blue">Blue</option>
-						<option class="purple">Purple</option>
-						<option class="pink">Pink</option>
-						<option class="red">Red</option>
-						<option class="orange">Orange</option>
-						<option class="yellow">Yellow</option>
-						<option class="green">Green</option>
-					</select>
-					
-					<p class="mainPhoto">Main photo</p>
-					<div flow-init flow-name="mainPhoto" style="text-align: -webkit-center;" >
-					<img flow-img="$flow.files[0]" style="display: block;"/>
-					<span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="">Main photo<input type="file" style="visibility: hidden; position: absolute;">
-					<input type="file" style="visibility: hidden; position: absolute;" flow-btn>
-					</span>
-					</div>
-					
-					<div flow-init flow-name="GalleryPhoto">
-					<p>Gallery photos</p>
-						<span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="">Gallery photos<input type="file" style="visibility: hidden; position: absolute;">
-						<input type="file" style="visibility: hidden; position: absolute;" flow-btn flow-directory>
-						</span>
-						<p>{{GalleryPhoto.files.length}} photo(s) to upload.</p>
-					</div>
-					
-					<input type="submit" id="uploadOk" value="Upload"/>
-					<input type="submit" id="cancel" value="Cancel"/>
-		
-					</div>
-				</div>
-			</div>
-		
-			<flippy-front ng-class="{'hide': card.isFirst}">
+			<flippy-front>
 			<div class="a-card {{card.what}}" style="background-image:url('{{card.main}}')">
 			</div>
 			</flippy-front>
-			<flippy-back ng-class="{'hide': card.isFirst}">
+			<flippy-back >
 			<div class="a-card {{card.what}}">
 								
 				<div class="photo" >
@@ -101,5 +21,5 @@
 			</flippy-back>
 		</flippy>
 
-		</div>
-	  </div>
+	</div>
+</div>

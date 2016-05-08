@@ -1,24 +1,26 @@
-<div class="modal-header">	
-	<i class="fa fa-star-o"></i><p class="collection">{{fav_nb}}</p>
-	<i class="fa fa-commenting-o"></i><p class="comment">{{comment_nb}}</p>
-	<form>
-	<textarea name="commentaire" rows="1" placeholder="your comment" ></textarea>
-	<input type="submit" value="OK" />
-	</form>
-
+<div class="modal-header">
+    <p>{{description}}</p>
+	
 	<button class="btn" ng-click="ok()"> X </button>
 </div>
 <div class="modal-body">
-
-<img src ={{photo}} />
-<div class="comment-space">
-<div class="com" ng-repeat="com in comments">
-<img class="avatar" src={{com.profile}} />
-<a href='#'><h3>{{com.name}}</h3></a>
-<p>{{com.text}}</p>
-
+	<img src ={{photo}} />
+	
+	<div class="body-header">
+	<i class="fa fa-star-o"></i><p class="collection">{{fav_nb}}</p>
+	<i class="fa fa-commenting-o"></i><p class="comment">{{comment_nb}}</p>
+	<form ng-submit="submitCom(comContent)">
+	<textarea name="commentaire" rows="1" placeholder="your comment" ng-model="comContent"></textarea>
+	<i class="fa fa-paper-plane" aria-hidden="true" ng-click="submitCom(comContent)"></i>
+	</form>
+	</div>
+	<div class="comment-space">
+		<div class="com" ng-repeat="com in comments">
+		<a href='#/tansu/{{}com.name}/profile'><img class="avatar" src={{com.profile}} /></a>
+		<a href='#/tansu/{{}com.name}/profile'><h3>{{com.name}}</h3></a>
+		<p>{{com.text}}</p>
+		</div>
+	</div>
 
 </div>
-</div>
 
-</div>

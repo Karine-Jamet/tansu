@@ -1,0 +1,127 @@
+<section class="profile">
+<h2>Your Profile</h2>
+<div class="avatarContainer"><img src="{{profile.avatar}}"></div>
+<div class="dataContainer">
+<p>change avatar</p>
+<input type="text" ng-model="profile.pseudo" placeholder="pseudo" >
+<input type="text" ng-model="profile.mail" placeholder="mail" >
+<input type="submit" value="update" >
+<p>Kimono : {{nb_kimono}}</p>
+<p>Obi : {{nb_obi}}</p>
+<p>Kitsuke : {{nb_kitsuke}}</p>
+</div>
+
+</section>
+<section class="addCard">
+<h2>Add new item</h2>
+<p >
+<input   type="radio"  ng-model="item.sex" value="male" > Male 
+					<input  type="radio"  ng-model="item.sex" value="female" > Female</p>
+					
+					<p><input   type="radio" ng-model="item.what" value="kimono" > Kimono 
+					<input  type="radio" ng-model="item.what" value="obi"  /> Obi</p>
+					
+					
+					<select  ng-show="item.sex === 'female' && item.what === 'kimono'">
+						<option value="furisode">Furisode</option>
+						<option value="tomesode">Tomesode</option>
+						<option value="houmongi">Houmongi/Tsukesage</option>
+						<option value="Iromuji">Iromuji</option>
+						<option value="Komon">Komon</option>
+						<option value="Yukata">Yukata</option>
+						<option value="Kakeshita">Kakeshita</option>
+						<option value="Uchikake">Uchikake</option>
+					</select>
+					
+					<select  ng-show="item.sex === 'male' && item.what==='kimono'">
+						<option value="Iromuji">Iromuji</option>
+						<option value="Komon">Komon</option>
+						<option value="Yukata">Yukata</option>
+					</select>
+					
+					<select  ng-show="item.sex === 'female' && item.what==='obi'" >
+						<option value="Maru">Maru</option>
+						<option value="Fukuro">Fukuro</option>
+						<option value="Nagoya">Nagoya</option>
+						<option value="hanhaba">Hanhaba</option>
+						<option value="heko">Heko</option>
+					</select>
+					
+					<select  ng-show="item.sex === 'male' && item.what==='obi'">
+						<option value="hanhaba">Kaku</option>
+						<option value="heko">Heko</option>
+					</select>
+					
+					<select  class="editColor" >
+						<option class="black">Black</option>/option>
+						<option class="grey">Grey</option>
+						<option class="white">White</option>
+						<option class="blue">Blue</option>
+						<option class="purple">Purple</option>
+						<option class="pink">Pink</option>
+						<option class="red">Red</option>
+						<option class="orange">Orange</option>
+						<option class="yellow">Yellow</option>
+						<option class="green">Green</option>
+					</select>
+					
+					<p class="mainPhoto">Main photo</p>
+					<div flow-init flow-name="mainPhoto" style="text-align: -webkit-center;" >
+					<img flow-img="$flow.files[0]" style="display: block;"/>
+					<span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="">Main photo<input type="file" style="visibility: hidden; position: absolute;">
+					<input type="file" style="visibility: hidden; position: absolute;" flow-btn>
+					</span>
+					</div>
+					
+					
+					<input type="submit" id="uploadOk" value="Upload"/>
+		
+					</div>
+				</div>
+</section>
+<section class="addOutfit">
+<h2>Add new kitsuke</h2>
+
+<p>which kimono ?</p>
+<select ng-model="typeKimono">
+		<option value="furisode">Furisode</option>
+		<option value="tomesode">Tomesode</option>
+		<option value="houmongi">Houmongi/Tsukesage</option>
+		<option value="Iromuji">Iromuji</option>
+		<option value="Komon">Komon</option>
+		<option value="Yukata">Yukata</option>
+		<option value="Kakeshita">Kakeshita</option>
+		<option value="Uchikake">Uchikake</option>
+</select>
+
+<div class ="itemImage" ng-repeat="kimono in profile.kimonos trackby kimono.id | filter:typeKimono ">
+<img src="{{kimono.main}}" ng:class="kimono.class" ng-click="isSelectedKimono($index)">
+</div> 
+
+<p>which obi ?</p>
+<select ng-model="typeObi" >
+		<option value="Maru">Maru</option>
+		<option value="Fukuro">Fukuro</option>
+		<option value="Nagoya">Nagoya</option>
+		<option value="hanhaba">Hanhaba</option>
+		<option value="heko">Heko</option>
+</select>
+
+<div class ="itemImage" ng-repeat="obi in profile.obis | filter:typeObi">
+<img src="{{obi.main }}">
+</div>
+<p>Description : </p>
+<textarea></textarea>
+
+					<p class="mainPhoto">Main photo</p>
+					<div flow-init flow-name="mainPhoto" style="text-align: -webkit-center;" >
+					<img flow-img="$flow.files[0]" style="display: block;"/>
+					<span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="">Main photo<input type="file" style="visibility: hidden; position: absolute;">
+					<input type="file" style="visibility: hidden; position: absolute;" flow-btn>
+					</span>
+					</div>
+					
+					
+					<input type="submit" id="uploadOk" value="Upload"/>
+
+</section>
