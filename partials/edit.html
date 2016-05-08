@@ -94,8 +94,8 @@
 		<option value="Uchikake">Uchikake</option>
 </select>
 
-<div class ="itemImage" ng-repeat="kimono in profile.kimonos trackby kimono.id | filter:typeKimono ">
-<img src="{{kimono.main}}" ng:class="kimono.class" ng-click="isSelectedKimono($index)">
+<div class ="itemImage" ng-repeat="kimono in profile.kimonos | filter:typeKimono track by $index  ">
+<img src="{{kimono.main}}" ng-class="kimono.class" ng-click="isSelectedKimono($index)">
 </div> 
 
 <p>which obi ?</p>

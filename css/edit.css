@@ -19,9 +19,11 @@ section {
 	width : auto;
 }
 
-.border-select{
-		border: 3px solid purple;
+.itemImage img:hover {
+	cursor : pointer;
 }
+
+
 
 .itemImage {
 	display : inline-block;
@@ -31,4 +33,8 @@ section {
 	height : 150px;
 	width : auto;
 	margin : 10px;
+}
+
+.borderSelect{
+	border: 3px solid purple;
 }

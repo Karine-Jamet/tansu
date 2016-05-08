@@ -1,13 +1,6 @@
 tansu.controller('editController',function($scope, $rootScope, $http){
 
-var lastSelectedKim = -1;
-$scope.isSelectedKimono = function(i){
-	if(lastSelectedKim != -1) {
-                $scope.kimonos[lastSelectedKim].class = '';
-            }
-        lastSelectedKim = i;
-       $scope.kimonos[i].class = 'classA';
-};
+
 
 
 $scope.isSelectedObi = false;
@@ -19,6 +12,16 @@ $http.get("edit.json")
 	$scope.nb_kimono = res.data.kimonos.length;
 	$scope.nb_obi = res.data.obis.length;
 	$scope.nb_kitsuke = res.data.kitsukes.length;
+	$scope.kimonos = res.data.kimonos;
+	
+	var lastSelectedKim = -1;
+	$scope.isSelectedKimono = function(i){
+	if(lastSelectedKim != -1) {
+                $scope.kimonos[lastSelectedKim].class = '';
+            }
+        lastSelectedKim = i;
+       $scope.kimonos[i].class = 'borderSelect';
+};
 	
 	return res.data;
 });
