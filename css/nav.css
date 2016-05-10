@@ -4,7 +4,7 @@ nav{
 	margin-bottom : 40px;
 	background-color: #490a3d;
 	padding-bottom : 10px;
-	
+
 }
 
 
@@ -24,15 +24,15 @@ nav img{
 	margin:auto;
 	vertical-align:middle;
 	margin-left:50px;
-		
+
 }
 
 nav .titre {
 	padding-top : 5px;
 	display:inline-block;
 	float: left;
-	
-	
+
+
 }
 
 
@@ -63,7 +63,6 @@ nav form {
 	float: right;
 	display : inline-block;
 	padding-top:5px;
-	width : 34vw;
 	}
 
 nav input {
@@ -77,7 +76,7 @@ nav input {
 }
 
 nav input[type=submit] {
-	width : 10%;
+
 	line-height:30px;
 	line-height:30px;
 	color : #f8ca00;
@@ -112,11 +111,9 @@ nav a {
 
 nav a:hover{
 	color: rgba(255,255,255,0.9);
-	
+
 }
 
 nav .fa {
 	color:#f8ca00;
 }
-
-

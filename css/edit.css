@@ -8,15 +8,46 @@ section {
 	width : 150px;
 	overflow : hidden;
 }
-.profile .dataContainer{
-		display:inline-block;
-		text-align : left;
-		
 
+.profile .mainBlock{
+	display: inline-block;
+	vertical-align: middle;
+	margin: auto;
+	padding: 20px;
 }
+
+.profile .dataUser input{
+	margin: 10px;
+ display: block;
+}
+
+.profile .stat {
+	text-align: left;
+}
+
+
 .profile img {
 	height : 150px;
 	width : auto;
+}
+
+.profile input[type=submit] {
+
+	line-height:30px;
+	line-height:30px;
+	color : #f8ca00;
+	background-image: linear-gradient(#bd1550,#7F3571);
+	box-shadow:none;
+	border:1px solid #bd1550;
+	border-radius:3px;
+	vertical-align:middle;
+}
+
+
+.inlineSection{
+	display: inline-block;
+	margin: auto;
+	vertical-align: top;
 }
 
 .itemImage img:hover {
@@ -24,13 +55,12 @@ section {
 }
 
 
-
 .itemImage {
 	display : inline-block;
 }
 
 .itemImage img{
-	height : 150px;
+	height : 80px;
 	width : auto;
 	margin : 10px;
 }
