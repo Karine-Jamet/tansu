@@ -26,3 +26,23 @@ html {
 .deckgrid .column-1-4 {
     width: 25%;
 }
+
+.deckgrid .column-1-1 {
+    width: 100%;
+}
+
+@media screen and (max-width: 480px){
+    .deckgrid[deckgrid]::before {
+        content: '1 .column.column-1-1';
+    }
+}
+
+.deckgrid .column-1-2 {
+    width: 50%;
+}
+
+@media screen and (max-width: 1250px){
+    .deckgrid[deckgrid]::before {
+        content: '2 .column.column-1-2';
+    }
+}
