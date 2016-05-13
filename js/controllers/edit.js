@@ -1,8 +1,5 @@
 tansu.controller('editController', function($scope, $rootScope, $http) {
 
-
-
-
   $scope.isSelectedObi = false;
 
   $http.get("edit.json")

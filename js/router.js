@@ -3,7 +3,8 @@ var tansu = angular.module('tansu', [
 	'akoenig.deckgrid',
 	'angular-flippy',
 	'ui.bootstrap',
-	'flow'
+	'flow',
+	'ngMaterial'
 
 ]);
 
@@ -33,26 +34,34 @@ tansu.config(['$routeProvider',
       otherwise({
         redirectTo: '/'
       });
+
+
   }]);
-  
+	tansu.config(function($mdThemingProvider) {
+	  $mdThemingProvider.theme('default')
+	    .primaryPalette('amber')
+	    .accentPalette('deep-purple');
+	});
+
+
   tansu.controller('navController',function($scope, $rootScope, $http ){
 		$scope.connexion = false;
 		$rootScope.connexionAll = false;
-		
+
 		$scope.login = function(x,y){
 			$scope.connexion = true;
 			$rootScope.connexionAll = true;
 			$scope.name = x;
 			var password = y;
-			
+
 			window.location = "#/tansu/"+x ;
 		}
-		
+
 		$rootScope.$watch("connexion");
-		
+
   });
-  
-  
+
+
   tansu.directive('head', ['$rootScope','$compile',
     function($rootScope, $compile){
         return {
@@ -83,4 +92,3 @@ tansu.config(['$routeProvider',
         };
     }
 ]);
-

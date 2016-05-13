@@ -1,70 +1,68 @@
 section {
-	text-align : center;
+  text-align: center;
 }
+
+md-radio-button{
+	display: inline-block;
+}
+
+/*md-select{
+	width: 30%;
+	text-align: center;
+	margin: auto;
+
+}*/
 
 .profile .avatarContainer {
-	display:inline-block;
-	height : 150px;
-	width : 150px;
-	overflow : hidden;
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  overflow: hidden;
 }
-
-.profile .mainBlock{
-	display: inline-block;
-	vertical-align: middle;
-	margin: auto;
-	padding: 20px;
+.profile .mainBlock {
+  display: inline-block;
+  vertical-align: middle;
+  margin: auto;
+  padding: 20px;
 }
-
-.profile .dataUser input{
-	margin: 10px;
- display: block;
+.profile .dataUser input {
+  margin: 10px;
+  display: block;
 }
-
 .profile .stat {
-	text-align: left;
+  text-align: left;
 }
-
-
 .profile img {
-	height : 150px;
-	width : auto;
+  height: 150px;
+  width: auto;
 }
-
 .profile input[type=submit] {
-
-	line-height:30px;
-	line-height:30px;
-	color : #f8ca00;
-	background-image: linear-gradient(#bd1550,#7F3571);
-	box-shadow:none;
-	border:1px solid #bd1550;
-	border-radius:3px;
-	vertical-align:middle;
+  line-height: 30px;
+  line-height: 30px;
+  color: #f8ca00;
+  background-image: linear-gradient(#bd1550, #7F3571);
+  box-shadow: none;
+  border: 1px solid #bd1550;
+  border-radius: 3px;
+  vertical-align: middle;
 }
-
-
-.inlineSection{
-	display: inline-block;
-	margin: auto;
-	vertical-align: top;
+.inlineSection {
+  display: inline-block;
+  margin: auto;
+  vertical-align: top;
+  width: 49%;
 }
-
 .itemImage img:hover {
-	cursor : pointer;
+  cursor: pointer;
 }
-
-
 .itemImage {
-	display : inline-block;
+  display: inline-block;
 }
-
-.itemImage img{
-	height : 80px;
-	width : auto;
-	margin : 10px;
+.itemImage img {
+  height: 80px;
+  width: auto;
+  margin: 10px;
 }
-
-.borderSelect{
-	border: 3px solid purple;
+.borderSelect {
+  border: 3px solid purple;
 }
