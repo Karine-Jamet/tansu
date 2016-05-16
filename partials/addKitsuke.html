@@ -1,0 +1,69 @@
+
+<section class="inlineSection addOutfit">
+	<h2>Add new kitsuke</h2>
+
+<md-input-container>
+	 <label>Which Kimono ?</label>
+		<md-select ng-model="typeKimono">
+		<md-option value="furisode">Furisode</md-option>
+		<md-option value="tomesode">Tomesode</md-option>
+		<md-option value="houmongi">Houmongi</md-option>
+		<md-option value="Iromuji">Iromuji</md-option>
+		<md-option value="Komon">Komon</md-option>
+		<md-option value="yukata">Yukata</md-option>
+		<md-option value="kakeshita">Kakeshita</md-option>
+		<md-option value="uchikake">Uchikake</md-option>
+		</md-select>
+		</md-input-container>
+
+		<div>
+		<md-radio-group ng-if="typeKimono" ng-model="item.what">
+			 <md-radio-button ng-repeat="kimono in profile.kimonos | filter:typeKimono track by $index "
+                       ng-value="$index"
+                       aria-label="{{kimono.id}}">
+				<img ng-src="{{kimono.main}}" />
+			</md-radio-button>
+		</md-radio-group>
+		</div>
+
+
+		
+<md-input-container>
+ <label>Which obi ?</label>
+	<md-select  ng-model="typeObi">
+		<md-option value="maru">Maru</md-option>
+		<md-option value="fukuro">Fukuro</md-option>
+		<md-option value="nagoya">Nagoya</md-option>
+		<md-option value="hanhaba">Hanhaba</md-option>
+		<md-option value="heko">Heko</md-option>
+	</md-select>
+	
+
+</md-input-container>
+<div>
+	<md-radio-group ng-if="typeObi" ng-model="item.what">
+		<md-radio-button ng-repeat="obi in profile.obis | filter:typeObi track by $index "
+                   ng-value="$index"
+                   aria-label="{{obi.id}}">
+			<img ng-src="{{obi.main}}" >
+		</md-radio-button>
+	</md-radio-group>
+</div>
+
+
+	<md-input-container class=" descriptionNewItem md-block">
+          <label>Description</label>
+          <textarea ng-model="newItemDescription" md-maxlength="300" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+
+<input class="ng-hide" id="input-file-id" type="file" ng-file-select="onFileSelect($files)" my-var="imageSrcNewItem" />
+<label for="input-file-id" class="md-button md-raised md-warn">Photo</label>
+</div>
+<img class="overview" ng-if='imageSrcNewItem' ng-src="{{imageSrcNewItem}}" />
+<div>
+	<md-button class="md-raised md-warn"> Upload </md-button>
+</div>
+	<a href="#/tansu/:{{profile.pseudo}}/edit">
+	<md-button class=" back-button md-raised md-accent"> Back to edit </md-button>
+	</a>
+</section>

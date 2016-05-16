@@ -35,7 +35,7 @@
 			<form>
 				<input type="text" name="pseudo" placeholder="Login" ng-model="pseudo" required />
 				<input type="password" name="password" placeholder="Password" required />
-				<input type="submit" value="Login" ng-click="login(pseudo)" />
+				<md-button class="md-raised md-warn" ng-click="login(pseudo)" >Login</md-button>
 			</form>
 		</div>
 		<div class="connected" ng-if="connexion">
@@ -55,8 +55,6 @@
 	<script src="js/lib/bower_components/angular-deckgrid/angular-deckgrid.js"></script>
 	<script src="js/lib/bower_components/angular-flippy/dist/js/angular-flippy.js"></script>
 	<script src="js/lib/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-	<script src="js/lib/bower_components/flow.js/dist/flow.min.js"></script>
-	<script src="js/lib/bower_components/ng-flow/dist/ng-flow.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>

@@ -1,211 +1,50 @@
 <section class="profile">
 
 	<h2>Your Profile</h2>
+	
 	<div class="mainBlock avatarBlock">
-		<div class="avatarContainer"><img src="{{profile.avatar}}"></div>
-		<p>upload new avatar</p>
+		<div class="avatarContainer">
+			<img ng-if='!imageSrc' src="{{profile.avatar}}">
+			<img class="overview" ng-if='imageSrc' ng-src="{{imageSrc}}" />
+		</div>
+		<div>
+			<input class="ng-hide" id="input-file-id" type="file" ng-file-select="onFileSelect($files)" my-var="imageSrc" />
+			<label for="input-file-id" class="md-button md-raised md-warn">New Avatar</label>
+		</div>
+		<md-button ng-if='imageSrc' class="md-raised md-warn">OK</md-button>
+
 	</div>
+	
+	
 	<div class="mainBlock dataUser">
-		<input type="text" ng-model="profile.pseudo" placeholder="pseudo">
-		<input type="text" ng-model="profile.mail" placeholder="mail">
-		<input type="submit" value="update">
+	     <md-input-container class="md-block" flex-gt-sm>
+            <label>Pseudo</label>
+            <input ng-model="profile.pseudo">
+        </md-input-container>
+         <md-input-container class="md-block" flex-gt-sm>
+            <label>E-mail</label>
+            <input ng-model="profile.mail">
+          </md-input-container>
+		<md-button class="md-raised md-warn">Update</md-button>
 	</div>
+	
+	
 	<div class="mainBlock stat">
+	
 		<p>Kimono : {{nb_kimono}}</p>
 		<p>Obi : {{nb_obi}}</p>
 		<p>Kitsuke : {{nb_kitsuke}}</p>
 	</div>
-</section>
+	
+		<div class="mainBlock bouton">
 
-<section class="inlineSection addCard">
-	<h2>Add new item</h2>
-	<p>
-		<md-radio-group ng-model="item.sex">
-			<md-radio-button value="male"> Male</md-radio-button>
-			<md-radio-button value="female"> Female</md-radio-button>
-		</md-radio-group>
-
-	</p>
-
-	<p>
-		<md-radio-group ng-model="item.what">
-			<md-radio-button value="kimono"> Kimono </md-radio-button>
-			<md-radio-button value="obi" /> Obi</md-radio-button>
-		</md-radio-group>
-
-	</p>
-<md-input-container>
-	<md-select ng-show="item.sex === 'female' && item.what === 'kimono'" ng-model="kimonoStyle">
-		<md-option value="" disabled selected hidden>What Kind?</md-option>
-		<md-option value="furisode">Furisode</md-option>
-		<md-option value="tomesode">Tomesode</md-option>
-		<md-option value="houmongi">Houmongi</md-option>
-		<md-option value="Iromuji">Iromuji</md-option>
-		<md-option value="Komon">Komon</md-option>
-		<md-option value="yukata">Yukata</md-option>
-		<md-option value="kakeshita">Kakeshita</md-option>
-		<md-option value="uchikake">Uchikake</md-option>
-	</md-select>
-	</md-input-container>
-
-
-	<select ng-show="item.sex === 'male' && item.what==='kimono'">
-		<option value="Iromuji">Iromuji</option>
-		<option value="Komon">Komon</option>
-		<option value="Yukata">Yukata</option>
-	</select>
-
-	<select ng-show="item.sex === 'female' && item.what==='obi'">
-		<option value="Maru">Maru</option>
-		<option value="Fukuro">Fukuro</option>
-		<option value="Nagoya">Nagoya</option>
-		<option value="hanhaba">Hanhaba</option>
-		<option value="heko">Heko</option>
-	</select>
-
-	<select ng-show="item.sex === 'male' && item.what==='obi'">
-		<option value="hanhaba">Kaku</option>
-		<option value="heko">Heko</option>
-	</select>
-
-	<md-input-container>
-		<md-select ng-show="item.sex && item.what" class="editColor" ng-model="colorItem">
-			<md-option value="" disabled selected hidden>What color?</md-option>
-			<md-option value="black">Black</md-option>
-			<md-option value="grey">Grey</md-option>
-			<md-option value="white">White</md-option>
-			<md-option value="blue">Blue</md-option>
-			<md-option value="purple">Purple</md-option>
-			<md-option value="pink">Pink</md-option>
-			<md-option value="red">Red</md-option>
-			<md-option value="orange">Orange</md-option>
-			<md-option value="yellow">Yellow</md-option>
-			<md-option value="green">Green</md-option>
-		</md-select>
-		</md-input-container>
-
-	<p class="mainPhoto">Main photo</p>
-	<div flow-init flow-name="mainPhoto" style="text-align: -webkit-center;">
-		<img flow-img="$flow.files[0]" style="display: block;" />
-		<span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="">Main photo<input type="file" style="visibility: hidden; position: absolute;">
-					<input type="file" style="visibility: hidden; position: absolute;" flow-btn>
-					</span>
-	</div>
-
-
-	<input type="submit" id="uploadOk" value="Upload" />
-
-	</div>
-	</div>
-</section>
-
-<!--*********************           SECTION ADD KITSUKE        ****************************-->
-
-
-<section class="inlineSection addOutfit">
-	<h2>Add new kitsuke</h2>
-
-	<select ng-model="typeKimono">
-		<option value="" disabled selected hidden>Which kimono ?</option>
-		<option value="furisode">Furisode</option>
-		<option value="tomesode">Tomesode</option>
-		<option value="houmongi">Houmongi/Tsukesage</option>
-		<option value="Iromuji">Iromuji</option>
-		<option value="Komon">Komon</option>
-		<option value="Yukata">Yukata</option>
-		<option value="Kakeshita">Kakeshita</option>
-		<option value="Uchikake">Uchikake</option>
-	</select>
-
-	<div class="itemImage" ng-if="typeKimono" ng-repeat="kimono in profile.kimonos | filter:typeKimono track by $index  ">
-		<img src="{{kimono.main}}" ng-class="kimono.class" ng-click="isSelectedKimono($index)">
-	</div>
-
-	<select ng-model="typeObi">
-		<option value="" disabled selected hidden>Which obi ?</option>
-		<option value="Maru">Maru</option>
-		<option value="Fukuro">Fukuro</option>
-		<option value="Nagoya">Nagoya</option>
-		<option value="hanhaba">Hanhaba</option>
-		<option value="heko">Heko</option>
-	</select>
-
-	<div class="itemImage" ng-if="typeObi" ng-repeat="obi in profile.obis | filter:typeObi track by $index">
-		<img src="{{obi.main }}" ng-class="obi.class" ng-click="isSelectedObi($index)">
-	</div>
-	<p>Description : </p>
-	<textarea></textarea>
-
-	<p class="mainPhoto">Main photo</p>
-	<div flow-init flow-name="mainPhoto" style="text-align: -webkit-center;">
-		<img flow-img="$flow.files[0]" style="display: block;" />
-		<span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="">Main photo<input type="file" style="visibility: hidden; position: absolute;">
-					<input type="file" style="visibility: hidden; position: absolute;" flow-btn>
-					</span>
-	</div>
-
-
-	<input type="submit" id="uploadOk" value="Upload" />
+	<a href="#/tansu/:{{profile.pseudo}}/edit/newItem"><md-button class="md-raised md-warn">Add new item</md-button></a>
+	<a href="#/tansu/:{{profile.pseudo}}/edit/newKitsuke"><md-button class="md-raised md-warn">Add new Kitsuke</md-button></a>
+	<a href="#/tansu/:{{profile.pseudo}}/edit/rmItem"><md-button class="md-raised md-warn">Remove item</md-button></a>
+	<a href="#/tansu/:{{profile.pseudo}}/edit/rmKitsuke"><md-button class="md-raised md-warn">Remove Kitsuke</md-button></a>
+		</div>
 
 </section>
 
 
-<!--*********************           SECTION REMOVE ITEMS        ****************************-->
 
-
-<section class="inlineSection rmItem">
-	<h2>Remove item</h2>
-	<p>Which one ? </p>
-	<p>
-		<input type="radio" ng-model="rmitem.sex" value="male"> Male
-		<input type="radio" ng-model="rmitem.sex" value="female"> Female</p>
-
-	<p>
-		<input type="radio" ng-model="rmitem.what" value="kimono"> Kimono
-		<input type="radio" ng-model="rmitem.what" value="obi" /> Obi</p>
-
-	<select ng-show="rmitem.sex === 'female' && rmitem.what === 'kimono'" ng-model="typeKimonoRm">
-		<option value="furisode">Furisode</option>
-		<option value="tomesode">Tomesode</option>
-		<option value="houmongi">Houmongi/Tsukesage</option>
-		<option value="Iromuji">Iromuji</option>
-		<option value="Komon">Komon</option>
-		<option value="Yukata">Yukata</option>
-		<option value="Kakeshita">Kakeshita</option>
-		<option value="Uchikake">Uchikake</option>
-	</select>
-
-	<select ng-show="rmitem.sex === 'male' && rmitem.what==='kimono'" ng-model="typeKimonoRm">
-		<option value="Iromuji">Iromuji</option>
-		<option value="Komon">Komon</option>
-		<option value="Yukata">Yukata</option>
-	</select>
-
-	<select ng-show="rmitem.sex === 'female' && rmitem.what==='obi'" ng-model="typeObiRm">
-		<option value="Maru">Maru</option>
-		<option value="Fukuro">Fukuro</option>
-		<option value="Nagoya">Nagoya</option>
-		<option value="hanhaba">Hanhaba</option>
-		<option value="heko">Heko</option>
-	</select>
-
-	<select ng-show="rmitem.sex === 'male' && rmitem.what==='obi'" ng-model="typeObiRm">
-		<option value="hanhaba">Kaku</option>
-		<option value="heko">Heko</option>
-	</select>
-
-	<div class="itemImage" ng-if="rmitem.what==='kimono'" ng-repeat="kimono in profile.kimonos | filter:typeKimonoRm track by $index  ">
-		<img src="{{kimono.main}}" ng-class="kimono.class" ng-click="isSelectedKimonoRm($index)">
-	</div>
-
-	<div class="itemImage" ng-if="rmitem.what==='obi'" ng-repeat="obi in profile.obis | filter:typeObiRm track by $index">
-		<img src="{{obi.main }}" ng-class="obi.classRM" ng-click="isSelectedObiRm($index)">
-	</div>
-
-</section>
-
-<section class="inlineSection rmKitsuke">
-	<h2>Remove kitsuke</h2>
-	<p>Which kimono ?</p>
-	<p>Which obi ?</p>
-</section>

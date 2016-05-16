@@ -3,8 +3,8 @@ var tansu = angular.module('tansu', [
 	'akoenig.deckgrid',
 	'angular-flippy',
 	'ui.bootstrap',
-	'flow',
-	'ngMaterial'
+	'ngMaterial',
+	'ngAnimate'
 
 ]);
 
@@ -27,6 +27,22 @@ tansu.config(['$routeProvider',
         templateUrl: 'partials/edit.html',
         controller: 'editController',
 		css:"css/edit.css"
+      }).when('/tansu/:user/edit/newItem', {
+        templateUrl: 'partials/addItem.html',
+        controller: 'editController',
+		css:"css/editAddItem.css"
+      }).when('/tansu/:user/edit/newKitsuke', {
+        templateUrl: 'partials/addKitsuke.html',
+        controller: 'editController',
+		css:"css/editAddKitsuke.css"
+      }).when('/tansu/:user/edit/rmItem', {
+        templateUrl: 'partials/rmItem.html',
+        controller: 'editController',
+		css:"css/editrmItem.css"
+      }).when('/tansu/:user/edit/rmKitsuke', {
+        templateUrl: 'partials/rmKitsuke.html',
+        controller: 'editController',
+		css:"css/editrmKitsuke.css"
       }).when('/tansu/:user/profile', {
         templateUrl: 'partials/profile.html',
         controller: 'profileController'
@@ -39,8 +55,15 @@ tansu.config(['$routeProvider',
   }]);
 	tansu.config(function($mdThemingProvider) {
 	  $mdThemingProvider.theme('default')
-	    .primaryPalette('amber')
-	    .accentPalette('deep-purple');
+	    .primaryPalette('orange', {
+			'default': '900'
+		})
+	    .accentPalette('deep-purple', {
+			'default': '800'
+		})
+		.warnPalette('pink', {
+			'default': '800'
+		});
 	});
 
 
@@ -92,3 +115,53 @@ tansu.config(['$routeProvider',
         };
     }
 ]);
+
+
+tansu.factory("fileReader", function($q, $log) {
+  var onLoad = function(reader, deferred, scope) {
+    return function() {
+      scope.$apply(function() {
+        deferred.resolve(reader.result);
+      });
+    };
+  };
+
+  var onError = function(reader, deferred, scope) {
+    return function() {
+      scope.$apply(function() {
+        deferred.reject(reader.result);
+      });
+    };
+  };
+
+  var onProgress = function(reader, scope) {
+    return function(event) {
+      scope.$broadcast("fileProgress", {
+        total: event.total,
+        loaded: event.loaded
+      });
+    };
+  };
+
+  var getReader = function(deferred, scope) {
+    var reader = new FileReader();
+    reader.onload = onLoad(reader, deferred, scope);
+    reader.onerror = onError(reader, deferred, scope);
+    return reader;
+  };
+
+  var readAsDataURL = function(file, scope) {
+    var deferred = $q.defer();
+
+    var reader = getReader(deferred, scope);
+    reader.readAsDataURL(file);
+
+    return deferred.promise;
+  };
+
+  return {
+    readAsDataUrl: readAsDataURL
+  };
+});
+
+
