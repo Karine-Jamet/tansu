@@ -21,49 +21,67 @@
 	<md-input-container ng-show="rmitem.sex === 'female' && rmitem.what === 'kimono'" >
 	 <label>Which Kimono ?</label>
 		<md-select ng-model="typeKimonoRm">
-		<md-option value="furisode">Furisode</md-option>
-		<md-option value="tomesode">Tomesode</md-option>
-		<md-option value="houmongi">Houmongi</md-option>
-		<md-option value="Iromuji">Iromuji</md-option>
-		<md-option value="Komon">Komon</md-option>
-		<md-option value="yukata">Yukata</md-option>
-		<md-option value="kakeshita">Kakeshita</md-option>
-		<md-option value="uchikake">Uchikake</md-option>
+			<md-option value="furisode">Furisode</md-option>
+			<md-option value="tomesode">Tomesode</md-option>
+			<md-option value="houmongi">Houmongi</md-option>
+			<md-option value="Iromuji">Iromuji</md-option>
+			<md-option value="Komon">Komon</md-option>
+			<md-option value="yukata">Yukata</md-option>
+			<md-option value="kakeshita">Kakeshita</md-option>
+			<md-option value="uchikake">Uchikake</md-option>
 		</md-select>
-		</md-input-container>
+	</md-input-container>
+	
+	<md-input-container ng-show="rmitem.sex === 'male' && rmitem.what === 'kimono'" >
+	 <label>Which Kimono ?</label>
+		<md-select ng-model="typeKimonoRm">
+			<md-option value="Iromuji">Iromuji</md-option>
+			<md-option value="Komon">Komon</md-option>
+			<md-option value="yukata">Yukata</md-option>
+		</md-select>
+	</md-input-container>
+	
+	<md-input-container ng-show="rmitem.sex === 'female' && rmitem.what === 'obi'" >
+	 <label>Which obi ?</label>
+		<md-select ng-model="typeObiRm">
+			<md-option value="Maru">Maru</md-option>
+			<md-option value="Fukuro">Fukuro</md-option>
+			<md-option value="Nagoya">Nagoya</md-option>
+			<md-option value="hanhaba">Hanhaba</md-option>
+			<md-option value="heko">Heko</md-option>
+		</md-select>
+	</md-input-container>
 
-	<select ng-show="rmitem.sex === 'male' && rmitem.what==='kimono'" ng-model="typeKimonoRm">
-		<option value="Iromuji">Iromuji</option>
-		<option value="Komon">Komon</option>
-		<option value="Yukata">Yukata</option>
-	</select>
+	<md-input-container ng-show="rmitem.sex === 'male' && rmitem.what === 'obi'" >
+	 <label>Which obi ?</label>
+		<md-select ng-model="typeObiRm">
+			<md-option value="kaku">kaku</md-option>
+			<md-option value="heko">Heko</md-option>
+		</md-select>
+	</md-input-container>
+	
+	<div>
 
-	<select ng-show="rmitem.sex === 'female' && rmitem.what==='obi'" ng-model="typeObiRm">
-		<option value="Maru">Maru</option>
-		<option value="Fukuro">Fukuro</option>
-		<option value="Nagoya">Nagoya</option>
-		<option value="hanhaba">Hanhaba</option>
-		<option value="heko">Heko</option>
-	</select>
-
-	<select ng-show="rmitem.sex === 'male' && rmitem.what==='obi'" ng-model="typeObiRm">
-		<option value="hanhaba">Kaku</option>
-		<option value="heko">Heko</option>
-	</select>
-
-		<div>
-		<md-radio-group ng-if="typeKimonoRm" ng-model="rmItemIndex">
-			 <md-radio-button ng-repeat="kimono in profile.kimonos | filter:typeKimono track by $index "
+		<md-radio-group ng-if="typeKimonoRm && rmitem.what === 'kimono' " ng-model="rmItemIndex">
+			 <md-radio-button ng-repeat="kimono in profile.kimonos | filter:typeKimonoRm track by $index "
                        ng-value="$index"
                        aria-label="{{kimono.id}}">
 				<img ng-src="{{kimono.main}}" />
 			</md-radio-button>
 		</md-radio-group>
 		</div>
-
-	<div class="itemImage" ng-if="rmitem.what==='obi'" ng-repeat="obi in profile.obis | filter:typeObiRm track by $index">
-		<img src="{{obi.main }}" ng-class="obi.classRM" ng-click="isSelectedObiRm($index)">
-	</div>
+			<div>
+		<md-radio-group ng-if="typeObiRm && rmitem.what === 'obi' " ng-model="rmItemIndex">
+			 <md-radio-button ng-repeat="obi in profile.obis | filter:typeObiRm track by $index "
+                       ng-value="$index"
+                       aria-label="{{obi.id}}">
+				<img ng-src="{{obi.main}}" />
+			</md-radio-button>
+		</md-radio-group>
+		</div>
+		<div>
+<md-button class="md-raised md-warn"> Delete </md-button>
+</div>
 		<a href="#/tansu/:{{profile.pseudo}}/edit">
 	<md-button class=" back-button md-raised md-accent"> Back to edit </md-button>
 	</a>
