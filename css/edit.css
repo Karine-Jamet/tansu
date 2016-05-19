@@ -35,7 +35,7 @@ section {
 }
 .profile .bouton {
 	text-align : left;
-	
+
 }
 
 .profile .bouton .md-button {
@@ -51,4 +51,20 @@ section {
 .profile .avatarBlock .md-button{
 		margin-bottom : 20px;
 	margin-top : 20px;
+}
+
+@media screen and (max-width: 1250px){
+  .profile .bouton {
+  	text-align : center;
+    margin: auto;
+    padding: 0;
+
+  }
+  .profile .mainBlock{
+    padding-bottom: 10px;
+  }
+
+  .profile .bouton .md-button {
+    display: inline-block;
+  }
 }

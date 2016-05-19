@@ -1,7 +1,6 @@
-section{
-	text-align : center;
+section {
+  text-align: center;
 }
-
 section img {
 
 	height:100px;
@@ -16,7 +15,6 @@ md-radio-button{
 }
 
 
-
 .back-button{
 	margin-top : 5%;
 
@@ -25,4 +23,7 @@ md-radio-button{
 h2 {
 	margin-bottom : 35px;
 
+}
+a {
+	display: block;
 }

@@ -1,6 +1,54 @@
 
 <section class="inlineSection rmKitsuke">
 	<h2>Remove kitsuke</h2>
-	<p>Which kimono ?</p>
-	<p>Which obi ?</p>
+	<md-input-container>
+	 <label>Which Kimono ?</label>
+		<md-select ng-model="typeKimonoRm" ng-required="true">
+			<md-option value="furisode">Furisode</md-option>
+			<md-option value="tomesode">Tomesode</md-option>
+			<md-option value="houmongi">Houmongi</md-option>
+			<md-option value="Iromuji">Iromuji</md-option>
+			<md-option value="Komon">Komon</md-option>
+			<md-option value="yukata">Yukata</md-option>
+			<md-option value="kakeshita">Kakeshita</md-option>
+			<md-option value="uchikake">Uchikake</md-option>
+		</md-select>
+	</md-input-container>
+	<div>
+
+		<md-radio-group ng-if="typeKimonoRm" ng-model="rmKitsukeIndex" ng-required="true">
+			 <md-radio-button ng-repeat="kimono in profile.kimonos | filter:typeKimonoRm track by $index "
+											 ng-value="$index"
+											 aria-label="{{kimono.id}}">
+				<img ng-src="{{kimono.main}}" />
+			</md-radio-button>
+		</md-radio-group>
+		</div>
+
+	<md-input-container >
+	 <label>Which obi ?</label>
+		<md-select ng-model="typeObiRm" ng-required="true">
+			<md-option value="Maru">Maru</md-option>
+			<md-option value="Fukuro">Fukuro</md-option>
+			<md-option value="Nagoya">Nagoya</md-option>
+			<md-option value="hanhaba">Hanhaba</md-option>
+			<md-option value="heko">Heko</md-option>
+		</md-select>
+	</md-input-container>
+	<div>
+<md-radio-group ng-if="typeObiRm " ng-model="rmKitsukeIndex" ng-required="true">
+	 <md-radio-button ng-repeat="obi in profile.obis | filter:typeObiRm track by $index "
+									 ng-value="$index"
+									 aria-label="{{obi.id}}">
+		<img ng-src="{{obi.main}}" />
+	</md-radio-button>
+</md-radio-group>
+</div>
+
+<md-button class="md-raised md-warn"> Delete </md-button>
+
+
+	<a href="#/tansu/:{{profile.pseudo}}/edit">
+<md-button class=" back-button md-raised md-accent"> Back to edit </md-button>
+</a>
 </section>

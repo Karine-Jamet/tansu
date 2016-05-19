@@ -14,10 +14,10 @@
 			<md-radio-button value="kimono"> Kimono</md-radio-button>
 			<md-radio-button value="obi"> Obi</md-radio-button>
 		</md-radio-group>
-		
+
 		</p>
 
-	
+
 	<md-input-container ng-show="rmitem.sex === 'female' && rmitem.what === 'kimono'" >
 	 <label>Which Kimono ?</label>
 		<md-select ng-model="typeKimonoRm">
@@ -31,7 +31,7 @@
 			<md-option value="uchikake">Uchikake</md-option>
 		</md-select>
 	</md-input-container>
-	
+
 	<md-input-container ng-show="rmitem.sex === 'male' && rmitem.what === 'kimono'" >
 	 <label>Which Kimono ?</label>
 		<md-select ng-model="typeKimonoRm">
@@ -40,7 +40,7 @@
 			<md-option value="yukata">Yukata</md-option>
 		</md-select>
 	</md-input-container>
-	
+
 	<md-input-container ng-show="rmitem.sex === 'female' && rmitem.what === 'obi'" >
 	 <label>Which obi ?</label>
 		<md-select ng-model="typeObiRm">
@@ -59,10 +59,10 @@
 			<md-option value="heko">Heko</md-option>
 		</md-select>
 	</md-input-container>
-	
+
 	<div>
 
-		<md-radio-group ng-if="typeKimonoRm && rmitem.what === 'kimono' " ng-model="rmItemIndex">
+		<md-radio-group ng-if="typeKimonoRm && rmitem.what === 'kimono' " ng-model="rmItemIndex" ng-required="true">
 			 <md-radio-button ng-repeat="kimono in profile.kimonos | filter:typeKimonoRm track by $index "
                        ng-value="$index"
                        aria-label="{{kimono.id}}">
@@ -71,7 +71,7 @@
 		</md-radio-group>
 		</div>
 			<div>
-		<md-radio-group ng-if="typeObiRm && rmitem.what === 'obi' " ng-model="rmItemIndex">
+		<md-radio-group ng-if="typeObiRm && rmitem.what === 'obi' " ng-model="rmItemIndex" ng-required="true">
 			 <md-radio-button ng-repeat="obi in profile.obis | filter:typeObiRm track by $index "
                        ng-value="$index"
                        aria-label="{{obi.id}}">
