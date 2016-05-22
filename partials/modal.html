@@ -1,26 +1,24 @@
-<div class="modal-header">
-    <p>{{description}}</p>
-	
-	<button class="btn" ng-click="ok()"> X </button>
-</div>
-<div class="modal-body">
-	<img src ={{photo}} />
-	
-	<div class="body-header">
-	<i class="fa fa-star-o"></i><p class="collection">{{fav_nb}}</p>
-	<i class="fa fa-commenting-o"></i><p class="comment">{{comment_nb}}</p>
-	<form ng-submit="submitCom(comContent)">
-	<textarea name="commentaire" rows="1" placeholder="your comment" ng-model="comContent"></textarea>
-	<i class="fa fa-paper-plane" aria-hidden="true" ng-click="submitCom(comContent)"></i>
-	</form>
-	</div>
-	<div class="comment-space">
-		<div class="com" ng-repeat="com in comments">
-		<a href='#/tansu/{{}com.name}/profile'><img class="avatar" src={{com.profile}} /></a>
-		<a href='#/tansu/{{}com.name}/profile'><h3>{{com.name}}</h3></a>
-		<p>{{com.text}}</p>
+<md-dialog aria-label="Kitsuke"  ng-cloak>
+    <md-dialog-content>
+	    <md-button class="closeModal md-icon-button" ng-click="cancel()">
+          X
+      </md-button>
+      <div class="md-dialog-content">
+	  <img class="modalKitsuke" src="{{photoClicked}}">
+      </div>
+	  <div class="modalForm">
+	  <a href='#/tansu/{{modal.name}}/profile'><img class="kitsukeAvatar" src="{{modal.avatar}}"></a>
+	  <div class="headerModal"><a href='#/tansu/{{modal.name}}/profile'><h3>{{modal.name}}</h3></a>
+	  <p class="date">{{modal.date}}<p></div>
+	  <p class="description">{{modal.description}}</p>
+	  </div>
+	  <div class="clearFix"></div>
+	  	<div class="comment-space">
+		<div class="com" ng-repeat="com in modal.comments">
+			<a href='#/tansu/{{com.name}}/profile'><img class="comAvatar" src={{com.profile}} /></a>
+			<a href='#/tansu/{{com.name}}/profile'><h3>{{com.name}}</h3></a>
+			<p>{{com.text}}</p>
 		</div>
-	</div>
-
-</div>
-
+		</div>
+    </md-dialog-content>
+</md-dialog>

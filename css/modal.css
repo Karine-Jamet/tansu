@@ -1,134 +1,46 @@
-.modal-dialog{
-	width : 60%;
+md-dialog .md-dialog-content{
+	padding:0;
 }
 
-.modal-content{
-	border-radius:0px;
-	background-color : #490a3d ;
-	color:#f8ca00;
-
-
-}
-
-.modal-header {
-	border-bottom-color : rgba(0,0,0,0);
-	padding-bottom : 0px;
-	padding-left : 30px;
-	padding-right : 30px;
-	color : rgba(255,255,255,0.8);
-}
-
-.body-header {
-	text-align : center;
-}
-.body-header .fa, .body-header p{
-	display:inline-block;
-	font-size : 20px;
-	
-}
-
-.body-header .fa-paper-plane {
-	margin-left : 10px;
-}
-
-.body-header .fa:hover{
-	font-weight :bold;
-	cursor:pointer;
-}
-
-.body-header form {
-	display:inline-block;
-	width : 50%;
-}
-
-.body-header p {
-	margin-right : 15px;
-	margin-left : 5px;
-}
-
-.body-header  textarea {
-	width : 80%;
-	line-height:30px;
-	color : black;
-	padding-left : 10px;
-	border:none;
-	box-shadow:none;
-	vertical-align: middle;
-	
-}
-
-.body-header textarea:focus {
-	outline:none;
-}
-
-
-.body-header input[type=submit] {
-	width : 10%;
-	line-height:30px;
-	line-height:30px;
-	color : #f8ca00;
-	background-image: linear-gradient(#bd1550,#7F3571);
-	/*background-color:linear-gradient(#490A3D,#7F3571);*/
-	box-shadow:none;
-	/*border:2px solid #f8ca00;*/
-	border:1px solid #bd1550;
-	border-radius:3px;
-	vertical-align:middle;
-}
-
-.modal-header button {
+.closeModal{
+	font-size : 30px;
+	color : rgba(0,0,0,0.5);
 	position : absolute;
-	top : -10px;
-	right : -10px;
-	background-color :  rgba(0,0,0,0.5);
-	border:2px solid #FFDA76;
-		
+	top : 10px;
+	right : 10px;
 }
 
-.body-header button:hover {
-color:#f8ca00;
-		
+.headerModal{
+	padding : 10px;
+	display: inline-block;
 }
-
-.modal-body img {
-	height:80vh;
-	width:auto;
-	float : left;
-	margin-top : 38px;
-}
-
-.modal-body .com{
-	margin : 15px;
-	margin-right : 0;
-	text-align : justify;
-}
-
-.modal-body .avatar{
-	width : 60px;
-	height : auto;
-	margin-right : 10px;
-	margin-bottom : 10px;
-	margin-top : 0;
-}
-
-.modal-body .comment-space{
-	height : 80vh;
+.kitsukeAvatar{
+	height : 50px;
 	width : auto;
+	display : inline-block;
+	vertical-align : baseline;
+	margin-left : 15px;
+}
+
+.description {
+	display: inline-block;
+}
+
+.modalKitsuke{
+	float:left;
+	max-height :80vh;
+	max-width : 40vw;
+}
+
+.comment-space{
+	height:55vh;
+	padding : 10px;
 	overflow : auto;
-	display : inlin-block;
-	background-color:white;
-	color:black;
-	background-image: linear-gradient(to bottom right, white, rgba(73, 10, 61,0.4));
 }
 
-.modal-body a {
-	/*color : #f8ca00;*/
-	color:black;
-	font-weight : bolder;
-}
-
-.modal-body a:hover {
-	color : #7F3571;
-		/*color:black;*/
-	font-weight : bolder;
+.comment-space .comAvatar {
+	height : 50px;
+	width : auto;
+	float : left;
+	padding-right : 15px;
 }

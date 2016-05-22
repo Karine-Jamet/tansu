@@ -1,8 +1,5 @@
 var tansu = angular.module('tansu', [
 	'ngRoute',
-	'akoenig.deckgrid',
-	'angular-flippy',
-	'ui.bootstrap',
 	'ngMaterial',
 	'ngAnimate'
 

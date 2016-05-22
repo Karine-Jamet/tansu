@@ -1,6 +1,6 @@
- <div id="container">
+ <!-- <div id="container"> -->
 		
-		<div deckgrid source="collection" class="deckgrid">
+<!-- 		<div deckgrid source="collection" class="deckgrid">
 		
 		<flippy  class="fancy {{card.what}}"  ng-class="{'edition': card.isFirst}" flip="['mouseenter']"  flip-back="['mouseleave']"  duration="800"  timing-function="ease-in-out" >
 		
@@ -21,5 +21,23 @@
 			</flippy-back>
 		</flippy>
 
-	</div>
-</div>
+	</div> -->
+	
+	<md-grid-list
+         md-cols-sm="1" md-cols-md="3" md-cols-lg="5" md-cols-gt-lg="5"
+        md-gutter-gt-md="16px" md-gutter-md="8px" md-gutter="4px"  md-row-height="150px">
+      <md-grid-tile ng-repeat="tile in collection" style="background-image:url('{{tile.main}}')" md-rowspan="{{rowSpan(tile.photos.length)}}" md-colspan="{{colSpan(tile.photos.length)}}">
+		<md-button class="kitsukeButton md-fab md-warn md-mini" aria-label="Show Kitsuke" ng-click="showKitsuke(tile)">
+            <i class="fa fa-external-link" aria-hidden="true"></i>
+        </md-button>
+		
+		<md-button class="kitsukeButton closeButton md-fab md-warn md-mini" aria-label="Show Kitsuke" ng-class="{showK: tile.showVal }" ng-click="showKitsuke(tile)">
+			<i class="fa fa-times" aria-hidden="true"></i>
+        </md-button>
+
+		<div class="tileInside" ng-class="{showK: tile.showVal }" >
+		<img class="kitsukeMini" ng-class="{showK: tile.showVal }"  ng-repeat="imgSrc in tile.photos track by $index" src="{{imgSrc}}" ng-click="modalKitsukeOpen($event)" >
+		<div>
+      </md-grid-tile>
+    </md-grid-list>
+<!-- </div> -->
