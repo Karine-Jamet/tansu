@@ -1,24 +1,32 @@
-<md-dialog aria-label="Kitsuke"  ng-cloak>
-    <md-dialog-content>
-	    <md-button class="closeModal md-icon-button" ng-click="cancel()">
-          X
-      </md-button>
-      <div class="md-dialog-content">
-	  <img class="modalKitsuke" src="{{photoClicked}}">
+<md-dialog aria-label="Kitsuke" ng-cloak>
+  <md-dialog-content>
+    <md-button class="closeModal md-icon-button" ng-click="cancel()">
+      X
+    </md-button>
+    <div class="md-dialog-content">
+      <img class="modalKitsuke" src="{{photoClicked}}">
+    </div>
+    <div class="modalForm">
+      <a class="avatarLink" href='#/tansu/{{modal.name}}/profile'><img class="kitsukeAvatar" src="{{modal.avatar}}"></a>
+      <div class="headerModal"><a href='#/tansu/{{modal.name}}/profile'><h3>{{modal.name}}</h3></a>
+        <p class="date">{{modal.date}}</p>
       </div>
-	  <div class="modalForm">
-	  <a href='#/tansu/{{modal.name}}/profile'><img class="kitsukeAvatar" src="{{modal.avatar}}"></a>
-	  <div class="headerModal"><a href='#/tansu/{{modal.name}}/profile'><h3>{{modal.name}}</h3></a>
-	  <p class="date">{{modal.date}}<p></div>
-	  <p class="description">{{modal.description}}</p>
-	  </div>
-	  <div class="clearFix"></div>
-	  	<div class="comment-space">
-		<div class="com" ng-repeat="com in modal.comments">
-			<a href='#/tansu/{{com.name}}/profile'><img class="comAvatar" src={{com.profile}} /></a>
-			<a href='#/tansu/{{com.name}}/profile'><h3>{{com.name}}</h3></a>
-			<p>{{com.text}}</p>
-		</div>
-		</div>
-    </md-dialog-content>
+      <p class="description">{{modal.description}}</p>
+    </div>
+    <i class="fa fa-star" aria-hidden="true"></i>{{modal.fav_nb}}
+    <i class="fa fa-comments" aria-hidden="true"></i>{{modal.comment_nb}}
+
+    <md-input-container class="md-block">
+      <label>comment</label>
+      <textarea ng-model="modal.commentDone" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+    </md-input-container>
+    <div class="clearFix"></div>
+    <div class="comment-space">
+      <div class="com" ng-repeat="com in modal.comments">
+        <a href='#/tansu/{{com.name}}/profile'><img class="comAvatar" src={{com.profile}} /></a>
+        <a href='#/tansu/{{com.name}}/profile'><h3>{{com.name}}</h3></a>
+        <p>{{com.text}}</p>
+      </div>
+    </div>
+  </md-dialog-content>
 </md-dialog>

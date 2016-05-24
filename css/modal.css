@@ -13,19 +13,33 @@ md-dialog .md-dialog-content{
 .headerModal{
 	padding : 10px;
 	display: inline-block;
+	float: left;
+		margin-top: -30px;
 }
+
+.avatarLink{
+	float:left;
+}
+
 .kitsukeAvatar{
 	height : 50px;
 	width : auto;
 	display : inline-block;
 	vertical-align : baseline;
 	margin-left : 15px;
+	margin-top: 0px;
 }
 
 .description {
+	/*display: inline-block;
+	width: 38vw;*/
+	margin-top: 50px;
+	padding-right: 30px;
+}
+md-input-container.md-block {
+	width: 30vw;
 	display: inline-block;
 }
-
 .modalKitsuke{
 	float:left;
 	max-height :80vh;
@@ -33,7 +47,7 @@ md-dialog .md-dialog-content{
 }
 
 .comment-space{
-	height:55vh;
+	height:32vh;
 	padding : 10px;
 	overflow : auto;
 }
