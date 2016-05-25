@@ -4,15 +4,16 @@
       X
     </md-button>
     <div class="md-dialog-content">
-      <img class="modalKitsuke" src="{{photoClicked}}">
-    </div>
+     <img class="modalKitsuke" src="{{photoClicked}}">
+    
+	<div class="modal-right">
     <div class="modalForm">
       <a class="avatarLink" href='#/tansu/{{modal.name}}/profile'><img class="kitsukeAvatar" src="{{modal.avatar}}"></a>
       <div class="headerModal"><a href='#/tansu/{{modal.name}}/profile'><h3>{{modal.name}}</h3></a>
-        <p class="date">{{modal.date}}</p>
+        <p class="date">{{modal.date}}{{height}}</p>
       </div>
       <p class="description">{{modal.description}}</p>
-    </div>
+   
     <i class="fa fa-star" aria-hidden="true"></i>{{modal.fav_nb}}
     <i class="fa fa-comments" aria-hidden="true"></i>{{modal.comment_nb}}
 
@@ -20,6 +21,7 @@
       <label>comment</label>
       <textarea ng-model="modal.commentDone" md-maxlength="150" rows="5" md-select-on-focus></textarea>
     </md-input-container>
+	</div>
     <div class="clearFix"></div>
     <div class="comment-space">
       <div class="com" ng-repeat="com in modal.comments">
@@ -27,6 +29,8 @@
         <a href='#/tansu/{{com.name}}/profile'><h3>{{com.name}}</h3></a>
         <p>{{com.text}}</p>
       </div>
+	  </div>
     </div>
+	</div>
   </md-dialog-content>
 </md-dialog>
