@@ -3,9 +3,26 @@ md-dialog .md-dialog-content{
 	height :80vh;
 	overflow : hidden;
 }
+md-dialog .fa {
+	font-size : 25px;
+	color : rgb(173,20,87);	
+    margin-right: 10px;
+	vertical-align: sub;
+}
+
+md-dialog .fa:hover{
+	cursor: pointer;
+}
+
+md-dialog .number {
+	display : inline-block;
+	margin-right : 10px;
+}
+
 .modal-right{
-	max-width:30vw;
-	overflow : hidden;
+	max-width:31vw;
+	max-height: 80vh;
+	overflow : auto;
 	display:inline-block;
 	vertical-align : top;
 	padding-right : 15px;
@@ -23,7 +40,7 @@ md-dialog .md-dialog-content{
 	padding : 10px;
 	display: inline-block;
 	float: left;
-	margin-top: -30px;
+	margin-top: 20px;
 }
 
 .avatarLink{
@@ -36,7 +53,7 @@ md-dialog .md-dialog-content{
 	display : inline-block;
 	vertical-align : baseline;
 	margin-left : 15px;
-	margin-top: 0px;
+	margin-top: 50px;
 
 }
 
@@ -44,8 +61,14 @@ md-dialog .md-dialog-content{
 	margin-top: 50px;
 	padding-right: 30px;
 }
+
+.commentTextArea{
+	text-align: center;
+	margin:auto;
+}
+
 md-input-container.md-block {
-	width: 30vw;
+	width: 350px;
 	display: inline-block;
 }
 .modalKitsuke{
@@ -55,9 +78,7 @@ md-input-container.md-block {
 }
 
 .comment-space{
-	height:32vh;
 	padding : 10px;
-	overflow : auto;
 }
 
 .comment-space .comAvatar {

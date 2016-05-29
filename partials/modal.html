@@ -7,20 +7,19 @@
      <img class="modalKitsuke" src="{{photoClicked}}">
     
 	<div class="modal-right">
-    <div class="modalForm">
       <a class="avatarLink" href='#/tansu/{{modal.name}}/profile'><img class="kitsukeAvatar" src="{{modal.avatar}}"></a>
       <div class="headerModal"><a href='#/tansu/{{modal.name}}/profile'><h3>{{modal.name}}</h3></a>
         <p class="date">{{modal.date}}{{height}}</p>
       </div>
       <p class="description">{{modal.description}}</p>
-   
-    <i class="fa fa-star" aria-hidden="true"></i>{{modal.fav_nb}}
-    <i class="fa fa-comments" aria-hidden="true"></i>{{modal.comment_nb}}
+	<div class="commentTextArea">
+		<i class="fa fa-star md-accent" aria-hidden="true"></i><p class="number">{{modal.fav_nb}}</p>
+		<i class="fa fa-comments md-accent" aria-hidden="true"></i><p class="number">{{modal.comment_nb}}</p>
 
-    <md-input-container class="md-block">
-      <label>comment</label>
-      <textarea ng-model="modal.commentDone" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-    </md-input-container>
+		<md-input-container class="md-block">
+		  <label>comment</label>
+		  <textarea ng-model="modal.commentDone" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+		</md-input-container>
 	</div>
     <div class="clearFix"></div>
     <div class="comment-space">
