@@ -1,116 +1,131 @@
 var tansu = angular.module('tansu', [
-	'ngRoute',
-	'ngMaterial',
-	'ngAnimate'
+  'ngRoute',
+  'ngMaterial',
+  'ngAnimate'
 
 ]);
 
 tansu.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/', {
-        templateUrl: 'partials/connexion.html',
-        controller: 'connexionController',
-		css : "css/connexion.css"
-      }).
-      when('/tansu/:user', {
-        templateUrl: 'partials/tansu.html',
-        controller: 'tansuController',
-		css : "css/tansu.css"
-      }).when('/tansu/browse', {
-        templateUrl: 'partials/browse.html',
-        controller: 'browseController'
-      }).when('/tansu/:user/edit', {
-        templateUrl: 'partials/edit.html',
-        controller: 'editController',
-		css:"css/edit.css"
-      }).when('/tansu/:user/edit/newItem', {
-        templateUrl: 'partials/addItem.html',
-        controller: 'editController',
-		css:"css/editAddItem.css"
-      }).when('/tansu/:user/edit/newKitsuke', {
-        templateUrl: 'partials/addKitsuke.html',
-        controller: 'editController',
-		css:"css/editAddKitsuke.css"
-      }).when('/tansu/:user/edit/rmItem', {
-        templateUrl: 'partials/rmItem.html',
-        controller: 'editController',
-		css:"css/editrmItem.css"
-      }).when('/tansu/:user/edit/rmKitsuke', {
-        templateUrl: 'partials/rmKitsuke.html',
-        controller: 'editController',
-		css:"css/editrmKitsuke.css"
-      }).when('/tansu/:user/profile', {
-        templateUrl: 'partials/profile.html',
-        controller: 'profileController'
-      }).
-      otherwise({
-        redirectTo: '/'
-      });
+    when('/', {
+      templateUrl: 'partials/connexion.html',
+      controller: 'connexionController',
+      css: "css/connexion.css"
+    }).
+    when('/tansu/:user', {
+      templateUrl: 'partials/tansu.html',
+      controller: 'tansuController',
+      css: "css/tansu.css"
+    }).when('/tansu/browse', {
+      templateUrl: 'partials/browse.html',
+      controller: 'browseController'
+    }).when('/tansu/:user/edit', {
+      templateUrl: 'partials/edit.html',
+      controller: 'editController',
+      css: "css/edit.css"
+    }).when('/tansu/:user/edit/newItem', {
+      templateUrl: 'partials/addItem.html',
+      controller: 'editController',
+      css: "css/editAddItem.css"
+    }).when('/tansu/:user/edit/newKitsuke', {
+      templateUrl: 'partials/addKitsuke.html',
+      controller: 'editController',
+      css: "css/editAddKitsuke.css"
+    }).when('/tansu/:user/edit/rmItem', {
+      templateUrl: 'partials/rmItem.html',
+      controller: 'editController',
+      css: "css/editrmItem.css"
+    }).when('/tansu/:user/edit/rmKitsuke', {
+      templateUrl: 'partials/rmKitsuke.html',
+      controller: 'editController',
+      css: "css/editrmKitsuke.css"
+    }).when('/tansu/:user/profile', {
+      templateUrl: 'partials/profile.html',
+      controller: 'profileController'
+    }).
+    otherwise({
+      redirectTo: '/'
+    });
 
 
-  }]);
-	tansu.config(function($mdThemingProvider) {
-	  $mdThemingProvider.theme('default')
-	    .primaryPalette('orange', {
-			'default': '900'
-		})
-	    .accentPalette('deep-purple', {
-			'default': '800'
-		})
-		.warnPalette('pink', {
-			'default': '800'
-		});
-	});
+  }
+]);
 
 
-  tansu.controller('navController',function($scope, $rootScope, $http ){
-		$scope.connexion = false;
-		$rootScope.connexionAll = false;
 
-		$scope.login = function(x,y){
-			$scope.connexion = true;
-			$rootScope.connexionAll = true;
-			$scope.name = x;
-			var password = y;
-
-			window.location = "#/tansu/"+x ;
-		}
-
-		$rootScope.$watch("connexion");
-
-  });
+tansu.config(function($mdThemingProvider,$httpProvider) {
+	$httpProvider.defaults.withCredentials = true;
+  $mdThemingProvider.theme('default')
+    .primaryPalette('orange', {
+      'default': '900'
+    })
+    .accentPalette('deep-purple', {
+      'default': '800'
+    })
+    .warnPalette('pink', {
+      'default': '800'
+    });
+});
 
 
-  tansu.directive('head', ['$rootScope','$compile',
-    function($rootScope, $compile){
-        return {
-            restrict: 'E',
-            link: function(scope, elem){
-                var html = '<link rel="stylesheet" ng-repeat="(routeCtrl, cssUrl) in routeStyles" ng-href="{{cssUrl}}" />';
-                elem.append($compile(html)(scope));
-                scope.routeStyles = {};
-                $rootScope.$on('$routeChangeStart', function (e, next, current) {
-                    if(current && current.$$route && current.$$route.css){
-                        if(!angular.isArray(current.$$route.css)){
-                            current.$$route.css = [current.$$route.css];
-                        }
-                        angular.forEach(current.$$route.css, function(sheet){
-                            delete scope.routeStyles[sheet];
-                        });
-                    }
-                    if(next && next.$$route && next.$$route.css){
-                        if(!angular.isArray(next.$$route.css)){
-                            next.$$route.css = [next.$$route.css];
-                        }
-                        angular.forEach(next.$$route.css, function(sheet){
-                            scope.routeStyles[sheet] = sheet;
-                        });
-                    }
-                });
+tansu.controller('navController', function($scope, $rootScope, $http) {
+  $scope.connexion = false;
+  $rootScope.connexionAll = false;
+
+  $scope.login = function(x, y) {
+
+    $http.post('http://tansuservice.apphb.com/tansuservice.svc/Login', {
+      "userName": x,
+      "passWord": y
+    }).then(
+      function(response) {
+        $scope.connexion = true;
+        $rootScope.connexionAll = true;
+        $scope.name = x;
+        window.location = "#/tansu/" + x;
+      },
+      function(response) {
+        window.location = "#/tansu/";
+      }
+    );
+
+
+
+  }
+
+});
+
+
+tansu.directive('head', ['$rootScope', '$compile',
+  function($rootScope, $compile) {
+    return {
+      restrict: 'E',
+      link: function(scope, elem) {
+        var html = '<link rel="stylesheet" ng-repeat="(routeCtrl, cssUrl) in routeStyles" ng-href="{{cssUrl}}" />';
+        elem.append($compile(html)(scope));
+        scope.routeStyles = {};
+        $rootScope.$on('$routeChangeStart', function(e, next, current) {
+          if (current && current.$$route && current.$$route.css) {
+            if (!angular.isArray(current.$$route.css)) {
+              current.$$route.css = [current.$$route.css];
             }
-        };
-    }
+            angular.forEach(current.$$route.css, function(sheet) {
+              delete scope.routeStyles[sheet];
+            });
+          }
+          if (next && next.$$route && next.$$route.css) {
+            if (!angular.isArray(next.$$route.css)) {
+              next.$$route.css = [next.$$route.css];
+            }
+            angular.forEach(next.$$route.css, function(sheet) {
+              scope.routeStyles[sheet] = sheet;
+            });
+          }
+        });
+      }
+    };
+  }
 ]);
 
 
@@ -160,5 +175,3 @@ tansu.factory("fileReader", function($q, $log) {
     readAsDataUrl: readAsDataURL
   };
 });
-
-

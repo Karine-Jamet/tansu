@@ -5,7 +5,7 @@ md-dialog .md-dialog-content{
 }
 md-dialog .fa {
 	font-size : 25px;
-	color : rgb(173,20,87);	
+	color : rgb(173,20,87);
     margin-right: 10px;
 	vertical-align: sub;
 }
@@ -26,7 +26,7 @@ md-dialog .number {
 	display:inline-block;
 	vertical-align : top;
 	padding-right : 15px;
-	
+
 }
 .closeModal{
 	font-size : 30px;
@@ -67,7 +67,7 @@ md-dialog .number {
 	margin:auto;
 }
 
-md-input-container.md-block {
+md-dialog md-input-container.md-block {
 	width: 350px;
 	display: inline-block;
 }
