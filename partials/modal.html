@@ -4,32 +4,37 @@
       X
     </md-button>
     <div class="md-dialog-content">
-     <img class="modalKitsuke" src="{{photoClicked}}">
-    
-	<div class="modal-right">
-      <a class="avatarLink" href='#/tansu/{{modal.name}}/profile'><img class="kitsukeAvatar" src="{{modal.avatar}}"></a>
-      <div class="headerModal"><a href='#/tansu/{{modal.name}}/profile'><h3>{{modal.name}}</h3></a>
-        <p class="date">{{modal.date}}{{height}}</p>
-      </div>
-      <p class="description">{{modal.description}}</p>
-	<div class="commentTextArea">
-		<i class="fa fa-star md-accent" aria-hidden="true"></i><p class="number">{{modal.fav_nb}}</p>
-		<i class="fa fa-comments md-accent" aria-hidden="true"></i><p class="number">{{modal.comment_nb}}</p>
+      <img class="modalKitsuke" src="{{photoClicked}}">
 
-		<md-input-container class="md-block">
-		  <label>comment</label>
-		  <textarea ng-model="modal.commentDone" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-		</md-input-container>
-	</div>
-    <div class="clearFix"></div>
-    <div class="comment-space">
-      <div class="com" ng-repeat="com in modal.comments">
-        <a href='#/tansu/{{com.name}}/profile'><img class="comAvatar" src={{com.profile}} /></a>
-        <a href='#/tansu/{{com.name}}/profile'><h3>{{com.name}}</h3></a>
-        <p>{{com.text}}</p>
+      <div class="modal-right">
+        <a class="avatarLink" href='#/tansu/{{modal.name}}/profile'><img class="kitsukeAvatar" src="{{modal.avatar}}"></a>
+        <div class="headerModal"><a href='#/tansu/{{modal.name}}/profile'><h3>{{modal.name}}</h3></a>
+          <p class="date">{{modal.date}}{{height}}</p>
+        </div>
+        <p class="description">{{modal.description}}</p>
+        <div class="commentTextArea">
+          <i class="fa md-accent" ng-class="{'fa-star-o': modal.is_fav,'fa-star': !modal.is_fav}"ng-click="faving(photoClicked)" aria-hidden="true"></i>
+          <p class="number">{{modal.fav_nb}}</p>
+          <i class="fa fa-comments md-accent" aria-hidden="true"></i>
+          <p class="number">{{modal.comment_nb}}</p>
+
+          <form ng-submit="commenting(modal.commentDone)">
+            <md-input-container class="md-block" required>
+              <label>comment</label>
+              <textarea ng-model="modal.commentDone" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+            <md-button class="md-raised md-warn" ng-click="commenting(modal.commentDone)">send</md-button>
+          </form>
+        </div>
+        <div class="clearFix"></div>
+        <div class="comment-space">
+          <div class="com" ng-repeat="com in modal.comments">
+            <a href='#/tansu/{{com.name}}/profile'><img class="comAvatar" src={{com.profile}} /></a>
+            <a href='#/tansu/{{com.name}}/profile'><h3>{{com.name}}</h3></a>
+            <p>{{com.text}}</p>
+          </div>
+        </div>
       </div>
-	  </div>
     </div>
-	</div>
   </md-dialog-content>
 </md-dialog>

@@ -2,7 +2,7 @@
 "name":"Karine",
 "date" : "02/09/2016",
 "fav_nb":"4",
-"comment_nb" : "2",
+"is_fav": false,
 "avatar" : "images/profile/avatar_tansu_default-01.png",
 "description" : "multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in pacem ea ratione maxime percita, quod norat expeditionibus crebris fortunam eius in malis tantum civilibus vigilasse, cum autem bella moverentur externa, accidisse plerumque luctuosa, icto post haec foedere",
 "kimono" : {"type" : "iromuji", "color" : "pink"},

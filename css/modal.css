@@ -1,89 +1,81 @@
-md-dialog .md-dialog-content{
-	padding:0;
-	height :80vh;
-	overflow : hidden;
+md-dialog .md-dialog-content {
+  padding: 0;
+  height: 80vh;
+  overflow: hidden;
 }
 md-dialog .fa {
-	font-size : 25px;
-	color : rgb(173,20,87);
-    margin-right: 10px;
-	vertical-align: sub;
+  font-size: 25px;
+  color: rgb(173, 20, 87);
+  margin-right: 10px;
+  vertical-align: sub;
 }
-
-md-dialog .fa:hover{
-	cursor: pointer;
+md-dialog .fa:focus {
+  outline: none;
 }
-
+md-dialog .fa:hover {
+  cursor: pointer;
+}
 md-dialog .number {
-	display : inline-block;
-	margin-right : 10px;
+  display: inline-block;
+  margin-right: 10px;
 }
-
-.modal-right{
-	max-width:31vw;
-	max-height: 80vh;
-	overflow : auto;
-	display:inline-block;
-	vertical-align : top;
-	padding-right : 15px;
-
+.modal-right {
+  max-width: 31vw;
+  max-height: 77vh;
+  overflow: auto;
+  display: inline-block;
+  vertical-align: top;
+  margin: 20px;
+  margin-right: 0;
+  padding-right: 15px;
 }
-.closeModal{
-	font-size : 30px;
-	color : rgba(0,0,0,0.5);
-	position : absolute;
-	top : 10px;
-	right : 10px;
+.closeModal {
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
-
-.headerModal{
-	padding : 10px;
-	display: inline-block;
-	float: left;
-	margin-top: 20px;
+.headerModal {
+  padding: 10px;
+  display: inline-block;
+  float: left;
+  margin-top: 20px;
 }
-
-.avatarLink{
-	float:left;
+.avatarLink {
+  float: left;
 }
-
-.kitsukeAvatar{
-	height : 50px;
-	width : auto;
-	display : inline-block;
-	vertical-align : baseline;
-	margin-left : 15px;
-	margin-top: 50px;
-
+.kitsukeAvatar {
+  height: 50px;
+  width: auto;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: 15px;
+  margin-top: 50px;
 }
-
 .description {
-	margin-top: 50px;
-	padding-right: 30px;
+  margin-top: 50px;
+  padding-right: 30px;
 }
-
-.commentTextArea{
-	text-align: center;
-	margin:auto;
+.commentTextArea {
+  text-align: center;
+  margin: auto;
 }
-
 md-dialog md-input-container.md-block {
-	width: 350px;
-	display: inline-block;
+  width: 350px;
+  display: inline-block;
 }
-.modalKitsuke{
-	display:inline-block;
-	max-height :80vh;
-	max-width : 35vw;
+.modalKitsuke {
+  display: inline-block;
+  max-height: 80vh;
+  max-width: 35vw;
 }
-
-.comment-space{
-	padding : 10px;
+.comment-space {
+  padding: 10px;
 }
-
 .comment-space .comAvatar {
-	height : 50px;
-	width : auto;
-	float : left;
-	padding-right : 15px;
+  height: 50px;
+  width: auto;
+  float: left;
+  padding-right: 15px;
 }

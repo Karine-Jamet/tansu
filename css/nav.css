@@ -114,7 +114,7 @@ nav .connected > a:hover{
 
 }
 
-a.md-default-theme:not(.md-button), a:not(.md-button){
+nav a.md-default-theme:not(.md-button), nav a:not(.md-button){
 	color: rgba(255,255,255,0.9);
 }
 

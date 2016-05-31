@@ -17,7 +17,7 @@ tansu.config(['$routeProvider',
       templateUrl: 'partials/tansu.html',
       controller: 'tansuController',
       css: "css/tansu.css"
-    }).when('/tansu/browse', {
+    }).when('/browse', {
       templateUrl: 'partials/browse.html',
       controller: 'browseController'
     }).when('/tansu/:user/edit', {
@@ -78,7 +78,9 @@ tansu.controller('navController', function($scope, $rootScope, $http) {
     $http.post('http://tansuservice.apphb.com/tansuservice.svc/Login', {
       "userName": x,
       "passWord": y
-    }).then(
+    }, {"withCredentials": false, "headers": {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    }}).then(
       function(response) {
         $scope.connexion = true;
         $rootScope.connexionAll = true;
