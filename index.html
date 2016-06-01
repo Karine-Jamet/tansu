@@ -37,11 +37,11 @@
 		</div>
 		<div class="connected" ng-if="connexion">
 			<p>Welcome {{name}}!</p>
-			<a href="#"><i class="fa fa-sign-out"></i> LogOut</a>
-			<a href="#"> <i class="fa fa-search"></i> Browse </a>
+			<a href="#" ng-click="logout()"><i class="fa fa-sign-out"></i> LogOut</a>
+			<a href="#/browse"> <i class="fa fa-search"></i> Browse </a>
 			<a href="#"> <i class="fa fa-star-o"></i> Favoris </a>
 			<a href="#/tansu/:{{name}}/edit"> <i class="fa fa-pencil"></i> Edit </a>
-		</div>
+		</div>	
 	</nav>
 	<section class="main_content" ng-view>
 	</section>

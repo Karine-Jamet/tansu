@@ -1,0 +1,48 @@
+{
+	"result":[
+		{"id":"2",
+	"obi":"nagoya",
+	"obiColor":"red",
+	"kimono":"iromuji",
+	"kimonoColor":"pink",
+	"main":"images/gallery/obi01/DSCF3415.jpg",
+	"fav_nb": "4",
+	"description" : "Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in",
+	"avatar" : "images/profile/avatar_tansu_default-01.png",
+	"name" : "Karine"
+	},
+	{
+	"id":"5",
+	"obi":"nagoya",
+	"obiColor":"red",
+	"kimono":"komon",
+	"kimonoColor":"red",
+	"main":"images/gallery/obi01/DSCF1130.jpg",
+	"fav_nb": "21",
+	"description" : "Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in",
+	"avatar" : "images/profile/icone.jpg",
+	"name" : "Rouletabille"
+	},{
+	"id":"6",
+	"obi":"fukuro",
+	"obiColor":"gold",
+	"kimono":"tomesode",
+	"kimonoColor":"black",
+	"main":"images/gallery/kimono01/IMG_2695.jpg",
+	"fav_nb": "21",
+	"description" : "Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in",
+	"avatar" : "images/profile/penguins.png",
+	"name" : "Tux"
+	},{
+	"id":"8",
+	"obi":"furkuro",
+	"obiColor":"silver",
+	"kimono":"tomesode",
+	"kimonoColor":"black",
+	"main":"images/gallery/kimono01/IMG_8613.jpg",
+	"fav_nb": "120",
+	"description" : "Mox dicta finierat, multitudo omnis ad, quae imperator voluit, promptior laudato consilio consensit in",
+	"avatar" : "images/profile/avatar_tansu_default-01.png",
+	"name" : "Talina"
+	}
+]}

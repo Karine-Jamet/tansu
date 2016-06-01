@@ -54,8 +54,8 @@ tansu.config(['$routeProvider',
 
 
 
-tansu.config(function($mdThemingProvider,$httpProvider) {
-	$httpProvider.defaults.withCredentials = true;
+tansu.config(function($mdThemingProvider, $httpProvider) {
+  $httpProvider.defaults.withCredentials = true;
   $mdThemingProvider.theme('default')
     .primaryPalette('orange', {
       'default': '900'
@@ -78,9 +78,9 @@ tansu.controller('navController', function($scope, $rootScope, $http) {
     $http.post('http://tansuservice.apphb.com/tansuservice.svc/Login', {
       "userName": x,
       "passWord": y
-    }, {"withCredentials": false, "headers": {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-    }}).then(
+    }, {
+      "withCredentials": false
+    }).then(
       function(response) {
         $scope.connexion = true;
         $rootScope.connexionAll = true;
@@ -91,8 +91,6 @@ tansu.controller('navController', function($scope, $rootScope, $http) {
         window.location = "#/tansu/";
       }
     );
-
-
 
   }
 

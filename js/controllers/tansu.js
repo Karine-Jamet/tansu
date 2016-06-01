@@ -14,7 +14,7 @@ tansu.controller('tansuController', function($scope, $rootScope, $http, $timeout
 
 
   }, function myError(response) {
-
+    window.location = "#/tansu/";
   });
 
   $scope.rowSpan = function(number) {

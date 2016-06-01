@@ -45,8 +45,8 @@
   </md-select>
 </md-input-container>
 
-<md-grid-list md-cols-sm="1" md-cols-md="3" md-cols-lg="5" md-cols-gt-lg="5" md-gutter-gt-md="16px" md-gutter-md="8px" md-gutter="4px" md-row-height="150px">
-  <md-grid-tile ng-repeat="tile in collection" style="background-image:url('{{tile.main}}')" md-rowspan="{{rowSpan(tile.comments.length)}}" md-colspan="{{colSpan(tile.comments.length)}}">
+<md-grid-list md-cols-sm="1" md-cols-md="5" md-cols-lg="7" md-cols-gt-lg="7" md-gutter-gt-md="16px" md-gutter-md="8px" md-gutter="4px" md-row-height="100px">
+  <md-grid-tile ng-repeat="tile in news" style="background-image:url('{{tile.main}}')" md-rowspan="{{rowSpan(tile.fav_nb)}}" md-colspan="{{colSpan(tile.fav_nb)}}">
     <md-button class="kitsukeButton md-fab md-warn md-mini" aria-label="Show Kitsuke" ng-click="modalKitsukeOpen(tile.main)">
       <i class="fa fa-external-link" aria-hidden="true"></i>
     </md-button>
