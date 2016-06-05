@@ -5,10 +5,10 @@
 		<p>Open your kimono Wardrobe and explore other's kitskue.</p></div>
 	  	<form>
 		<input type="text" name="pseudo" placeholder="Login" ng-model="pseudo" />
-		<input type="email" name="email" placeholder="E-mail" required />
+		<input type="email" name="email" placeholder="E-mail" ng-model="mail"  required />
 		<input type="password" name="password" placeholder="Password" ng-model="ps" />
-		<input type="password" name="confPassword" placeholder="Confirme your password" />
-		<md-button class="md-raised md-warn" ng-click="register(pseudo, pw )" >open my tansu</md-button>
+		<input type="password" name="confPassword" placeholder="Confirme your password" ng-model="ps2" />
+		<md-button class="md-raised md-warn" ng-click="register()" ng-if="ps2===ps && ps " >open my tansu</md-button>
 		</form>
 	  </div>
 

@@ -27,15 +27,16 @@
 	<nav ng-controller="navController">
 		<div class="titre"><img src="images/logo.png">
 			<h1> Tansu </h1></div>
-		<div class="not_connected" ng-if="!connexion">
+		<div class="not_connected" ng-if="!connexionAll">
 			<p>Welcome in your Tansu!</p>
 			<form ng-submit="login(pseudo, password)" >
-				<input type="text" name="pseudo" placeholder="Login" ng-model="pseudo" required />
-				<input type="password" name="password" placeholder="Password" ng-model="password" required />
+				<p class="failMessage">{{message}}</p>
+				<input type="text" name="pseudo" placeholder="Login" ng-class="{'fail':fail}" ng-model="pseudo" required />
+				<input type="password" name="password" placeholder="Password" ng-class="{'fail':fail}" ng-model="password" required />
 				<md-button class="md-raised md-warn" ng-click="login(pseudo, password)" >Login</md-button>
 			</form>
 		</div>
-		<div class="connected" ng-if="connexion">
+		<div class="connected" ng-if="connexionAll">
 			<p>Welcome {{name}}!</p>
 			<a href="#" ng-click="logout()"><i class="fa fa-sign-out"></i> LogOut</a>
 			<a href="#/browse"> <i class="fa fa-search"></i> Browse </a>

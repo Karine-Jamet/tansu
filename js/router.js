@@ -85,14 +85,34 @@ tansu.controller('navController', function($scope, $rootScope, $http) {
         $scope.connexion = true;
         $rootScope.connexionAll = true;
         $scope.name = x;
+		$scope.fail=false;
         window.location = "#/tansu/" + x;
       },
       function(response) {
+		  $scope.message = "Fail to login, try again"
+		  $scope.fail=true;
+		  $scope.pseudo = "";
+		  $scope.password = "";
         window.location = "#/tansu/";
       }
     );
 
   }
+   $scope.logout = function(x) {
+	    $http.get('http://tansuservice.apphb.com/tansuservice.svc/Out')
+		.then(
+		      function(response) {
+			$scope.connexion = false;
+		$rootScope.connexionAll = false;
+    
+		$scope.fail=false;
+        window.location = "#/tansu/";
+      },
+      function(response) {
+        window.location = "#/tansu/";
+      }
+		);
+   }
 
 });
 

@@ -1,15 +1,16 @@
-tansu.controller('tansuController', function($scope, $rootScope, $http, $timeout, $mdDialog, $mdMedia) {
+tansu.controller('tansuController', function($scope, $rootScope, $http, $timeout, $mdDialog, $mdMedia, $routeParams) {
 
   /* 	if($rootScope.connexionAll){
 
   	 */
   $scope.showVal = false;
+  console.log($routeParams.user);
 
   $http({
     method: "GET",
     url: "collection.json"
   }).then(function mySucces(res) {
-    $scope.name = res.data.name;
+    $scope.name = $routeParams.user;
     $scope.collection = res.data.tansu;
 
 
