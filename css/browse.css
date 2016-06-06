@@ -1,0 +1,58 @@
+.browse .sortBlock{
+  text-align: center;
+  margin: auto;
+}
+.browse .avatar {
+  height: 30px;
+}
+
+.browse .sort {
+  display: inline-block;
+  margin-left: 18px;
+  margin-top: -30px;
+}
+
+.browse .sortGender{
+  vertical-align: top;
+}
+.browse .sortGender h4 {
+  margin-bottom: 35px;
+}
+
+.browse .sort md-radio-button{
+  display: inline-block;
+}
+
+.browse md-grid-list {
+  width: 80vw;
+  margin: auto;
+}
+
+.browse md-grid-tile {
+  background-position: center;
+  background-size: cover;
+}
+
+.browse .info {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 100%;
+}
+
+.browse .info p {
+  display: inline-block;
+  color: white;
+}
+
+.browse .info p a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.browse .info p a:hover {
+  color: purple;
+  text-decoration: underline;;
+  font-weight: bold;
+}
