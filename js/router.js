@@ -13,13 +13,14 @@ tansu.config(['$routeProvider',
       controller: 'connexionController',
       css: "css/connexion.css"
     }).
-    when('/tansu/:user', {
+    when('/:user', {
       templateUrl: 'partials/tansu.html',
       controller: 'tansuController',
       css: "css/tansu.css"
-    }).when('/browse', {
+    }).when('/:user/browse', {
       templateUrl: 'partials/browse.html',
-      controller: 'browseController'
+      controller: 'browseController',
+      css: "css/browse.css"
     }).when('/tansu/:user/edit', {
       templateUrl: 'partials/edit.html',
       controller: 'editController',
@@ -40,11 +41,7 @@ tansu.config(['$routeProvider',
       templateUrl: 'partials/rmKitsuke.html',
       controller: 'editController',
       css: "css/editrmKitsuke.css"
-    }).when('/tansu/:user/profile', {
-      templateUrl: 'partials/profile.html',
-      controller: 'profileController'
-    }).
-    otherwise({
+    }).otherwise({
       redirectTo: '/'
     });
 
@@ -72,9 +69,10 @@ tansu.config(function($mdThemingProvider, $httpProvider) {
 tansu.controller('navController', function($scope, $rootScope, $http) {
   $scope.connexion = false;
   $rootScope.connexionAll = false;
+  $rootScope.loading = false;
 
   $scope.login = function(x, y) {
-
+    $rootScope.loading = true;
     $http.post('http://tansuservice.apphb.com/tansuservice.svc/Login', {
       "userName": x,
       "passWord": y
@@ -82,37 +80,44 @@ tansu.controller('navController', function($scope, $rootScope, $http) {
       "withCredentials": false
     }).then(
       function(response) {
+        $rootScope.loading = false;
         $scope.connexion = true;
         $rootScope.connexionAll = true;
         $scope.name = x;
-		$scope.fail=false;
-        window.location = "#/tansu/" + x;
+
+        $scope.fail = false;
+        window.location = "#/" + x;
+
       },
       function(response) {
-		  $scope.message = "Fail to login, try again"
-		  $scope.fail=true;
-		  $scope.pseudo = "";
-		  $scope.password = "";
-        window.location = "#/tansu/";
+        $rootScope.loading = false;
+        $scope.message = "Fail to login, try again"
+        $scope.fail = true;
+        $scope.pseudo = "";
+        $scope.password = "";
+        window.location = "/tansu";
       }
     );
 
   }
-   $scope.logout = function(x) {
-	    $http.get('http://tansuservice.apphb.com/tansuservice.svc/Out')
-		.then(
-		      function(response) {
-			$scope.connexion = false;
-		$rootScope.connexionAll = false;
-    
-		$scope.fail=false;
-        window.location = "#/tansu/";
-      },
-      function(response) {
-        window.location = "#/tansu/";
-      }
-		);
-   }
+  $scope.logout = function(x) {
+    $rootScope.loading = true;
+    $http.get('http://tansuservice.apphb.com/tansuservice.svc/Out')
+      .then(
+        function(response) {
+          $rootScope.loading = false;
+          $scope.connexion = false;
+          $rootScope.connexionAll = false;
+
+          $scope.fail = false;
+          window.location = "/tansu";
+        },
+        function(response) {
+          $rootScope.loading = false;
+          window.location = "/tansu";
+        }
+      );
+  }
 
 });
 

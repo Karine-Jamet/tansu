@@ -1,7 +1,10 @@
 <section class="profile">
 
 	<h2>Your Profile</h2>
-	
+<p>
+	http://www.tansu.jp/tansu/#/:{{profile.pseudo}}
+</p>
+
 	<div class="mainBlock avatarBlock">
 		<div class="avatarContainer">
 			<img ng-if='!imageSrc' src="{{profile.avatar}}">
@@ -14,8 +17,8 @@
 		<md-button ng-if='imageSrc' class="md-raised md-warn">OK</md-button>
 
 	</div>
-	
-	
+
+
 	<div class="mainBlock dataUser">
 	     <md-input-container class="md-block" flex-gt-sm>
             <label>Pseudo</label>
@@ -27,15 +30,15 @@
           </md-input-container>
 		<md-button class="md-raised md-warn">Update</md-button>
 	</div>
-	
-	
+
+
 	<div class="mainBlock stat">
-	
+
 		<p>Kimono : {{nb_kimono}}</p>
 		<p>Obi : {{nb_obi}}</p>
 		<p>Kitsuke : {{nb_kitsuke}}</p>
 	</div>
-	
+
 		<div class="mainBlock bouton">
 
 	<a href="#/tansu/:{{profile.pseudo}}/edit/newItem"><md-button class="md-raised md-warn">Add new item</md-button></a>
@@ -45,6 +48,3 @@
 		</div>
 
 </section>
-
-
-

@@ -39,19 +39,18 @@
 		<div class="connected" ng-if="connexionAll">
 			<p>Welcome {{name}}!</p>
 			<a href="#" ng-click="logout()"><i class="fa fa-sign-out"></i> LogOut</a>
-			<a href="#/browse"> <i class="fa fa-search"></i> Browse </a>
+			<a href="#/{{name}}/browse"> <i class="fa fa-search"></i> Browse </a>
 			<a href="#"> <i class="fa fa-star-o"></i> Favoris </a>
-			<a href="#/tansu/:{{name}}/edit"> <i class="fa fa-pencil"></i> Edit </a>
-		</div>	
+			<a href="#/tansu/{{name}}/edit"> <i class="fa fa-pencil"></i> Edit </a>
+		</div>
 	</nav>
+	<div class="loading" ng-if="loading">  <md-progress-circular ng-disabled="!vm.activated" class="md-warn" md-diameter="120"></md-progress-circular></div>
 	<section class="main_content" ng-view>
 	</section>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
 
-	<script src="js/lib/bower_components/angular-deckgrid/angular-deckgrid.js"></script>
-	<script src="js/lib/bower_components/angular-flippy/dist/js/angular-flippy.js"></script>
 	<script src="js/lib/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>

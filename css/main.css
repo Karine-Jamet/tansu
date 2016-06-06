@@ -31,6 +31,25 @@ html {
     width: 100%;
 }
 
+.loading {
+	background-color: rgba(255, 255, 255, 0.3);
+	text-align: center;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top:0;
+	left: 0;
+}
+
+md-progress-circular {
+	text-align: center;
+	margin: auto;
+	position: relative;
+	top:50vh;
+	margin-top: -60px;
+	margin-left: -140px;
+}
+
 @media screen and (max-width: 480px){
     .deckgrid[deckgrid]::before {
         content: '1 .column.column-1-1';
