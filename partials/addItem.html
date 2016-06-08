@@ -87,6 +87,37 @@
 		</md-select>
 	</md-input-container>
 
+	<div class="md-padding" ng-if="item.sex && item.what">
+		<label>Which motif?</label>
+		<md-checkbox ng-model="animals" aria-label="animals">Animals</md-checkbox>
+		<md-checkbox ng-model="plantes" aria-label="plantes">Plantes & FLowers</md-checkbox>
+		<md-checkbox ng-model="geometrics" aria-label="geometrics">Geometrics</md-checkbox>
+		<md-checkbox ng-model="objects" aria-label="objects">Peoples & Objects</md-checkbox>
+
+
+
+		<fieldset class="standard" ng-if="animals">
+			<legend>Animals</legend>
+			<md-checkbox ng-model="motifs.animals.ayu">Ayu / Fish</md-checkbox>
+			<md-checkbox ng-model="motifs.animals.chou">Chou / Butterfly</md-checkbox>
+			<md-checkbox ng-model="motifs.animals.ebi">Ebi / Lobster</md-checkbox>
+			<md-checkbox ng-model="motifs.animals.hotaru">hotaru / Luciola</md-checkbox>
+		</fieldset>
+
+		<fieldset class="standard" ng-if="plantes">
+			<legend>Plantes & Flowers</legend>
+			<md-checkbox ng-model="motifs.plantes.ayame">Ayame / Iris</md-checkbox>
+		</fieldset>
+		<fieldset class="standard" ng-if="geometrics">
+			<legend>Geometrics</legend>
+			<md-checkbox ng-model="motifs.geo.seigaiha">Seigaiha / vagues</md-checkbox>
+		</fieldset>
+		<fieldset class="standard" ng-if="objects">
+			<legend>Peoples & Objects</legend>
+			<md-checkbox ng-model="motifs.object.bangasa">Bangasa / Ombrelle</md-checkbox>
+			<md-checkbox ng-model="motifs.object.bunko">Bunko / Livres</md-checkbox>
+		</fieldset>
+	</div>
 	<div>
 		<input class="ng-hide" id="input-file-id" type="file" ng-file-select="onFileSelect($files)" my-var="imageSrc" />
 		<label for="input-file-id" class="md-button md-raised md-warn">Photo</label>

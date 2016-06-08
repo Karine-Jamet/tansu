@@ -10,7 +10,7 @@
 	      }, {
 	        "withCredentials": false
 	      }).then(
-	        function(response) {
+	        function(response) {	
 	          $rootScope.loading = false;
 	          $scope.connexion = true;
 	          $rootScope.connexionAll = true;
