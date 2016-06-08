@@ -87,8 +87,8 @@
 		</md-select>
 	</md-input-container>
 
-	<div class="md-padding" ng-if="item.sex && item.what">
-		<label>Which motif?</label>
+	<div class=" motifBox md-padding" ng-if="item.sex && item.what">
+		<label class="motifLabel">Which motif?</label>
 		<md-checkbox ng-model="animals" aria-label="animals">Animals</md-checkbox>
 		<md-checkbox ng-model="plantes" aria-label="plantes">Plantes & FLowers</md-checkbox>
 		<md-checkbox ng-model="geometrics" aria-label="geometrics">Geometrics</md-checkbox>
@@ -114,8 +114,24 @@
 		</fieldset>
 		<fieldset class="standard" ng-if="objects">
 			<legend>Peoples & Objects</legend>
-			<md-checkbox ng-model="motifs.object.bangasa">Bangasa / Ombrelle</md-checkbox>
-			<md-checkbox ng-model="motifs.object.bunko">Bunko / Livres</md-checkbox>
+			<md-checkbox ng-model="motifs.object.bangasa">Bangasa / Ombrella</md-checkbox>
+			<md-checkbox ng-model="motifs.object.bunko">Bunko / Books </md-checkbox>
+			<md-checkbox ng-model="motifs.object.byobu">Byubo / Screen </md-checkbox>
+			<md-checkbox ng-model="motifs.object.Chayatsuji">Chayatsuji / Tea House </md-checkbox>
+			<md-checkbox ng-model="motifs.object.choji">Chōjū-jinbutsu-giga / sketch </md-checkbox>
+			<md-checkbox ng-model="motifs.object.daruma">Daruma</md-checkbox>
+			<md-checkbox ng-model="motifs.object.fue">Fue / flute</md-checkbox>
+			<md-checkbox ng-model="motifs.object.fune">Fune / boat</md-checkbox>
+			<md-checkbox ng-model="motifs.object.genjiguruma">Genjiguruma / Wheel</md-checkbox>
+			<md-checkbox ng-model="motifs.object.Goshoguruma">Goshoguruma / Royal car</md-checkbox>
+			<md-checkbox ng-model="motifs.object.hanabi">Hanabi / Firework</md-checkbox>
+			<md-checkbox ng-model="motifs.object.hanafuda">Hanafuda / Card Game</md-checkbox>
+			<md-checkbox ng-model="motifs.object.other">other</md-checkbox>
+			<md-input-container ng-if="motifs.object.other">
+				<label>Motif name ?</label>
+				<input type="text" ng-model="motifs.object.new" />
+			</md-input-container>
+
 		</fieldset>
 	</div>
 	<div>
