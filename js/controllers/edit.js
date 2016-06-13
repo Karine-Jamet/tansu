@@ -28,11 +28,36 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
       return res.data.GetMotifsResult;
     });
 	
+	$scope.newItemAdd= function(){
+		console.log($rootScope.photo);
+	}
+	
+	 $http.get("http://tansuservice.apphb.com/tansuservice.svc/GetColors", {
+	        "withCredentials": false
+	      })
+    .then(function(res) {
+
+		$scope.colors = res.data.GetColorsResult;
+
+
+      return res.data.GetColorsResult;
+    });
+	
+	$http.get("http://tansuservice.apphb.com/tansuservice.svc/GetStyles", {
+	        "withCredentials": false
+	      })
+    .then(function(res) {
+
+		$scope.styles = res.data.GetStylesResult;
+
+      return res.data.GetStylesResult;
+    });
+	
 	
 	
 });
 
-tansu.directive("ngFileSelect", function(fileReader, $timeout) {
+tansu.directive("ngFileSelect", function(fileReader, $timeout, $rootScope) {
     return {
 
       scope: {
@@ -44,6 +69,7 @@ tansu.directive("ngFileSelect", function(fileReader, $timeout) {
             .then(function(result) {
               $timeout(function() {
                 $scope.myVar = result;
+				$rootScope.photo = result;
               });
             });
         }
