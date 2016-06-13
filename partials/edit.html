@@ -11,7 +11,7 @@
 			<img class="overview" ng-if='imageSrc' ng-src="{{imageSrc}}" />
 		</div>
 		<div>
-			<input class="ng-hide" id="input-file-id" type="file" ng-file-select="onFileSelect($files)" my-var="imageSrc" />
+			<input class="ng-hide" accept="image/*" id="input-file-id" type="file" ng-file-select="onFileSelect($files)" my-var="imageSrc" />
 			<label for="input-file-id" class="md-button md-raised md-warn">New Avatar</label>
 		</div>
 		<md-button ng-if='imageSrc' class="md-raised md-warn">OK</md-button>

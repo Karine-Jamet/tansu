@@ -108,7 +108,7 @@
 		</fieldset>
 	</div>
 	<div>
-		<input class="ng-hide" id="input-file-id" type="file" ng-file-select="onFileSelect($files)" my-var="imageSrc" />
+		<input class="ng-hide" id="input-file-id" type="file" accept="image/*" ng-file-select="onFileSelect($files)" my-var="imageSrc" />
 		<label for="input-file-id" class="md-button md-raised md-warn">Photo</label>
 	</div>
 	<img class="overview" ng-if='imageSrc' ng-src="{{imageSrc}}" />
