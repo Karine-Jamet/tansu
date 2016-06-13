@@ -17,6 +17,17 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
 
 	 $scope.imageSrc = "";
     
+	  $http.get("http://tansuservice.apphb.com/tansuservice.svc/GetMotifs", {
+	        "withCredentials": false
+	      })
+    .then(function(res) {
+
+	$scope.motifs = res.data.GetMotifsResult;
+
+
+      return res.data.GetMotifsResult;
+    });
+	
 	
 	
 });

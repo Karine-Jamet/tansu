@@ -15,7 +15,7 @@
 		</md-radio-group>
 
 	</p>
-
+	
 	<div class="md-padding" ng-cloak ng-if="item.sex === 'female' && item.what === 'kimono'" class="animate-if">
 		<md-input-container>
 			<label>What kind ?</label>
@@ -86,50 +86,48 @@
 			<md-option value="silver">Silver</md-option>
 		</md-select>
 	</md-input-container>
+	
+
 
 	<div class=" motifBox md-padding" ng-if="item.sex && item.what">
-		<label class="motifLabel">Which motif?</label>
-		<md-checkbox ng-model="animals" aria-label="animals">Animals</md-checkbox>
-		<md-checkbox ng-model="plantes" aria-label="plantes">Plantes & FLowers</md-checkbox>
-		<md-checkbox ng-model="geometrics" aria-label="geometrics">Geometrics</md-checkbox>
+		<label class="motifLabel">Which Kind of motif?</label>
+		<md-checkbox ng-model="animals" aria-label="Animals">Animals</md-checkbox>
+		<md-checkbox ng-model="plants" aria-label="Plants">Plants & FLowers</md-checkbox>
+		<md-checkbox ng-model="geometrics" aria-label="Geometrics">Geometrics</md-checkbox>
 		<md-checkbox ng-model="objects" aria-label="objects">Peoples & Objects</md-checkbox>
-
-
 
 		<fieldset class="standard" ng-if="animals">
 			<legend>Animals</legend>
-			<md-checkbox ng-model="motifs.animals.ayu">Ayu / Fish</md-checkbox>
-			<md-checkbox ng-model="motifs.animals.chou">Chou / Butterfly</md-checkbox>
-			<md-checkbox ng-model="motifs.animals.ebi">Ebi / Lobster</md-checkbox>
-			<md-checkbox ng-model="motifs.animals.hotaru">hotaru / Luciola</md-checkbox>
+			<md-checkbox ng-repeat="motif in motifs |filter:{Style:'Animals'}" ng-model="motif.Id">{{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
+						<md-checkbox ng-model="other">other</md-checkbox>
+			<md-input-container ng-if="other">
+				<label>Motif name ?</label>
+				<input type="text" ng-model="motifNew" />
 		</fieldset>
 
-		<fieldset class="standard" ng-if="plantes">
-			<legend>Plantes & Flowers</legend>
-			<md-checkbox ng-model="motifs.plantes.ayame">Ayame / Iris</md-checkbox>
+		<fieldset class="standard" ng-if="plants">
+		<legend>Plants & FLowers</legend>
+			<md-checkbox ng-repeat="motif in motifs | filter: {Style:'Plants'}" ng-model="motif.Id">{{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
+						<md-checkbox ng-model="other">other</md-checkbox>
+			<md-input-container ng-if="other">
+				<label>Motif name ?</label>
+				<input type="text" ng-model="motifNew" />
 		</fieldset>
 		<fieldset class="standard" ng-if="geometrics">
 			<legend>Geometrics</legend>
-			<md-checkbox ng-model="motifs.geo.seigaiha">Seigaiha / vagues</md-checkbox>
+			<md-checkbox ng-repeat="motif in motifs | filter:{Style:'Geometrics'}" ng-model="motif.Id">{{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
+						<md-checkbox ng-model="other">other</md-checkbox>
+			<md-input-container ng-if="other">
+				<label>Motif name ?</label>
+				<input type="text" ng-model="motifNew" />
 		</fieldset>
 		<fieldset class="standard" ng-if="objects">
 			<legend>Peoples & Objects</legend>
-			<md-checkbox ng-model="motifs.object.bangasa">Bangasa / Ombrella</md-checkbox>
-			<md-checkbox ng-model="motifs.object.bunko">Bunko / Books </md-checkbox>
-			<md-checkbox ng-model="motifs.object.byobu">Byubo / Screen </md-checkbox>
-			<md-checkbox ng-model="motifs.object.Chayatsuji">Chayatsuji / Tea House </md-checkbox>
-			<md-checkbox ng-model="motifs.object.choji">Chōjū-jinbutsu-giga / sketch </md-checkbox>
-			<md-checkbox ng-model="motifs.object.daruma">Daruma</md-checkbox>
-			<md-checkbox ng-model="motifs.object.fue">Fue / flute</md-checkbox>
-			<md-checkbox ng-model="motifs.object.fune">Fune / boat</md-checkbox>
-			<md-checkbox ng-model="motifs.object.genjiguruma">Genjiguruma / Wheel</md-checkbox>
-			<md-checkbox ng-model="motifs.object.Goshoguruma">Goshoguruma / Royal car</md-checkbox>
-			<md-checkbox ng-model="motifs.object.hanabi">Hanabi / Firework</md-checkbox>
-			<md-checkbox ng-model="motifs.object.hanafuda">Hanafuda / Card Game</md-checkbox>
-			<md-checkbox ng-model="motifs.object.other">other</md-checkbox>
-			<md-input-container ng-if="motifs.object.other">
+			<md-checkbox ng-repeat= "motif in motifs | filter: {Style:'Objects'}" ng-model="motif.Id"> {{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
+			<md-checkbox ng-model="other">other</md-checkbox>
+			<md-input-container ng-if="other">
 				<label>Motif name ?</label>
-				<input type="text" ng-model="motifs.object.new" />
+				<input type="text" ng-model="motifNew" />
 			</md-input-container>
 
 		</fieldset>
