@@ -1,0 +1,45 @@
+TansuService routes 101
+
+
+url de base http://tansuservice.apphb.com/TansuService.svc/
+
+
+route : Login
+method : POST
+parametres : {"userName":"name","passWord":"password"}
+
+route : SignUp
+method : PUT
+parametres : {"userName":"name","passWord":"password","email":"mail@domain.extension"}
+
+route : Out
+method : GET
+parametres : 
+
+route : GetColors
+method : GET
+parametres : 
+
+route : GetItems
+method : GET
+parametres : 
+
+route : GetMotifs
+method : GET
+parametres : 
+
+route : GetStyles
+method : GET
+parametres : 
+
+route : GetUserItems/{id}
+method : GET
+parametres : id du user
+
+route : AddItem
+method : PUT
+parametres : 
+{
+	"newItem":{"Directory":"laisse vide pour l'instant","Gender":false,"Main":0,"Style":0,"UserId":id,"What":0},
+	"motifs":[1,2,3,4,5]
+}
