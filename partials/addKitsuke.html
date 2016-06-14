@@ -4,21 +4,14 @@
 
 <md-input-container>
 	 <label>Which Kimono ?</label>
-		<md-select ng-model="typeKimono">
-		<md-option value="furisode">Furisode</md-option>
-		<md-option value="tomesode">Tomesode</md-option>
-		<md-option value="houmongi">Houmongi</md-option>
-		<md-option value="Iromuji">Iromuji</md-option>
-		<md-option value="Komon">Komon</md-option>
-		<md-option value="yukata">Yukata</md-option>
-		<md-option value="kakeshita">Kakeshita</md-option>
-		<md-option value="uchikake">Uchikake</md-option>
-		</md-select>
+	 <md-select ng-model="kimono.style" >
+		 <md-option ng-repeat="style in styles | filter:{Gender:false, ItemType:1}" value="{{style.Name}}">{{style.Name}}</md-option>
+	 </md-select>
 		</md-input-container>
 
 		<div>
-		<md-radio-group ng-if="typeKimono" ng-model="item.what">
-			 <md-radio-button ng-repeat="kimono in profile.kimonos | filter:typeKimono track by $index "
+		<md-radio-group ng-if="kimono.style" ng-model="item.what">
+			 <md-radio-button ng-repeat="kimono in profile.kimonos |filter:kimono.style track by $index "
                        ng-value="$index"
                        aria-label="{{kimono.id}}">
 				<img ng-src="{{kimono.main}}" />
@@ -27,22 +20,19 @@
 		</div>
 
 
-		
+
 <md-input-container>
  <label>Which obi ?</label>
-	<md-select  ng-model="typeObi">
-		<md-option value="maru">Maru</md-option>
-		<md-option value="fukuro">Fukuro</md-option>
-		<md-option value="nagoya">Nagoya</md-option>
-		<md-option value="hanhaba">Hanhaba</md-option>
-		<md-option value="heko">Heko</md-option>
-	</md-select>
-	
+ <md-select ng-model="obi.style">
+	 <md-option ng-repeat="style in styles |filter:{Gender:false, ItemType:2}" value="{{style.Name}}">{{style.Name}}</md-option>
+	 <md-option value="Kaku">Kaku</md-option>
+ </md-select>
+
 
 </md-input-container>
 <div>
-	<md-radio-group ng-if="typeObi" ng-model="item.what">
-		<md-radio-button ng-repeat="obi in profile.obis | filter:typeObi track by $index "
+	<md-radio-group ng-if="obi.style" ng-model="item.what">
+		<md-radio-button ng-repeat="obi in profile.obis | filter:obi.style track by $index "
                    ng-value="$index"
                    aria-label="{{obi.id}}">
 			<img ng-src="{{obi.main}}" >

@@ -4,35 +4,35 @@
 "kimonos": [
 	{
 	"id":1,
-	"style":"tomesode",
+	"style":"Tomesode",
 	"main":"images/main/IMG_6061.jpg"
 	},
 	{
 	"id":2,
-	"style":"furisode",
+	"style":"Furisode",
 	"main":"images/main/IMG_6061.jpg"
 	},
 	{
 	"id":3,
-	"style":"tomesode",
+	"style":"Tomesode",
 	"main":"images/main/IMG_6061.jpg"
 	}],
 "obis": [
 	{
 	"id":1,
-	"style":"nagoya",
+	"style":"Nagoya",
 	"main":"images/main/IMG_6334.jpg"
 	},
 	{
 	"id":2,
-	"style":"maru",
+	"style":"Maru",
 	"main":"images/main/IMG_6334.jpg"
 	},
 	{
 	"id":3,
-	"style":"nagoya",
+	"style":"Nagoya",
 	"main":"images/main/IMG_6334.jpg"
-	}], 
+	}],
 "kitsukes" : [
 	{
 	"id":1,
@@ -45,6 +45,6 @@
 	"obi": 1,
 	"main":"images/gallery/obi01/DSCF3415.jpg"
 	}
-	
+
 	]
 }

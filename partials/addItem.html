@@ -1,52 +1,54 @@
 <section class="inlineSection addCard">
 	<h2>Add new item</h2>
+	<p class="warning">{{message}}</p>
 	<p>
 		<md-radio-group ng-model="item.sex">
-			<md-radio-button value="1"> Male</md-radio-button>
-			<md-radio-button value="0"> Female</md-radio-button>
+			<md-radio-button value=0> Male</md-radio-button>
+			<md-radio-button value=1> Female</md-radio-button>
 		</md-radio-group>
-
 	</p>
 
 	<p>
 		<md-radio-group ng-model="item.what">
-			<md-radio-button value="kimono"> Kimono </md-radio-button>
-			<md-radio-button value="obi" /> Obi</md-radio-button>
+			<md-radio-button ng-repeat="stuff in stuffs" value="{{stuff.Id}}"> {{stuff.Name}} </md-radio-button>
 		</md-radio-group>
 
 	</p>
-	
-	<div class="md-padding" ng-cloak ng-if="item.sex === '0' && item.what === 'kimono'" class="animate-if">
+
+	<div class="md-padding" ng-cloak ng-if="item.sex == 1 && item.what == 1" class="animate-if">
 		<md-input-container>
 			<label>What kind ?</label>
-			<md-select ng-model="kimonoStyle">
+			<md-select ng-model="item.style">
 				<md-option ng-repeat="style in styles |filter:{Gender:false, ItemType:1}" value="{{style.Id}}">{{style.Name}}</md-option>
 			</md-select>
 		</md-input-container>
 	</div>
 	</div>
 
-	<div class="md-padding" ng-cloak ng-if="item.sex === '1' && item.what==='kimono'">
+
+	<div class="md-padding" ng-cloak ng-if="item.sex == 0 && item.what== 1 ">
 		<md-input-container>
 			<label>What kind ?</label>
-			<md-select ng-model="kimonoStyle">
+			<md-select ng-model="item.style">
 				<md-option ng-repeat="style in styles |filter:{Gender:true, ItemType:1}" value="{{style.Id}}">{{style.Name}}</md-option>
+
 			</md-select>
 		</md-input-container>
 	</div>
 
 
-	<div class="md-padding" ng-cloak ng-if="item.sex === '0' && item.what==='obi'">
+	<div class="md-padding" ng-cloak ng-if="item.sex == 1 && item.what== 2">
 		<md-input-container>
 			<label>What kind ?</label>
-			<md-select ng-model="obiStyle">
+			<md-select ng-model="item.style">
 				<md-option ng-repeat="style in styles |filter:{Gender:false, ItemType:2}" value="{{style.Id}}">{{style.Name}}</md-option>
+
 			</md-select>
 		</md-input-container>
 	</div>
 
 
-	<div class="md-padding" ng-cloak ng-if="item.sex === '1' && item.what==='obi'">
+	<div class="md-padding" ng-cloak ng-if="item.sex == 0 && item.what== 2">
 		<md-input-container>
 			<label>What kind ?</label>
 			<md-select ng-model="obiStyle">
@@ -57,11 +59,11 @@
 
 	<md-input-container>
 		<label>What color ?</label>
-		<md-select ng-if="item.sex && item.what" class="editColor" ng-model="colorItem">
+		<md-select ng-if="item.sex && item.what" class="editColor" ng-model="item.color">
 			<md-option ng-repeat="color in colors" value="{{color.Id}}">{{color.Name}}</md-option>
 		</md-select>
 	</md-input-container>
-	
+
 
 
 	<div class=" motifBox md-padding" ng-if="item.sex && item.what">
@@ -73,32 +75,32 @@
 
 		<fieldset class="standard" ng-if="animals">
 			<legend>Animals</legend>
-			<md-checkbox ng-repeat="motif in motifs |filter:{Style:'Animals'}" ng-model="motif.Id">{{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
-						<md-checkbox ng-model="other">other</md-checkbox>
+			<md-checkbox ng-repeat="motif in motifs |filter:{Style:'Animals'}" name="selectedMotif[]" value="{{motif.Id}}" ng-model="motif.selected">{{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
+			<md-checkbox ng-model="other">other</md-checkbox>
 			<md-input-container ng-if="other">
 				<label>Motif name ?</label>
 				<input type="text" ng-model="motifNew" />
 		</fieldset>
 
 		<fieldset class="standard" ng-if="plants">
-		<legend>Plants & FLowers</legend>
-			<md-checkbox ng-repeat="motif in motifs | filter: {Style:'Plants'}" ng-model="motif.Id">{{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
-						<md-checkbox ng-model="other">other</md-checkbox>
+			<legend>Plants & FLowers</legend>
+			<md-checkbox ng-repeat="motif in motifs | filter: {Style:'Plants'}" name="selectedMotif[]" value="{{motif.Id}}" ng-model="motif.selected">{{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
+			<md-checkbox ng-model="other">other</md-checkbox>
 			<md-input-container ng-if="other">
 				<label>Motif name ?</label>
 				<input type="text" ng-model="motifNew" />
 		</fieldset>
 		<fieldset class="standard" ng-if="geometrics">
 			<legend>Geometrics</legend>
-			<md-checkbox ng-repeat="motif in motifs | filter:{Style:'Geometrics'}" ng-model="motif.Id">{{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
-						<md-checkbox ng-model="other">other</md-checkbox>
+			<md-checkbox ng-repeat="motif in motifs | filter:{Style:'Geometrics'}" name="selectedMotif[]" value="{{motif.Id}}" ng-model="motif.selected">{{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
+			<md-checkbox ng-model="other">other</md-checkbox>
 			<md-input-container ng-if="other">
 				<label>Motif name ?</label>
 				<input type="text" ng-model="motifNew" />
 		</fieldset>
 		<fieldset class="standard" ng-if="objects">
 			<legend>Peoples & Objects</legend>
-			<md-checkbox ng-repeat= "motif in motifs | filter: {Style:'Objects'}" ng-model="motif.Id"> {{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
+			<md-checkbox ng-repeat="motif in motifs | filter: {Style:'Objects'}" name="selectedMotif[]" value="{{motif.Id}}" ng-model="motif.selected"> {{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
 			<md-checkbox ng-model="other">other</md-checkbox>
 			<md-input-container ng-if="other">
 				<label>Motif name ?</label>

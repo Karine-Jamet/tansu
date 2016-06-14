@@ -26,7 +26,10 @@ md-radio-button {
 
 h2 {
 	margin-bottom : 35px;
+}
 
+.warning{
+	color:red;
 }
 
 .motifBox{
@@ -36,6 +39,7 @@ h2 {
 .motifBox label {
 	display: block;
 }
+
 fieldset {
 	text-align: center;
 	margin: auto;
