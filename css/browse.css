@@ -6,6 +6,10 @@
   height: 30px;
 }
 
+.browse .back-button{
+  margin-left: 20px;
+}
+
 .browse .sort {
   display: inline-block;
   margin-left: 18px;

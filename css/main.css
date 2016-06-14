@@ -7,29 +7,6 @@ html, body {
 	height:100%;
 }
 
-html {
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-}
-
-.deckgrid[deckgrid]::before {
-    /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
-    content: '4 .column.column-1-4';
-    font-size: 0; /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
-    visibility: hidden;
-}
-
-.deckgrid .column {
-    float: left;
-}
-
-.deckgrid .column-1-4 {
-    width: 25%;
-}
-
-.deckgrid .column-1-1 {
-    width: 100%;
-}
 
 .loading {
 	background-color: rgba(255, 255, 255, 0.3);
@@ -39,6 +16,7 @@ html {
 	position: fixed;
 	top:0;
 	left: 0;
+	z-index: 1;
 }
 
 md-progress-circular {
@@ -48,20 +26,4 @@ md-progress-circular {
 	top:50vh;
 	margin-top: -60px;
 	margin-left: -140px;
-}
-
-@media screen and (max-width: 480px){
-    .deckgrid[deckgrid]::before {
-        content: '1 .column.column-1-1';
-    }
-}
-
-.deckgrid .column-1-2 {
-    width: 50%;
-}
-
-@media screen and (max-width: 1250px){
-    .deckgrid[deckgrid]::before {
-        content: '2 .column.column-1-2';
-    }
 }

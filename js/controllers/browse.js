@@ -1,4 +1,8 @@
 tansu.controller('browseController', function($scope, $rootScope, $http, $timeout, $mdDialog, $mdMedia) {
+
+
+  // ----------------- REQUETE --------------------//
+
   $http({
     method: "GET",
     url: "browse.json"
@@ -9,6 +13,59 @@ tansu.controller('browseController', function($scope, $rootScope, $http, $timeou
   }, function myError(response) {
     // window.location = "#/tansu/";
   });
+
+
+  $rootScope.loading = true;
+
+  $http.get("http://tansuservice.apphb.com/tansuservice.svc/GetItems", {
+      "withCredentials": false
+    })
+    .then(function(res) {
+      $rootScope.loading = false;
+      $scope.stuffs = res.data.GetItemTypesResult;
+
+
+      return res.data.GetItemTypesResult;
+    });
+
+
+  $rootScope.loading = true;
+
+  $http.get("http://tansuservice.apphb.com/tansuservice.svc/GetMotifs", {
+      "withCredentials": false
+    })
+    .then(function(res) {
+      $rootScope.loading = false;
+      $scope.motifs = res.data.GetMotifsResult;
+
+      return res.data.GetMotifsResult;
+    });
+
+  $rootScope.loading = true;
+
+  $http.get("http://tansuservice.apphb.com/tansuservice.svc/GetColors", {
+      "withCredentials": false
+    })
+    .then(function(res) {
+      $rootScope.loading = false;
+      $scope.colors = res.data.GetColorsResult;
+      return res.data.GetColorsResult;
+    });
+  $rootScope.loading = true;
+
+  $http.get("http://tansuservice.apphb.com/tansuservice.svc/GetStyles", {
+      "withCredentials": false
+    })
+    .then(function(res) {
+      $rootScope.loading = false;
+      $scope.styles = res.data.GetStylesResult;
+
+      return res.data.GetStylesResult;
+    });
+
+
+  //-------- Function de styling des tiles ------------------//
+
 
 
   $scope.rowSpan = function(number) {
@@ -22,6 +79,11 @@ tansu.controller('browseController', function($scope, $rootScope, $http, $timeou
   $scope.filter = function() {
     console.log("hello");
   }
+
+
+
+//--------------- GESTION DE LA MODAL -----------------//
+
 
   $scope.modalKitsukeOpen = function(ev, photoClicked) {
     var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;

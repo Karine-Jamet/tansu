@@ -84,6 +84,7 @@ tansu.controller('navController', function($scope, $rootScope, $http) {
         $scope.connexion = true;
         $rootScope.connexionAll = true;
         $scope.name = x;
+        $rootScope.name = x;
 
         $scope.fail = false;
         window.location = "#/" + x;

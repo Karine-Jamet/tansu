@@ -1,42 +1,17 @@
 <section class="browse">
   <div class="sortBlock">
-    <div class="sort sortGender">
-      <h4>Gender</h4>
-      <md-radio-group ng-model="item.sex" ng-change="filter()">
-        <md-radio-button value="male"> Male</md-radio-button>
-        <md-radio-button value="female"> Female</md-radio-button>
-      </md-radio-group>
-    </div>
     <div class="sort sortKimono">
       <h4>Kimono</h4>
-      <md-input-container >
+      <md-input-container>
         <label>Style ?</label>
-        <md-select ng-model="kimonoStyle" ng-change="filter()">
-          <md-option value="furisode">Furisode</md-option>
-          <md-option value="tomesode">Tomesode</md-option>
-          <md-option value="houmongi">Houmongi</md-option>
-          <md-option value="Iromuji">Iromuji</md-option>
-          <md-option value="Komon">Komon</md-option>
-          <md-option value="yukata">Yukata</md-option>
-          <md-option value="kakeshita">Kakeshita</md-option>
-          <md-option value="uchikake">Uchikake</md-option>
+        <md-select ng-model="kimono.style" ng-change="filter()">
+          <md-option ng-repeat="style in styles |filter:{Gender:false, ItemType:1}" value="{{style.Id}}">{{style.Name}}</md-option>
         </md-select>
       </md-input-container>
       <md-input-container>
         <label>Color ?</label>
-        <md-select class="editColor" ng-model="colorKimono">
-          <md-option value="black">Black</md-option>
-          <md-option value="grey">Grey</md-option>
-          <md-option value="white">White</md-option>
-          <md-option value="blue">Blue</md-option>
-          <md-option value="purple">Purple</md-option>
-          <md-option value="pink">Pink</md-option>
-          <md-option value="red">Red</md-option>
-          <md-option value="orange">Orange</md-option>
-          <md-option value="yellow">Yellow</md-option>
-          <md-option value="green">Green</md-option>
-          <md-option value="gold">Gold</md-option>
-          <md-option value="silver">Silver</md-option>
+        <md-select class="editColor" ng-model="kimono.color">
+          <md-option ng-repeat="color in colors" value="{{color.Id}}">{{color.Name}}</md-option>
         </md-select>
       </md-input-container>
     </div>
@@ -44,29 +19,15 @@
       <h4>Obi</h4>
       <md-input-container>
         <label>Style ?</label>
-        <md-select ng-model="obiStyle">
-          <md-option value="karu">Maru</md-option>
-          <md-option value="fukuro">Fukuro</md-option>
-          <md-option value="nagoya">Nagoya</md-option>
-          <md-option value="hanhaba">Hanhaba</md-option>
-          <md-option value="heko">Heko</md-option>
+        <md-select ng-model="obi.style">
+          <md-option ng-repeat="style in styles |filter:{Gender:false, ItemType:2}" value="{{style.Id}}">{{style.Name}}</md-option>
+          <md-option value="Kaku">Kaku</md-option>
         </md-select>
       </md-input-container>
       <md-input-container>
         <label>Color ?</label>
-        <md-select class="editColor" ng-model="colorObi">
-          <md-option value="black">Black</md-option>
-          <md-option value="grey">Grey</md-option>
-          <md-option value="white">White</md-option>
-          <md-option value="blue">Blue</md-option>
-          <md-option value="purple">Purple</md-option>
-          <md-option value="pink">Pink</md-option>
-          <md-option value="red">Red</md-option>
-          <md-option value="orange">Orange</md-option>
-          <md-option value="yellow">Yellow</md-option>
-          <md-option value="green">Green</md-option>
-          <md-option value="gold">Gold</md-option>
-          <md-option value="silver">Silver</md-option>
+        <md-select class="editColor" ng-model="obi.color">
+          <md-option ng-repeat="color in colors" value="{{color.Id}}">{{color.Name}}</md-option>
         </md-select>
       </md-input-container>
     </div>
@@ -74,14 +35,18 @@
       <h4>Order by </h4>
       <md-input-container>
         <md-select ng-model="order">
-          <md-option value="new" selected>Newly first</md-option>
-          <md-option value="old">Older</md-option>
-          <md-option value="fav">Most Fav</md-option>
-          <md-option value="com">Most Commented</md-option>
+          <md-option value="new" selected>New first</md-option>
+          <md-option value="old">Old First</md-option>
+          <md-option value="fav">Most Liked</md-option>
+          <md-option value="com">Most commented</md-option>
         </md-select>
       </md-input-container>
     </div>
+    <a href="#/{{name}}">
+      <md-button class=" back-button md-raised md-accent"> My profile </md-button>
+    </a>
   </div>
+
 
   <md-grid-list md-cols-sm="1" md-cols-md="5" md-cols-lg="7" md-cols-gt-lg="7" md-gutter-gt-md="16px" md-gutter-md="8px" md-gutter="4px" md-row-height="100px">
     <md-grid-tile ng-repeat="tile in news" style="background-image:url('{{tile.main}}')" md-rowspan="{{rowSpan(tile.fav_nb)}}" md-colspan="{{colSpan(tile.fav_nb)}}">
@@ -90,7 +55,7 @@
           <i class="fa fa-external-link" aria-hidden="true"></i>
         </md-button>
         <img class="avatar" src="{{tile.avatar}}">
-        <p>By <a class="name" href="#/tansu/:{{tile.name}}">{{tile.name}}</a></p>
+        <p>By <a class="name" href="#/tansu/{{tile.name}}">{{tile.name}}</a></p>
       </div>
     </md-grid-tile>
   </md-grid-list>
