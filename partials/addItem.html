@@ -2,8 +2,8 @@
 	<h2>Add new item</h2>
 	<p>
 		<md-radio-group ng-model="item.sex">
-			<md-radio-button value="male"> Male</md-radio-button>
-			<md-radio-button value="female"> Female</md-radio-button>
+			<md-radio-button value="1"> Male</md-radio-button>
+			<md-radio-button value="0"> Female</md-radio-button>
 		</md-radio-group>
 
 	</p>
@@ -16,55 +16,41 @@
 
 	</p>
 	
-	<div class="md-padding" ng-cloak ng-if="item.sex === 'female' && item.what === 'kimono'" class="animate-if">
+	<div class="md-padding" ng-cloak ng-if="item.sex === '0' && item.what === 'kimono'" class="animate-if">
 		<md-input-container>
 			<label>What kind ?</label>
 			<md-select ng-model="kimonoStyle">
-				<md-option value="furisode">Furisode</md-option>
-				<md-option value="tomesode">Tomesode</md-option>
-				<md-option value="houmongi">Houmongi</md-option>
-				<md-option value="Iromuji">Iromuji</md-option>
-				<md-option value="Komon">Komon</md-option>
-				<md-option value="yukata">Yukata</md-option>
-				<md-option value="kakeshita">Kakeshita</md-option>
-				<md-option value="uchikake">Uchikake</md-option>
+				<md-option ng-repeat="style in styles |filter:{Gender:false, ItemType:1}" value="{{style.Id}}">{{style.Name}}</md-option>
 			</md-select>
 		</md-input-container>
 	</div>
 	</div>
 
-	<div class="md-padding" ng-cloak ng-if="item.sex === 'male' && item.what==='kimono'">
+	<div class="md-padding" ng-cloak ng-if="item.sex === '1' && item.what==='kimono'">
 		<md-input-container>
 			<label>What kind ?</label>
 			<md-select ng-model="kimonoStyle">
-				<md-option value="Iromuji">Iromuji</md-option>
-				<md-option value="Komon">Komon</md-option>
-				<md-option value="yukata">Yukata</md-option>
+				<md-option ng-repeat="style in styles |filter:{Gender:true, ItemType:1}" value="{{style.Id}}">{{style.Name}}</md-option>
 			</md-select>
 		</md-input-container>
 	</div>
 
 
-	<div class="md-padding" ng-cloak ng-if="item.sex === 'female' && item.what==='obi'">
+	<div class="md-padding" ng-cloak ng-if="item.sex === '0' && item.what==='obi'">
 		<md-input-container>
 			<label>What kind ?</label>
 			<md-select ng-model="obiStyle">
-				<md-option value="karu">Maru</md-option>
-				<md-option value="fukuro">Fukuro</md-option>
-				<md-option value="nagoya">Nagoya</md-option>
-				<md-option value="hanhaba">Hanhaba</md-option>
-				<md-option value="heko">Heko</md-option>
+				<md-option ng-repeat="style in styles |filter:{Gender:false, ItemType:2}" value="{{style.Id}}">{{style.Name}}</md-option>
 			</md-select>
 		</md-input-container>
 	</div>
 
 
-	<div class="md-padding" ng-cloak ng-if="item.sex === 'male' && item.what==='obi'">
+	<div class="md-padding" ng-cloak ng-if="item.sex === '1' && item.what==='obi'">
 		<md-input-container>
 			<label>What kind ?</label>
 			<md-select ng-model="obiStyle">
-				<md-option value="karu">Kaku</md-option>
-				<md-option value="heko">Heko</md-option>
+				<md-option ng-repeat="style in styles |filter:{Gender:true, ItemType:2}" value="{{style.Id}}">{{style.Name}}</md-option>
 			</md-select>
 		</md-input-container>
 	</div>
@@ -72,18 +58,7 @@
 	<md-input-container>
 		<label>What color ?</label>
 		<md-select ng-if="item.sex && item.what" class="editColor" ng-model="colorItem">
-			<md-option value="black">Black</md-option>
-			<md-option value="grey">Grey</md-option>
-			<md-option value="white">White</md-option>
-			<md-option value="blue">Blue</md-option>
-			<md-option value="purple">Purple</md-option>
-			<md-option value="pink">Pink</md-option>
-			<md-option value="red">Red</md-option>
-			<md-option value="orange">Orange</md-option>
-			<md-option value="yellow">Yellow</md-option>
-			<md-option value="green">Green</md-option>
-			<md-option value="gold">Gold</md-option>
-			<md-option value="silver">Silver</md-option>
+			<md-option ng-repeat="color in colors" value="{{color.Id}}">{{color.Name}}</md-option>
 		</md-select>
 	</md-input-container>
 	
@@ -133,12 +108,12 @@
 		</fieldset>
 	</div>
 	<div>
-		<input class="ng-hide" id="input-file-id" type="file" ng-file-select="onFileSelect($files)" my-var="imageSrc" />
+		<input class="ng-hide" id="input-file-id" type="file" accept="image/*" ng-file-select="onFileSelect($files)" my-var="imageSrc" />
 		<label for="input-file-id" class="md-button md-raised md-warn">Photo</label>
 	</div>
 	<img class="overview" ng-if='imageSrc' ng-src="{{imageSrc}}" />
 	<div>
-		<md-button class=" upload-button md-raised md-warn"> Upload </md-button>
+		<md-button class=" upload-button md-raised md-warn" ng-click="newItemAdd()"> Upload </md-button>
 	</div>
 	<a href="#/tansu/:{{profile.pseudo}}/edit">
 		<md-button class=" back-button md-raised md-accent"> Back to edit </md-button>
