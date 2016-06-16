@@ -1,7 +1,7 @@
 tansu.controller('editController', function($scope, $rootScope, $http, fileReader) {
   $rootScope.loading = true;
 
-// ----------------- CHARGEMENT DES ELEMENTS ---------------------- //
+  // ----------------- CHARGEMENT DES ELEMENTS ---------------------- //
 
   $http.get("edit.json")
     .then(function(res) {
@@ -45,7 +45,7 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
       return res.data.GetMotifsResult;
     });
 
-    $rootScope.loading = true;
+  $rootScope.loading = true;
 
   $http.get("http://tansuservice.apphb.com/tansuservice.svc/GetColors", {
       "withCredentials": false
@@ -55,7 +55,7 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
       $scope.colors = res.data.GetColorsResult;
       return res.data.GetColorsResult;
     });
-    $rootScope.loading = true;
+  $rootScope.loading = true;
 
   $http.get("http://tansuservice.apphb.com/tansuservice.svc/GetStyles", {
       "withCredentials": false
@@ -69,7 +69,7 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
 
 
 
-//------------------AJOUT DE L'ITEM ---------------------//
+  //------------------AJOUT DE L'ITEM ---------------------//
 
 
   $scope.newItemAdd = function() {
@@ -97,23 +97,31 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
             // console.log($rootScope.photo);
             $rootScope.loading = true;
             $http({
-              method: 'PUT',
+              method: 'POST',
               url: 'http://tansuservice.apphb.com/tansuservice.svc/AddItem',
               headers: {
                 'Content-Type': false
               },
               withCredentials: false,
+              transformRequest: function(data) {
+                var formData = new FormData();
+                formData.append("newItem", angular.toJson(data.newItem));
+                formData.append("motifs", angular.toJson(data.motifs));
+                formData.append("fileContents", data.fileContents);
+                return formData;
+              },
               data: {
                 "newItem": {
                   "Directory": "",
-                  "Gender": $scope.item.sex,
-                  "Main": $rootScope.photo,
-                  "style": $scope.item.style,
+                  "Gender": false,
+                  "Main": 0,
+                  "Style": parseInt($scope.item.style),
                   "UserId": 8,
-                  "What": $scope.item.what,
-                  "Color": $scope.item.color
+                  "What": parseInt($scope.item.what),
+                  "Color": parseInt($scope.item.color)
                 },
-                "motifs": $scope.selection
+                "motifs": $scope.selection,
+                "fileContents": $rootScope.photo
               }
 
             }).success(function(res) {
@@ -158,21 +166,20 @@ tansu.directive("ngFileSelect", function(fileReader, $timeout, $rootScope) {
     scope: {
       myVar: '='
     },
-    link: function($scope, el) {
-      function getFile(file) {
-        fileReader.readAsDataUrl(file, $scope)
+    link: function(scope, el, attrs) {
+      el.bind('change', function(e) {
+        var file = (e.srcElement || e.target).files[0];
+        if(file.size >  1000000){
+          $scope.messageImage = "Too heavy file, please reduce your photo, 800px and 72dpi is enough :)";
+        }
+        $rootScope.photo = file;
+        fileReader.readAsDataUrl(file, scope)
           .then(function(result) {
             $timeout(function() {
-              $scope.myVar = result;
-              $rootScope.photo = result;
+              scope.myVar = result;
             });
           });
-      }
-
-      el.bind("change", function(e) {
-        var file = (e.srcElement || e.target).files[0];
-        getFile(file);
       });
     }
-  };
+  }
 });

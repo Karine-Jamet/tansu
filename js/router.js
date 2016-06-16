@@ -96,7 +96,7 @@ tansu.controller('navController', function($scope, $rootScope, $http) {
         $scope.fail = true;
         $scope.pseudo = "";
         $scope.password = "";
-        window.location = "/tansu";
+        // window.location = "/tansu";
       }
     );
 
