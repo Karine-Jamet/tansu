@@ -1,132 +1,120 @@
-nav{
-	height : 75px;
-	padding-top : 6px;
-	margin-bottom : 40px;
-	background-color: #490a3d;
-	padding-bottom : 10px;
-
+nav {
+  height: 75px;
+  padding-top: 6px;
+  margin-bottom: 40px;
+  background-color: #490a3d;
+  padding-bottom: 10px;
 }
-
 
 /*-------------        Titre           ------------------*/
-nav h1{
-	margin-top:0;
-	vertical-align:middle;
-	text-align: left;
-	color:  #f8ca00;
-	font-size : 35px;
-	font-family: 'Philosopher', sans-serif;
-	display:inline;
-}
-nav img{
-	height : 50px;
-	width: auto;
-	margin:auto;
-	vertical-align:middle;
-	margin-left:50px;
 
+nav h1 {
+  margin-top: 0;
+  vertical-align: middle;
+  text-align: left;
+  color: #f8ca00;
+  font-size: 35px;
+  font-family: 'Philosopher', sans-serif;
+  display: inline;
 }
-
+nav img {
+  height: 50px;
+  width: auto;
+  margin: auto;
+  vertical-align: middle;
+  margin-left: 50px;
+}
 nav .titre {
-	padding-top : 5px;
-	display:inline-block;
-	float: left;
-
-
+  padding-top: 5px;
+  display: inline-block;
+  float: left;
 }
-
 
 /*-------------        block login           ------------------*/
 
-nav .not_connected{
-	display: inline-block;
-	width : 80vw;
-	float:right;
+nav .not_connected {
+  display: inline-block;
+  width: 80vw;
+  float: right;
 }
-
 nav .fail {
-	outline : 2px solid red;
+  outline: 2px solid red;
 }
 nav .failMessage {
-	vertical-align : middle;
-	color : red;
-	padding-top:9px;
+  vertical-align: middle;
+  color: red;
+  padding-top: 9px;
 }
-
 nav p {
-	display: inline;
-	text-align: center;
-	color: rgba(255,255,255,0.9);
-	text-decoration : none;
-	margin-left: 140px;
-	font-size : 20px;
-	padding :10px;
-	vertical-align:middle;
-	margin: auto;
-	float : left;
-	padding-top : 20px;
+  display: inline;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  margin-left: 140px;
+  font-size: 20px;
+  padding: 10px;
+  vertical-align: middle;
+  margin: auto;
+  float: left;
+  padding-top: 20px;
 }
-
-
 nav form {
-	float: right;
-	display : inline-block;
-	padding-top:5px;
-	}
-
+  float: right;
+  display: inline-block;
+  padding-top: 5px;
+}
 nav input {
-	text-align:center;
-	display:inline-block;
-	margin :10px;
-	line-height:15px;
-	font-size : 15px;
-	color : black;
-
+  text-align: center;
+  display: inline-block;
+  margin: 10px;
+  line-height: 15px;
+  font-size: 15px;
+  color: black;
 }
-
 nav input[type=submit] {
-
-	line-height:30px;
-	line-height:30px;
-	color : #f8ca00;
-	background-image: linear-gradient(#bd1550,#7F3571);
-	box-shadow:none;
-	border:1px solid #bd1550;
-	border-radius:3px;
-	vertical-align:middle;
+  line-height: 30px;
+  line-height: 30px;
+  color: #f8ca00;
+  background-image: linear-gradient(#bd1550, #7F3571);
+  box-shadow: none;
+  border: 1px solid #bd1550;
+  border-radius: 3px;
+  vertical-align: middle;
 }
-
-
-
 
 /*-------------        block menu           ------------------*/
 
-nav .connected{
-	display: inline-block;
-	width : 80vw;
-	float:right;
+nav .connected {
+  display: inline-block;
+  width: 80vw;
+  float: right;
 }
-
 nav a {
-	float: right;
-	color: rgba(255,255,255,0.9);
-	text-decoration : none;
-	margin-right:50px;
-	font-size : 20px;
-	padding :10px;
-	padding-top : 23px;
-
+  float: right;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  margin-right: 50px;
+  font-size: 20px;
+  padding: 10px;
+  padding-top: 23px;
 }
-
-nav .connected > a:hover{
-	color: rgba(255,255,255,0.9);
-
+nav .connected > a:hover {
+  color: rgba(255, 255, 255, 0.9);
 }
-
-nav a.md-default-theme:not(.md-button), nav a:not(.md-button){
-	color: rgba(255,255,255,0.9);
+nav a.md-default-theme:not(.md-button), nav a:not(.md-button) {
+  color: rgba(255, 255, 255, 0.9);
 }
-
 nav .fa {
-	color:#f8ca00;
+  color: #f8ca00;
+}
+
+/*----------Side NAV --------------*/
+
+.md-toolbar-tools {
+  background-color: purple;
+}
+md-toolbar .md-button.md-fab.md-mini {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }

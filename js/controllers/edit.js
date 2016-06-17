@@ -160,6 +160,7 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
 // ---------------- DIRECTIVE POUR LE FICHIER ---------------- //
 
 
+
 tansu.directive("ngFileSelect", function(fileReader, $timeout, $rootScope) {
   return {
 

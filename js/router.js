@@ -66,61 +66,6 @@ tansu.config(function($mdThemingProvider, $httpProvider) {
 });
 
 
-tansu.controller('navController', function($scope, $rootScope, $http) {
-  $scope.connexion = false;
-  $rootScope.connexionAll = false;
-  $rootScope.loading = false;
-
-  $scope.login = function(x, y) {
-    $rootScope.loading = true;
-    $http.post('http://tansuservice.apphb.com/tansuservice.svc/Login', {
-      "userName": x,
-      "passWord": y
-    }, {
-      "withCredentials": false
-    }).then(
-      function(response) {
-        $rootScope.loading = false;
-        $scope.connexion = true;
-        $rootScope.connexionAll = true;
-        $scope.name = x;
-        $rootScope.name = x;
-
-        $scope.fail = false;
-        window.location = "#/" + x;
-
-      },
-      function(response) {
-        $rootScope.loading = false;
-        $scope.message = "Fail to login, try again"
-        $scope.fail = true;
-        $scope.pseudo = "";
-        $scope.password = "";
-        // window.location = "/tansu";
-      }
-    );
-
-  }
-  $scope.logout = function(x) {
-    $rootScope.loading = true;
-    $http.get('http://tansuservice.apphb.com/tansuservice.svc/Out')
-      .then(
-        function(response) {
-          $rootScope.loading = false;
-          $scope.connexion = false;
-          $rootScope.connexionAll = false;
-
-          $scope.fail = false;
-          window.location = "/tansu";
-        },
-        function(response) {
-          $rootScope.loading = false;
-          window.location = "/tansu";
-        }
-      );
-  }
-
-});
 
 
 tansu.directive('head', ['$rootScope', '$compile',
