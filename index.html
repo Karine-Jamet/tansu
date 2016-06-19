@@ -39,7 +39,7 @@
 		</div>
 		<div class="connected" ng-if="connexionAll">
 			<p>Welcome {{name}}!</p>
-			<a ><i ng-click="toggleRight()" class="fa fa-ellipsis-v"></i></a>
+			<a class="ellipse" ng-click="toggleRight()" ><i class="fa fa-ellipsis-h"></i></a>
 			<a href="#/{{name}}/browse"> <i class="fa fa-search"></i> Browse </a>
 			<a href="#"> <i class="fa fa-star-o"></i> Favoris </a>
 			<a href="#/tansu/{{name}}/edit"> <i class="fa fa-pencil"></i> Edit </a>
@@ -51,11 +51,11 @@
 					</md-button>
 			</md-toolbar>
 			<md-content  layout-padding>
-				<a href="/tansu"> Lexique </a>
-				<a href="/tansu"> Contact </a>
-				<a href="/tansu"> Donate </a>
-				<a href="/tansu"> Terms of use </a>
-				<a href="/tansu" ng-click="logout()"> Logout </a>
+				<a href="/tansu"><md-button class="md-accent"> glossary </md-button></a>
+				<a href="/tansu"><md-button class="md-accent"> Contact </md-button></a>
+				<a href="/tansu"> <md-button class="md-accent">Donate </md-button></a>
+				<a href="/tansu"> <md-button class="md-accent">Terms of use</md-button> </a>
+				<a href="/tansu" ng-click="logout()"><md-button class="md-accent"> Logout </a>
 
 			</md-content>
 		</md-sidenav>

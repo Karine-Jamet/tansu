@@ -53,12 +53,21 @@ tansu.config(['$routeProvider',
 
 tansu.config(function($mdThemingProvider, $httpProvider) {
   $httpProvider.defaults.withCredentials = true;
+  
+    var neonPurpleMap = $mdThemingProvider.extendPalette('purple', {
+ 'A700' : '#40000d'
+
+  });
+  
+   $mdThemingProvider.definePalette('darkPurple', neonPurpleMap);
+
+  
   $mdThemingProvider.theme('default')
     .primaryPalette('orange', {
       'default': '900'
     })
-    .accentPalette('deep-purple', {
-      'default': '800'
+    .accentPalette('darkPurple',{
+      'default': '900'
     })
     .warnPalette('pink', {
       'default': '800'

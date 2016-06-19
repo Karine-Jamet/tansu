@@ -89,7 +89,7 @@ nav .connected {
   width: 80vw;
   float: right;
 }
-nav a {
+nav .connected a {
   float: right;
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
@@ -98,23 +98,42 @@ nav a {
   padding: 10px;
   padding-top: 23px;
 }
-nav .connected > a:hover {
+nav .connected .connected > a:hover {
   color: rgba(255, 255, 255, 0.9);
 }
-nav a.md-default-theme:not(.md-button), nav a:not(.md-button) {
+nav .connected a.md-default-theme:not(.md-button), nav .connected a:not(.md-button) {
   color: rgba(255, 255, 255, 0.9);
 }
 nav .fa {
   color: #f8ca00;
 }
 
+nav .ellipse {
+	width : 50px;
+	height : 50px;
+	text-align:center;
+}
+
+nav .ellipse:hover {
+	cursor:pointer;
+}
+
+
+
 /*----------Side NAV --------------*/
 
 .md-toolbar-tools {
-  background-color: purple;
+  background-color: #490a3d;
 }
 md-toolbar .md-button.md-fab.md-mini {
   position: absolute;
   top: 5px;
   right: 5px;
 }
+
+md-sidenav md-content a {
+	display:block;
+	text-align: center;
+}
+
+
