@@ -41,6 +41,10 @@ tansu.config(['$routeProvider',
       templateUrl: 'partials/rmKitsuke.html',
       controller: 'editController',
       css: "css/editrmKitsuke.css"
+    }).when('/tansu/:user/glossary', {
+      templateUrl: 'partials/glossary.html',
+      controller: 'editController',
+      css: "css/glossary.css"
     }).otherwise({
       redirectTo: '/'
     });

@@ -12,6 +12,7 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
       $scope.nb_kitsuke = res.data.kitsukes.length;
       $scope.kimonos = res.data.kimonos;
       $scope.obis = res.data.obis;
+      $rootScope.photo = "";
 
       return res.data;
 
@@ -89,12 +90,6 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
           console.log($rootScope.photo);
           if ($rootScope.photo) {
 
-            console.log($scope.item.sex);
-            console.log($scope.item.what);
-            console.log($scope.item.style);
-            console.log($scope.item.color);
-            console.log($scope.selection);
-            // console.log($rootScope.photo);
             $rootScope.loading = true;
             $http({
               method: 'POST',
@@ -153,7 +148,30 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
 
   }
 
+  //------------------AJOUT DU KITSUKE ---------------------//
+$scope.newItemDescription = "";
+  $scope.addKitsuke = function() {
+
+    if ($scope.profile.obiChose > 0 || $scope.profile.kimonoChose > 0) {
+      if ($scope.newItemDescription === "" || $scope.newItemDescription   ) {
+        if($rootScope.photo){
+
+          console.log("ready to upload");
+
+        }else{
+          $scope.message="Please chose an image";
+        }
+
+      } else {
+        $scope.message = "The description is too long";
+      }
+    } else {
+      $scope.message = "Choose at least one item";
+    }
+  }
+
 });
+
 
 
 
@@ -170,7 +188,7 @@ tansu.directive("ngFileSelect", function(fileReader, $timeout, $rootScope) {
     link: function(scope, el, attrs) {
       el.bind('change', function(e) {
         var file = (e.srcElement || e.target).files[0];
-        if(file.size >  1000000){
+        if (file.size > 1000000) {
           $scope.messageImage = "Too heavy file, please reduce your photo, 800px and 72dpi is enough :)";
         }
         $rootScope.photo = file;

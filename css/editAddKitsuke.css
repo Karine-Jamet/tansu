@@ -3,11 +3,20 @@ section{
 }
 
 section img {
-	
+
 	height:100px;
 	width : auto;
-	
+	text-align: center;
+	display: block;
+	margin: auto;
+
 }
+
+.message {
+	color:red;
+	font-weight: bold;
+}
+
 
 md-radio-button{
 	display : inline-block;
@@ -23,10 +32,10 @@ md-radio-button{
 
 .back-button{
 	margin-top : 5%;
-	
+
 }
 
 h2 {
 	margin-bottom : 35px;
-	
+
 }
