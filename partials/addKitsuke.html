@@ -1,59 +1,52 @@
-
 <section class="inlineSection addOutfit">
 	<h2>Add new kitsuke</h2>
 
-<md-input-container>
-	 <label>Which Kimono ?</label>
-	 <md-select ng-model="kimono.style" >
-		 <md-option ng-repeat="style in styles | filter:{Gender:false, ItemType:1}" value="{{style.Name}}">{{style.Name}}</md-option>
-	 </md-select>
-		</md-input-container>
+	<md-input-container>
+		<label>Which Kimono ?</label>
+		<md-select ng-model="kimono.style">
+			<md-option ng-repeat="style in styles | filter:{Gender:false, ItemType:1}" value="{{style.Name}}">{{style.Name}}</md-option>
+		</md-select>
+	</md-input-container>
 
-		<div>
+	<div>
 		<md-radio-group ng-if="kimono.style" ng-model="item.what">
-			 <md-radio-button ng-repeat="kimono in profile.kimonos |filter:kimono.style track by $index "
-                       ng-value="$index"
-                       aria-label="{{kimono.id}}">
+			<md-radio-button ng-repeat="kimono in profile.kimonos |filter:kimono.style track by $index " ng-value="$index" aria-label="{{kimono.id}}">
 				<img ng-src="{{kimono.main}}" />
 			</md-radio-button>
 		</md-radio-group>
-		</div>
+	</div>
 
 
+	<md-input-container>
+		<label>Which obi ?</label>
+		<md-select ng-model="obi.style">
+			<md-option ng-repeat="style in styles |filter:{Gender:false, ItemType:2}" value="{{style.Name}}">{{style.Name}}</md-option>
+			<md-option value="Kaku">Kaku</md-option>
+		</md-select>
+	</md-input-container>
 
-<md-input-container>
- <label>Which obi ?</label>
- <md-select ng-model="obi.style">
-	 <md-option ng-repeat="style in styles |filter:{Gender:false, ItemType:2}" value="{{style.Name}}">{{style.Name}}</md-option>
-	 <md-option value="Kaku">Kaku</md-option>
- </md-select>
-
-
-</md-input-container>
-<div>
-	<md-radio-group ng-if="obi.style" ng-model="item.what">
-		<md-radio-button ng-repeat="obi in profile.obis | filter:obi.style track by $index "
-                   ng-value="$index"
-                   aria-label="{{obi.id}}">
-			<img ng-src="{{obi.main}}" >
-		</md-radio-button>
-	</md-radio-group>
-</div>
+	<div>
+		<md-radio-group ng-if="obi.style" ng-model="item.what">
+			<md-radio-button ng-repeat="obi in profile.obis | filter:obi.style track by $index " ng-value="$index" aria-label="{{obi.id}}">
+				<img ng-src="{{obi.main}}">
+			</md-radio-button>
+		</md-radio-group>
+	</div>
 
 
 	<md-input-container class=" descriptionNewItem md-block">
-          <label>Description</label>
-          <textarea ng-model="newItemDescription" md-maxlength="300" rows="5" md-select-on-focus></textarea>
-        </md-input-container>
+		<label>Description</label>
+		<textarea ng-model="newItemDescription" md-maxlength="300" rows="5" md-select-on-focus></textarea>
+	</md-input-container>
 
-<input class="ng-hide" id="input-file-id" accept="image/*" type="file" ng-file-select="onFileSelect($files)" my-var="imageSrcNewItem" />
-<label for="input-file-id" class="md-button md-raised md-warn">Photo</label>
-</div>
-<img class="overview" ng-if='imageSrcNewItem' ng-src="{{imageSrcNewItem}}" />
-<div>
-	<md-button class="md-raised md-warn"> Upload </md-button>
-</div>
+	<input class="ng-hide" id="input-file-id" accept="image/*" type="file" ng-file-select="onFileSelect($files)" my-var="imageSrcNewItem" />
+	<label for="input-file-id" class="md-button md-raised md-warn">Photo</label>
+	</div>
+	<img class="overview" ng-if='imageSrcNewItem' ng-src="{{imageSrcNewItem}}" />
+	<div>
+		<md-button class="md-raised md-warn"> Upload </md-button>
+	</div>
 	<a href="#/tansu/{{profile.pseudo}}/edit">
-	<md-button class=" back-button md-raised md-accent"> Back to edit </md-button>
+		<md-button class=" back-button md-raised md-accent"> Back to edit </md-button>
 	</a>
 </section>

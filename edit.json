@@ -10,12 +10,12 @@
 	{
 	"id":2,
 	"style":"Furisode",
-	"main":"images/main/IMG_6061.jpg"
+	"main":"images/main/furisode_04.JPG"
 	},
 	{
 	"id":3,
-	"style":"Tomesode",
-	"main":"images/main/IMG_6061.jpg"
+	"style":"Furisode",
+	"main":"images/main/furisode_03.JPG"
 	}],
 "obis": [
 	{
@@ -25,13 +25,13 @@
 	},
 	{
 	"id":2,
-	"style":"Maru",
-	"main":"images/main/IMG_6334.jpg"
+	"style":"Fukuro",
+	"main":"images/main/obi01.jpg"
 	},
 	{
 	"id":3,
 	"style":"Nagoya",
-	"main":"images/main/IMG_6334.jpg"
+	"main":"images/main/obi10.jpg"
 	}],
 "kitsukes" : [
 	{

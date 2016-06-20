@@ -79,3 +79,12 @@ md-dialog md-input-container.md-block {
   float: left;
   padding-right: 15px;
 }
+
+.modalImgContainer{
+  display: inline-block;
+  height: 80vh;
+  width: 35vw;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
