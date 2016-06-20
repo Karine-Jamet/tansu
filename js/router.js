@@ -59,7 +59,7 @@ tansu.config(function($mdThemingProvider, $httpProvider) {
   $httpProvider.defaults.withCredentials = true;
   
     var neonPurpleMap = $mdThemingProvider.extendPalette('purple', {
- 'A700' : '#40000d'
+	'A700' : '#40000d'
 
   });
   
