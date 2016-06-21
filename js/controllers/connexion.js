@@ -10,14 +10,14 @@
 	      }, {
 	        "withCredentials": false
 	      }).then(
-	        function(response) {	
+	        function(response) {
 	          $rootScope.loading = false;
 	          $scope.connexion = true;
 	          $rootScope.connexionAll = true;
 	          $scope.name = $scope.pseudo;
 	          $scope.fail = false;
 	          $rootScope.connexionAll = true;
-	          window.location = "#/tansu/" + $scope.name;
+	          window.location = "#/profile/" + $scope.name;
 	        },
 	        function(response) {
 	          $rootScope.loading = false;

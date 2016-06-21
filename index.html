@@ -39,26 +39,41 @@
 		</div>
 		<div class="connected" ng-if="connexionAll">
 			<p>Welcome {{name}}!</p>
-			<a class="ellipse" ng-click="toggleRight()" ><i class="fa fa-ellipsis-h"></i></a>
+			<a class="ellipse" ng-click="toggleRight()"><i class="fa fa-ellipsis-h"></i> More </a>
 			<a href="#/{{name}}/browse"> <i class="fa fa-search"></i> Browse </a>
 			<a href="#"> <i class="fa fa-star-o"></i> Favoris </a>
 			<a href="#/tansu/{{name}}/edit"> <i class="fa fa-pencil"></i> Edit </a>
 		</div>
-		<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
-			<md-toolbar md-theme="dark" class="md-dark-theme">
-				<h1 class="md-toolbar-tools">More informations</h1>	<md-button ng-click="close()" class=" md-fab md-primary md-mini">
+		<div class="sidenavContainer" layout="vertical" layout-fill >
+			<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right" flex>
+				<md-toolbar md-theme="dark" class="md-dark-theme">
+					<h1 class="md-toolbar-tools">More informations</h1>
+					<md-button ng-click="close()" class=" md-fab md-primary md-mini">
 						X
 					</md-button>
-			</md-toolbar>
-			<md-content  layout-padding>
-				<a href="/tansu"><md-button class="md-accent"> glossary </md-button></a>
-				<a href="/tansu"><md-button class="md-accent"> Contact </md-button></a>
-				<a href="/tansu"> <md-button class="md-accent">Donate </md-button></a>
-				<a href="/tansu"> <md-button class="md-accent">Terms of use</md-button> </a>
-				<a href="/tansu" ng-click="logout()"><md-button class="md-accent"> Logout </a>
+				</md-toolbar>
+				<md-content layout-padding>
+					<a href="#/profile/{{name}}">
+						<md-button class="md-accent"> My profile </md-button>
+					</a>
+					<a href="#/glossary">
+						<md-button class="md-accent"> glossary </md-button>
+					</a>
+					<a href="/tansu">
+						<md-button class="md-accent"> Contact </md-button>
+					</a>
+					<a href="/tansu">
+						<md-button class="md-accent">Donate </md-button>
+					</a>
+					<a href="/tansu">
+						<md-button class="md-accent">Terms of use</md-button>
+					</a>
+					<a href="/tansu" ng-click="logout()">
+						<md-button class="md-accent"> Logout </a>
 
-			</md-content>
-		</md-sidenav>
+				</md-content>
+			</md-sidenav>
+		</div>
 	</nav>
 
 

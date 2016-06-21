@@ -13,7 +13,7 @@
 .browse .sort {
   display: inline-block;
   margin-left: 18px;
-  margin-top: -30px;
+  /*margin-top: -30px;*/
 }
 
 .browse .sortGender{

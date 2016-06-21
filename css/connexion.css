@@ -66,9 +66,7 @@ section form input[type=submit] {
 	border-radius:5px;
 	text-align:center;
 	margin:auto;
-	/*margin-top:10%;*/
-	padding-bottom: 35px;
-
+	margin-top:10%;
 }
 
 .titreRegister {
@@ -92,4 +90,5 @@ section form input[type=submit] {
 	background-size: contain;
 	margin-top: auto;
 	vertical-align: middle;
+	margin-top: 30px;
 }

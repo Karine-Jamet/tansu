@@ -13,7 +13,7 @@ tansu.config(['$routeProvider',
       controller: 'connexionController',
       css: "css/connexion.css"
     }).
-    when('/:user', {
+    when('/profile/:user', {
       templateUrl: 'partials/tansu.html',
       controller: 'tansuController',
       css: "css/tansu.css"
@@ -41,7 +41,7 @@ tansu.config(['$routeProvider',
       templateUrl: 'partials/rmKitsuke.html',
       controller: 'editController',
       css: "css/editrmKitsuke.css"
-    }).when('/tansu/:user/glossary', {
+    }).when('/glossary', {
       templateUrl: 'partials/glossary.html',
       controller: 'editController',
       css: "css/glossary.css"
@@ -57,20 +57,23 @@ tansu.config(['$routeProvider',
 
 tansu.config(function($mdThemingProvider, $httpProvider) {
   $httpProvider.defaults.withCredentials = true;
-  
-    var neonPurpleMap = $mdThemingProvider.extendPalette('purple', {
-	'A700' : '#40000d'
+
+  var neonPurpleMap = $mdThemingProvider.extendPalette('deep-purple', {
+
+    '600': '7F3571',
+    '700': '661D58',
+    '900': '490a3d'
 
   });
-  
-   $mdThemingProvider.definePalette('darkPurple', neonPurpleMap);
 
-  
+  $mdThemingProvider.definePalette('darkPurple', neonPurpleMap);
+
+
   $mdThemingProvider.theme('default')
     .primaryPalette('orange', {
       'default': '900'
     })
-    .accentPalette('darkPurple',{
+    .accentPalette('darkPurple', {
       'default': '900'
     })
     .warnPalette('pink', {

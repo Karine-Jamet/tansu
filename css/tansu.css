@@ -1,58 +1,50 @@
-
-section{
-	width:80%;
-	text-align:center;
-	margin:auto;
+section {
+  width: 80%;
+  text-align: center;
+  margin: auto;
 }
-
 md-grid-tile {
-	overflow:auto;
-	background-position : center;
-	background-size : cover;
+  overflow: auto;
+  background-position: center;
+  background-size: cover;
 }
-
-
-.kitsukeButton{
-	position:absolute;
-	left : 10px;
-	bottom : 10px;
+.md-button.md-fab.md-mini {
+  z-index: 1;
 }
-
-.kitsukeMini{
-	height:100px;
-	width : auto;
-	margin : 10px;
-	opacity:0;
-	display:none;
-	transition : opacity 0.3s ease-out;
+.kitsukeButton {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
 }
-
-.kitsukeMini:hover{
-	cursor:pointer;
+.kitsukeMini {
+  height: 100px;
+  width: auto;
+  margin: 10px;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s ease-out;
 }
-
-.closeButton{
-	opacity : 0;
-	transition : opacity 0.3s ease-out;
+.kitsukeMini:hover {
+  cursor: pointer;
 }
-
-.tileInside{
-	height : 100%;
-	width : 100%; 
-	background-color : rgba(255,255,255,0.4);
-	opacity:0;
-	transition : opacity 0.3s ease-out;
+.closeButton {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
 }
-
+.tileInside {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
 .showK {
-	display:inline-block;
-	opacity : 1;
-	transition : opacity 0.3s ease-in;
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
 }
-
-@media screen and (max-width: 1250px){
-	section{
-		width:90%;
-	}
+@media screen and (max-width: 1250px) {
+  section {
+    width: 90%;
+  }
 }
-

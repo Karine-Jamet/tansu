@@ -62,7 +62,7 @@ tansu.controller('navController', function($scope, $rootScope, $http, $mdSidenav
         $rootScope.name = x;
 
         $scope.fail = false;
-        window.location = "#/" + x;
+        window.location = "#/profile/" + x;
 
       },
       function(response) {
