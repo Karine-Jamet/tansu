@@ -1,0 +1,19 @@
+.news{
+  padding-left: 20vh;
+  padding-right: 20vh;
+}
+
+
+.shareNews{
+  width: 50vh;
+  padding : 20px;
+	box-shadow:1px 1px 5px #7F3571;
+	border-radius:5px;
+	margin:auto;
+}
+
+.shareNews h3{
+  color:'#490a3';
+  font-size: 20px;
+  font-family: 'mp';
+}

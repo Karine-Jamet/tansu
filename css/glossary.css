@@ -11,3 +11,7 @@
 .block h3 {
   text-align: center;
 }
+
+.block p {
+  text-align: left;
+}
