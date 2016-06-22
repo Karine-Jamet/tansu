@@ -17,6 +17,7 @@
 	          $scope.name = $scope.pseudo;
 	          $scope.fail = false;
 	          $rootScope.connexionAll = true;
+						  // handleRequest(response);
 	          window.location = "#/profile/" + $scope.name;
 	        },
 	        function(response) {
@@ -25,7 +26,8 @@
 	          $scope.fail = true;
 	          $scope.pseudo = "";
 	          $scope.password = "";
-	          window.location = "#/tansu/";
+						  // handleRequest(response);
+	          window.location = "/tansu";
 	        }
 	      );
 	    } else {

@@ -60,8 +60,9 @@ tansu.controller('navController', function($scope, $rootScope, $http, $mdSidenav
         $rootScope.connexionAll = true;
         $scope.name = x;
         $rootScope.name = x;
-
         $scope.fail = false;
+
+        // handleRequest(response);
         window.location = "#/profile/" + x;
 
       },
@@ -71,7 +72,8 @@ tansu.controller('navController', function($scope, $rootScope, $http, $mdSidenav
         $scope.fail = true;
         $scope.pseudo = "";
         $scope.password = "";
-        // window.location = "/tansu";
+        // handleRequest(response);
+        //window.location = "/tansu";
       }
     );
 

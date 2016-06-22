@@ -1,4 +1,4 @@
-tansu.controller('browseController', function($scope, $rootScope, $http, $timeout, $mdDialog, $mdMedia) {
+tansu.controller('browseController', function($scope, $rootScope, $http, $timeout, $mdDialog, $mdMedia, $q) {
 
 
   // ----------------- REQUETE --------------------//
@@ -37,6 +37,11 @@ tansu.controller('browseController', function($scope, $rootScope, $http, $timeou
     .then(function(res) {
       $rootScope.loading = false;
       $scope.motifs = res.data.GetMotifsResult;
+      $scope.motifs.map(function(veg) {
+        veg._lowername = veg.EnglishName.toLowerCase();
+        veg._lowertype = veg.JapaneseName.toLowerCase();
+        return veg;
+      });
 
       return res.data.GetMotifsResult;
     });
@@ -81,8 +86,68 @@ tansu.controller('browseController', function($scope, $rootScope, $http, $timeou
   }
 
 
+  //--------------  MOTIFS SEARCH ----------------------//
 
-//--------------- GESTION DE LA MODAL -----------------//
+  var self = $scope;
+  self.readonly = false;
+  self.selectedItem = null;
+  self.searchText = null;
+  self.querySearch = querySearch;
+  //self.vegetables = $scope.motifs;
+  self.selectedKimonoMotifs = [];
+  self.selectedObiMotifs = [];
+  self.numberChips = [];
+  self.numberChips2 = [];
+  self.numberBuffer = '';
+  self.autocompleteDemoRequireMatch = true;
+  self.transformChip = transformChip;
+  /**
+   * Return the proper object when the append is called.
+   */
+  function transformChip(chip) {
+    // If it is an object, it's already a known chip
+    if (angular.isObject(chip)) {
+      return chip;
+    }
+    // Otherwise, create a new one
+    return {
+      EnglishName: chip,
+      JapaneseName: 'X'
+    }
+  }
+  /**
+   * Search for vegetables.
+   */
+  function querySearch(query) {
+    var results = query ? $scope.motifs.filter(createFilterFor(query)) : [];
+    return results;
+  }
+  /**
+   * Create filter function for a query string
+   */
+  function createFilterFor(query) {
+    var lowercaseQuery = angular.lowercase(query);
+    return function filterFn(vegetable) {
+      return (vegetable._lowername.indexOf(lowercaseQuery) === 0) ||
+        (vegetable._lowertype.indexOf(lowercaseQuery) === 0);
+    };
+  }
+
+  //--------------- DEPLIAGE DU SEARCH -----------------//
+
+  $scope.messageSearch = "More details search";
+  $scope.searchShow = false;
+
+  $scope.showSearch = function() {
+    $scope.searchShow = !$scope.searchShow;
+    if ($scope.searchShow) {
+      $scope.messageSearch = "Less Search";
+    } else {
+      $scope.messageSearch = "More details search";
+    }
+  }
+
+  //--------------- GESTION DE LA MODAL -----------------//
 
 
   $scope.modalKitsukeOpen = function(ev, photoClicked) {

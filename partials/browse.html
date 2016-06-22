@@ -1,5 +1,5 @@
-<section class="browse">
-  <div class="sortBlock">
+<section class="browse" ng-class="{'showSearchSection':searchShow,'hideSearchSection':!searchShow}" >
+  <div class="sortBlock" ng-class="{'hideSearch':!searchShow}" >
     <div class="sort sortKimono">
       <h4>Kimono</h4>
       <md-input-container>
@@ -14,6 +14,21 @@
           <md-option ng-repeat="color in colors" value="{{color.Id}}">{{color.Name}}</md-option>
         </md-select>
       </md-input-container>
+
+      <md-chips ng-model="selectedKimonoMotifs" md-autocomplete-snap md-transform-chip="transformChip($chip)" md-require-match="autocompleteDemoRequireMatch" md-autoselect="true" md-max-chips=1>
+        <md-autocomplete ng-hide="selectedKimonoMotifs.length > 0" md-selected-item="selectedItem" md-search-text="searchText" md-items="item in querySearch(searchText)" md-item-text="item.name" placeholder="Search for motifs">
+          <span md-highlight-text="searchText">{{item.EnglishName}} // {{item.JapaneseName}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+          <span>
+      <strong>{{$chip.EnglishName}}</strong>
+      <em>({{$chip.JapaneseName}})</em>
+    </span>
+        </md-chip-template>
+      </md-chips>
+
+
+
     </div>
     <div class="sort sortObi">
       <h4>Obi</h4>
@@ -30,6 +45,18 @@
           <md-option ng-repeat="color in colors" value="{{color.Id}}">{{color.Name}}</md-option>
         </md-select>
       </md-input-container>
+
+      <md-chips ng-model="selectedObiMotifs" md-autocomplete-snap md-transform-chip="transformChip($chip)" md-require-match="autocompleteDemoRequireMatch" md-autoselect="true" md-max-chips=1 >
+        <md-autocomplete ng-hide="selectedObiMotifs.length > 0" md-selected-item="selectedItem" md-search-text="searchText" md-items="item in querySearch(searchText)" md-item-text="item.name" placeholder="Search for motifs">
+          <span md-highlight-text="searchText">{{item.EnglishName}} // {{item.JapaneseName}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+          <span>
+      <strong>{{$chip.EnglishName}}</strong>
+      <em>({{$chip.JapaneseName}})</em>
+    </span>
+        </md-chip-template>
+      </md-chips>
     </div>
     <div class="sort sortOther">
       <h4>Order by </h4>
@@ -42,6 +69,16 @@
         </md-select>
       </md-input-container>
     </div>
+    <md-button class="browseBtn md-fab md-warn" aria-label="Browse">
+      <i class="fa fa-search"></i>
+    </md-button>
+  <p class="toggle">
+  {{messageSearch}}
+<md-button ng-click="showSearch()" class=" md-fab md-warn md-mini" aria-label="Browse">
+  <i class="fa" ng-class="{'fa-arrow-down':!searchShow, 'fa-arrow-up':searchShow}" ></i>
+</md-button>
+    </p>
+
   </div>
 
 

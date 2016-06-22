@@ -32,3 +32,7 @@ md-progress-circular {
 	padding-bottom: 50px;
 	padding-top: 85px;
 }
+
+.layout-fill{
+	width: auto;
+}
