@@ -57,6 +57,10 @@ tansu.config(['$routeProvider',
       templateUrl: 'partials/glossary.html',
       controller: 'editController',
       css: "css/glossary.css"
+    }).when('/news', {
+      templateUrl: 'partials/news.html',
+      controller: 'newsController',
+      css: "css/news.css"
     }).otherwise({
       redirectTo: '/'
     });

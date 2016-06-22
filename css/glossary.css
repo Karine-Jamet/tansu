@@ -1,0 +1,13 @@
+.glossary{
+  text-align: center;
+}
+.block{
+  display: inline-block;
+  width: 30vw;
+  vertical-align: top;
+  padding: 20px;
+}
+
+.block h3 {
+  text-align: center;
+}

@@ -135,15 +135,15 @@ tansu.controller('browseController', function($scope, $rootScope, $http, $timeou
 
   //--------------- DEPLIAGE DU SEARCH -----------------//
 
-  $scope.messageSearch = "More details search";
+  $scope.messageSearch = "Looking for inspiration ?";
   $scope.searchShow = false;
 
   $scope.showSearch = function() {
     $scope.searchShow = !$scope.searchShow;
     if ($scope.searchShow) {
-      $scope.messageSearch = "Less Search";
+      $scope.messageSearch = "Close";
     } else {
-      $scope.messageSearch = "More details search";
+      $scope.messageSearch = "Looking for inspiration ?";
     }
   }
 
