@@ -4,13 +4,12 @@ nav {
   margin-bottom: 40px;
   background-color: #490a3d;
   padding-bottom: 10px;
-  position:fixed;
-  top:0;
-  left:0;
+  position: fixed;
+  top: 0;
+  left: 0;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
   width: 100vw;
   z-index: 2;
-
 }
 
 /*-------------        Titre           ------------------*/
@@ -51,6 +50,13 @@ nav .failMessage {
   vertical-align: middle;
   color: red;
   padding-top: 9px;
+  display: block;
+  float: none;
+  margin: 0px;
+  padding: 0;
+  font-size: 15px;
+  line-height: 6px;
+  margin-left: -110px;
 }
 nav p {
   display: inline;
@@ -123,10 +129,8 @@ nav .fa {
 }*/
 
 nav .ellipse:hover {
-	cursor:pointer;
+  cursor: pointer;
 }
-
-
 
 /*----------Side NAV --------------*/
 
@@ -138,19 +142,16 @@ md-toolbar .md-button.md-fab.md-mini {
   top: 5px;
   right: 15px;
 }
-md-sidenav{
+md-sidenav {
   height: 100vh;
 }
-
 md-sidenav md-content a {
-	display:block;
-	text-align: center;
+  display: block;
+  text-align: center;
 }
-
 nav md-sidenav .md-button.md-default-theme.md-accent, nav md-sidenav .md-button.md-accent {
   width: 100%;
 }
-
 md-backdrop.md-opaque {
   height: 100vh;
 }
