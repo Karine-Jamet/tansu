@@ -5,18 +5,6 @@ var tansu = angular.module('tansu', [
 
 ]);
 
-// function handleRequest(res) {
-//     var token = res.data ? res.data.token : null;
-//     if(token) { console.log('JWT:', token); }
-//     self.message = res.data.message;
-//   }
-//
-// function parseJwt(token) {
-//   var base64Url = token.split('.')[1];
-//   var base64 = base64Url.replace('-', '+').replace('_', '/');
-//   return JSON.parse($window.atob(base64));
-// }
-
 tansu.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.

@@ -1,0 +1,19 @@
+<section class="contact">
+  <h2>Contact</h2>
+  <md-input-container>
+    <label>Subject</label>
+    <md-select ng-model="mail.objet">
+      <md-option>Report a bug</md-option>
+      <md-option>Report a User</md-option>
+      <md-option>Question about Tansu</md-option>
+      <md-option>Share an idea to improve Tansu</md-option>
+      <md-option>Just say Hello</md-option>
+    </md-select>
+  </md-input-container>
+  
+  <md-input-container class="md-block text">
+    <label>Message</label>
+    <textarea ng-model="mail.text" md-maxlength="400" rows="5" md-select-on-focus></textarea>
+  </md-input-container>
+  <md-button class="md-raised md-warn" ng-click="send()">Send</md-button>
+</section>

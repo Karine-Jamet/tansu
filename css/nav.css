@@ -1,4 +1,5 @@
 nav {
+
     height: 75px;
     padding-top: 6px;
     margin-bottom: 40px;
@@ -10,6 +11,7 @@ nav {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
     width: 100vw;
     z-index: 2;
+
 }
 
 /*-------------        Titre           ------------------*/
@@ -47,9 +49,17 @@ nav .fail {
     outline: 2px solid red;
 }
 nav .failMessage {
-    vertical-align: middle;
-    color: red;
-    padding-top: 9px;
+  vertical-align: middle;
+  color: red;
+  padding-top: 9px;
+  display: block;
+  float: none;
+  margin: 0px;
+  padding: 0;
+  font-size: 15px;
+  line-height: 6px;
+  margin-left: -110px;
+
 }
 nav p {
     display: inline;
@@ -144,6 +154,7 @@ md-sidenav {
 md-sidenav md-content a {
     display: block;
     text-align: center;
+
 }
 nav md-sidenav .md-button.md-default-theme.md-accent, nav md-sidenav .md-button.md-accent {
     width: 100%;
