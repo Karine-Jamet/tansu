@@ -65,6 +65,10 @@ tansu.config(['$routeProvider',
       templateUrl: 'partials/contact.html',
       controller: 'contactController',
       css: "css/contact.css"
+    }).when('/login', {
+      templateUrl: 'partials/login.html',
+      controller: 'loginController',
+      css: "css/login.css"
     }).otherwise({
       redirectTo: '/'
     });

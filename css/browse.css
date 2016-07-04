@@ -1,103 +1,152 @@
 .browse .sortBlock {
-  text-align: center;
-  margin: auto;
-  width: 80vw;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 5px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-  margin-bottom: 50px;
-  position: fixed;
-  z-index: 1;
-  left: 10vw;
-  top: 60px;
-  transition: top 0.5s ease;
+    text-align: center;
+    margin: auto;
+    width: 80vw;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 50px;
+    position: fixed;
+    z-index: 1;
+    left: 10vw;
+    top: 60px;
+    transition: top 0.5s ease;
 }
 .browse .toggle {
-  position: absolute;
-  bottom: -8px;
-  right: 25px;
+    position: absolute;
+    bottom: -8px;
+    right: 25px;
 }
 .browse .hideSearch {
-  top: -160px;
-  transition: top 0.5s ease;
+    top: -160px;
+    transition: top 0.5s ease;
 }
 section .showSearchSection {
-  margin-top: 280px;
-  transition: all 0.5s ease;
+    margin-top: 280px;
+    transition: all 0.5s ease;
 }
 section .hideSearchSection {
-  margin-top: 70px;
-  transition: all 0.5s ease;
+    margin-top: 70px;
+    transition: all 0.5s ease;
 }
 .browse .avatar {
-  height: 30px;
+    height: 30px;
 }
 .browse .back-button {
-  margin-left: 20px;
+    margin-left: 20px;
 }
 .browse .sort {
-  display: inline-block;
-  margin-left: 18px;
-  padding-bottom: 30px;
+    display: inline-block;
+    margin-left: 18px;
+    padding-bottom: 30px;
 }
 .browse .md-chips ._md-chip-input-container md-autocomplete input {
-  text-align: center;
-  margin: auto;
+    text-align: center;
+    margin: auto;
 }
 .browse .sortGender {
-  vertical-align: top;
+    vertical-align: top;
 }
 .browse .sortGender h4 {
-  margin-bottom: 35px;
+    margin-bottom: 35px;
 }
 .browse .sort md-radio-button {
-  display: inline-block;
+    display: inline-block;
 }
 .browse md-grid-list {
-  width: 80vw;
-  margin: auto;
+    width: 80vw;
+    margin: auto;
 }
 .browse md-grid-tile {
-  background-position: center;
-  background-size: cover;
+    background-position: center;
+    background-size: cover;
 }
 .browse .info {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  width: 100%;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 100%;
 }
 .browse .info p {
-  display: inline-block;
-  color: white;
+    display: inline-block;
+    color: white;
 }
 .browse .info p a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
 }
 .browse .info p a:hover {
-  color: purple;
-  text-decoration: underline;
-  ;
-  font-weight: bold;
+    color: purple;
+    text-decoration: underline;
+    ;
+    font-weight: bold;
 }
 .browse .fa-search:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 .browse .fa-search {
-  color: white;
-  font-size: 25px;
-  margin-top: 16px;
+    color: white;
+    font-size: 25px;
+    margin-top: 16px;
 }
 .browse .browseBtn {
-  position: absolute;
-  top: 50%;
-  margin-top: -27px;
-  right: 70px;
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    right: 70px;
 }
 .md-button.md-fab.md-mini {
-  z-index: 0;
+    z-index: 0;
+}
+.main_content {
+    padding-bottom: 50px;
+    padding-top: 85px;
+    text-align: center;
+    margin: auto;
+}
+
+/******************** pour tablette ****************/
+
+@media screen and (max-width: 1280px) {
+    section {
+        width: 90%;
+    }
+    .browse md-grid-list {
+        width: 90vw
+    }
+    .browse .browseBtn {
+        position: relative;
+        top: 50%;
+        margin-top: 10px;
+        left: 0;
+    }
+    .browse .sortBlock {
+        width: 90vw;
+        left: 5vw;
+    }
+}
+
+/******************* pour telephone ****************/
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+    .browse .sortBlock {
+        width: 95vw;
+        left: 2.5vw;
+    }
+    .browse .sortKimono, .browse .sortObi {
+        width: 45vw;
+        margin-left: 0;
+    }
+    md-input-container {
+        display: block;
+    }
+    .browse .hideSearch {
+        top: -322px;
+    }
+    section .showSearchSection {
+        margin-top: 457px;
+    }
 }

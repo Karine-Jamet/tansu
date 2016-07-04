@@ -1,119 +1,121 @@
 nav {
-  height: 75px;
-  padding-top: 6px;
-  margin-bottom: 40px;
-  background-color: #490a3d;
-  padding-bottom: 10px;
-  position:fixed;
-  top:0;
-  left:0;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-  width: 100vw;
-  z-index: 2;
-
+    height: 75px;
+    padding-top: 6px;
+    margin-bottom: 40px;
+    background-color: #490a3d;
+    padding-bottom: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    width: 100vw;
+    z-index: 2;
 }
 
 /*-------------        Titre           ------------------*/
 
 nav h1 {
-  margin-top: 0;
-  vertical-align: middle;
-  text-align: left;
-  color: #f8ca00;
-  font-size: 35px;
-  font-family: 'Philosopher', sans-serif;
-  display: inline;
+    margin-top: 0;
+    vertical-align: middle;
+    text-align: left;
+    color: #f8ca00;
+    font-size: 35px;
+    font-family: 'Philosopher', sans-serif;
+    display: inline;
 }
 nav img {
-  height: 50px;
-  width: auto;
-  margin: auto;
-  vertical-align: middle;
-  margin-left: 50px;
+    height: 50px;
+    width: auto;
+    margin: auto;
+    vertical-align: middle;
+    margin-left: 50px;
 }
 nav .titre {
-  padding-top: 5px;
-  display: inline-block;
-  float: left;
+    padding-top: 5px;
+    display: inline-block;
+    float: left;
 }
 
 /*-------------        block login           ------------------*/
 
 nav .not_connected {
-  display: inline-block;
-  width: 80vw;
-  float: right;
+    display: inline-block;
+    width: 80vw;
+    float: right;
 }
 nav .fail {
-  outline: 2px solid red;
+    outline: 2px solid red;
 }
 nav .failMessage {
-  vertical-align: middle;
-  color: red;
-  padding-top: 9px;
+    vertical-align: middle;
+    color: red;
+    padding-top: 9px;
 }
 nav p {
-  display: inline;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  margin-left: 140px;
-  font-size: 20px;
-  padding: 10px;
-  vertical-align: middle;
-  margin: auto;
-  float: left;
-  padding-top: 20px;
+    display: inline;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    margin-left: 140px;
+    font-size: 20px;
+    padding: 10px;
+    vertical-align: middle;
+    margin: auto;
+    float: left;
+    padding-top: 20px;
 }
 nav form {
-  float: right;
-  display: inline-block;
-  padding-top: 5px;
-  margin-right: 20px;
+    float: right;
+    display: inline-block;
+    padding-top: 5px;
+    margin-right: 20px;
 }
 nav input {
-  text-align: center;
-  display: inline-block;
-  margin: 10px;
-  line-height: 15px;
-  font-size: 15px;
-  color: black;
+    text-align: center;
+    display: inline-block;
+    margin: 10px;
+    line-height: 15px;
+    font-size: 15px;
+    color: black;
 }
 nav input[type=submit] {
-  line-height: 30px;
-  line-height: 30px;
-  color: #f8ca00;
-  background-image: linear-gradient(#bd1550, #7F3571);
-  box-shadow: none;
-  border: 1px solid #bd1550;
-  border-radius: 3px;
-  vertical-align: middle;
+    line-height: 30px;
+    line-height: 30px;
+    color: #f8ca00;
+    background-image: linear-gradient(#bd1550, #7F3571);
+    box-shadow: none;
+    border: 1px solid #bd1550;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+nav .loginPhone {
+    display: none;
 }
 
 /*-------------        block menu           ------------------*/
 
 nav .connected {
-  display: inline-block;
-  width: 80vw;
-  float: right;
+    display: inline-block;
+    /*width: 80vw;*/
+    float: right;
 }
 nav .connected a {
-  float: right;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  margin-right: 50px;
-  font-size: 20px;
-  padding: 10px;
-  padding-top: 23px;
+    float: right;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    margin-right: 50px;
+    font-size: 20px;
+    padding: 10px;
+    padding-top: 23px;
 }
-nav .connected .connected > a:hover {
-  color: rgba(255, 255, 255, 0.9);
+nav .connected .connected> a:hover {
+    color: rgba(255, 255, 255, 0.9);
 }
 nav .connected a.md-default-theme:not(.md-button), nav .connected a:not(.md-button) {
-  color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9);
 }
 nav .fa {
-  color: #f8ca00;
+    color: #f8ca00;
 }
 
 /*nav .ellipse {
@@ -123,34 +125,64 @@ nav .fa {
 }*/
 
 nav .ellipse:hover {
-	cursor:pointer;
+    cursor: pointer;
 }
-
-
 
 /*----------Side NAV --------------*/
 
 .md-toolbar-tools {
-  background-color: #490a3d;
+    background-color: #490a3d;
 }
 md-toolbar .md-button.md-fab.md-mini {
-  position: absolute;
-  top: 5px;
-  right: 15px;
+    position: absolute;
+    top: 5px;
+    right: 15px;
 }
-md-sidenav{
-  height: 100vh;
+md-sidenav {
+    height: 100vh;
 }
-
 md-sidenav md-content a {
-	display:block;
-	text-align: center;
+    display: block;
+    text-align: center;
 }
-
 nav md-sidenav .md-button.md-default-theme.md-accent, nav md-sidenav .md-button.md-accent {
-  width: 100%;
+    width: 100%;
+}
+md-backdrop.md-opaque {
+    height: 100vh;
+}
+nav md-sidenav .menuPhone{
+  display: none;
 }
 
-md-backdrop.md-opaque {
-  height: 100vh;
+/********* Pour tablette et telephone ****************/
+
+@media screen and (min-width: 0px) and (max-width: 1023px) {
+    .welcome {
+        display: none;
+    }
+    nav .loginPhone {
+        display: block;
+        margin-right: 2em;
+    }
+    nav .loginDesk {
+        display: none;
+    }
+    nav .not_connected {
+        width: auto;
+        margin-top: 1em;
+    }
+
+
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  .menuCo{
+    display: none;
+  }
+
+  nav md-sidenav .menuPhone{
+    display: block;
+  }
+
 }

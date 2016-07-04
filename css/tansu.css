@@ -1,50 +1,62 @@
 section {
-  width: 80%;
-  text-align: center;
-  margin: auto;
+    width: 80%;
+    text-align: center;
+    margin: auto;
 }
 md-grid-tile {
-  overflow: auto;
-  background-position: center;
-  background-size: cover;
+    overflow: auto;
+    background-position: center;
+    background-size: cover;
 }
 .md-button.md-fab.md-mini {
-  z-index: 1;
+    z-index: 1;
 }
 .kitsukeButton {
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
 }
 .kitsukeMini {
-  height: 100px;
-  width: auto;
-  margin: 10px;
-  opacity: 0;
-  display: none;
-  transition: opacity 0.3s ease-out;
+    height: 100px;
+    width: auto;
+    margin: 10px;
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s ease-out;
 }
 .kitsukeMini:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 .closeButton {
-  opacity: 0;
-  transition: opacity 0.3s ease-out;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
 }
 .tileInside {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.4);
-  opacity: 0;
-  transition: opacity 0.3s ease-out;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
 }
 .showK {
-  display: inline-block;
-  opacity: 1;
-  transition: opacity 0.3s ease-in;
+    display: inline-block;
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
 }
-@media screen and (max-width: 1250px) {
-  section {
-    width: 90%;
-  }
+/******************** pour tablette ****************/
+@media screen and (max-width: 1280px) {
+    section {
+        width: 90%;
+    }
+}
+
+/******************* pour telephone ****************/
+@media screen and (min-width: 0px) and (max-width: 600px) {
+    md-grid-list md-grid-tile {
+        text-align: center;
+        margin: auto;
+        display: block;
+        height: 40%;
+        width: 100%;
+    }
 }

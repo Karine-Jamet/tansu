@@ -2,7 +2,7 @@
 
 	  $scope.register = function() {
 	    $rootScope.loading = true;
-	    if ($scope.ps === $scope.ps2 && $scope.ps) {
+	    if ($scope.ps) {
 	      $http.put('http://tansuservice.apphb.com/tansuservice.svc/SignUp', {
 	        "userName": $scope.pseudo,
 	        "passWord": $scope.ps,

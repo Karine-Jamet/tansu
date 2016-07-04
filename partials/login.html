@@ -1,0 +1,12 @@
+<section class="loginSection">
+  <form ng-submit="login(pseudo, password)">
+    <p class="failMessage">{{message}}</p>
+    <input type="text" name="pseudo" placeholder="Login" ng-class="{'fail':fail}" ng-model="pseudo" required />
+    <input type="password" name="password" placeholder="Password" ng-class="{'fail':fail}" ng-model="password" required />
+    <md-button class="md-raised md-warn" ng-click="login(pseudo, password)">Login</md-button>
+    <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity:0;">
+  </form>
+  <p>OR</p>
+
+    <a href="/tansu"><md-button class="md-raised md-warn" >Register</md-button></a>
+</section>

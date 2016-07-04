@@ -1,0 +1,36 @@
+.loginSection{
+  text-align: center;
+  margin: auto;
+
+}
+
+nav .loginPhone{
+  display: none;
+}
+
+form {
+  padding-top:  20px;
+}
+input {
+    text-align: center;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 15px;
+    font-size: 15px;
+    color: black;
+}
+
+
+nav .titre {
+  display: block;
+  width: 100vw;
+  text-align: center;
+  margin: auto;
+  float: none;
+}
+
+nav img {
+     margin-left: 0px;
+}

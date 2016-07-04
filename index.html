@@ -28,23 +28,26 @@
 		<div class="titre"><img src="images/logo.png">
 			<h1> Tansu </h1></div>
 		<div class="not_connected" ng-if="!connexionAll">
-			<p>Welcome in your Tansu!</p>
-			<form ng-submit="login(pseudo, password)">
+			<p class="welcome">Welcome in your Tansu!</p>
+			<form class="loginDesk" ng-submit="login(pseudo, password)">
 				<p class="failMessage">{{message}}</p>
 				<input type="text" name="pseudo" placeholder="Login" ng-class="{'fail':fail}" ng-model="pseudo" required />
 				<input type="password" name="password" placeholder="Password" ng-class="{'fail':fail}" ng-model="password" required />
 				<md-button class="md-raised md-warn" ng-click="login(pseudo, password)">Login</md-button>
 				<input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity:0;">
 			</form>
+			<a href="#/login">
+				<md-button class="md-raised md-warn loginPhone">Login</md-button>
+			</a>
 		</div>
 		<div class="connected" ng-if="connexionAll">
-			<p>Welcome {{name}}!</p>
+			<p  class="welcome" >Welcome {{name}}!</p>
 			<a class="ellipse" ng-click="toggleRight()"><i class="fa fa-ellipsis-h"></i> More </a>
-			<a href="#/{{name}}/browse"> <i class="fa fa-search"></i> Browse </a>
-			<a href="#"> <i class="fa fa-star-o"></i> Favoris </a>
-			<a href="#/tansu/{{name}}/edit"> <i class="fa fa-pencil"></i> Edit </a>
+			<a class="menuCo" href="#/{{name}}/browse"> <i class="fa fa-search"></i> Browse </a>
+
+			<a class="menuCo" href="#/tansu/{{name}}/edit"> <i class="fa fa-pencil"></i> Edit </a>
 		</div>
-		<div class="sidenavContainer" layout="vertical" layout-fill >
+		<div class="sidenavContainer" layout="vertical" layout-fill>
 			<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right" flex>
 				<md-toolbar md-theme="dark" class="md-dark-theme">
 					<h1 class="md-toolbar-tools">More informations</h1>
@@ -53,8 +56,17 @@
 					</md-button>
 				</md-toolbar>
 				<md-content layout-padding>
+					<a href="#/tansu/{{name}}/edit"	 class="menuPhone">
+						<md-button class="md-accent"> Edit </md-button>
+					</a>
+					<a href="#/{{name}}/browse" class="menuPhone">
+						<md-button class="md-accent"> Browse </md-button>
+					</a>
 					<a href="#/profile/{{name}}">
 						<md-button class="md-accent"> My profile </md-button>
+					</a>
+					<a href="#">
+						<md-button class="md-accent"> Favoris </md-button>
 					</a>
 					<a href="#/news">
 						<md-button class="md-accent"> News </md-button>
@@ -106,6 +118,7 @@
 	<script type="text/javascript" src="js/controllers/edit.js"></script>
 	<script type="text/javascript" src="js/controllers/news.js"></script>
 	<script type="text/javascript" src="js/controllers/browse.js"></script>
+	<script type="text/javascript" src="js/controllers/login.js"></script>
 
 </body>
 
