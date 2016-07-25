@@ -1,52 +1,174 @@
-<section class="profile">
+<section class="edit">
 
-	<h2>Your Profile</h2>
-<p>
-	http://www.tansu.jp/tansu/#/profile/{{profile.pseudo}}
-</p>
+	<h2>FILL UP YOUR TANSU</h2>
+	<md-radio-group ng-model="item.what" class="addingType" ng-change='clearVL()'>
+		<md-radio-button value="1" aria-label="kimono">
+			<img src="images\kimono.png" alt="kimono" ng-class='{"selectBorder":item.what=="1"}' />
+			<p>KIMONO</p>
+		</md-radio-button>
+		<md-radio-button value="2" aria-label="obi">
+			<img src="images\obi.png" alt="obi" ng-class='{"selectBorder":item.what=="2"}' />
+			<p>OBI</p>
+		</md-radio-button>
+		<md-radio-button value="3" aria-label="kitsuke">
+			<img src="images\kitsuke.png" alt="kitsuke" ng-class='{"selectBorder":item.what=="3"}' />
+			<p>KISTUKE</p>
+		</md-radio-button>
+	</md-radio-group>
 
-	<div class="mainBlock avatarBlock">
-		<div class="avatarContainer">
-			<img ng-if='!imageSrc' src="{{profile.avatar}}">
-			<img class="overview" ng-if='imageSrc' ng-src="{{imageSrc}}" />
-		</div>
+
+	<md-radio-group ng-model="item.sex" class="sex" ng-if="item.what=='1' || item.what=='2'">
+		<md-radio-button value="1" aria-label="female">
+			<i class="fa fa-venus" aria-hidden="true" ng-class='{"selectBorder":item.sex=="1"}'></i>
+		</md-radio-button>
+		<md-radio-button value="0" aria-label="male">
+			<i class="fa fa-mars" aria-hidden="true" ng-class='{"selectBorder":item.sex=="0"}'></i>
+		</md-radio-button>
+	</md-radio-group>
+
+	<div class="md-padding" ng-cloak ng-if="item.sex == 1 && item.what == 1" class="animate-if">
+		<md-input-container>
+			<label>What kind ?</label>
+			<md-select ng-model="item.style">
+				<md-option ng-repeat="style in styles |filter:{Gender:false, ItemType:1}" value="{{style.Id}}">{{style.Name}}</md-option>
+			</md-select>
+		</md-input-container>
+	</div>
+	</div>
+
+
+	<div class="md-padding" ng-cloak ng-if="item.sex == 0 && item.what== 1 ">
+		<md-input-container>
+			<label>What kind ?</label>
+			<md-select ng-model="item.style">
+				<md-option ng-repeat="style in styles |filter:{Gender:true, ItemType:1}" value="{{style.Id}}">{{style.Name}}</md-option>
+
+			</md-select>
+		</md-input-container>
+	</div>
+
+
+	<div class="md-padding" ng-cloak ng-if="item.sex == 1 && item.what== 2">
+		<md-input-container>
+			<label>What kind ?</label>
+			<md-select ng-model="item.style">
+				<md-option ng-repeat="style in styles |filter:{Gender:false, ItemType:2}" value="{{style.Id}}">{{style.Name}}</md-option>
+
+			</md-select>
+		</md-input-container>
+	</div>
+
+
+	<div class="md-padding" ng-cloak ng-if="item.sex == 0 && item.what== 2">
+		<md-input-container>
+			<label>What kind ?</label>
+			<md-select ng-model="item.style">
+				<md-option ng-repeat="style in styles |filter:{Gender:true, ItemType:2}" value="{{style.Id}}">{{style.Name}}</md-option>
+			</md-select>
+		</md-input-container>
+	</div>
+
+	<md-input-container>
+		<label>What color ?</label>
+		<md-select ng-if="item.sex && item.what" class="editColor" ng-model="item.color">
+			<md-option ng-repeat="color in colors" value="{{color.Id}}">{{color.Name}}</md-option>
+		</md-select>
+	</md-input-container>
+
+
+
+	<div class=" motifBox md-padding" ng-if="item.sex && item.what">
+		<label class="motifLabel">Which Kind of motif?</label>
+		<md-checkbox ng-model="animals" aria-label="Animals">Animals</md-checkbox>
+		<md-checkbox ng-model="plants" aria-label="Plants">Plants & FLowers</md-checkbox>
+		<md-checkbox ng-model="geometrics" aria-label="Geometrics">Geometrics</md-checkbox>
+		<md-checkbox ng-model="objects" aria-label="objects">Peoples & Objects</md-checkbox>
+
+		<fieldset class="standard" ng-if="animals">
+			<legend>Animals</legend>
+			<md-checkbox ng-repeat="motif in motifs |filter:{Style:'Animals'}" name="selectedMotif[]" value="{{motif.Id}}" ng-model="motif.selected">{{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
+			<md-checkbox ng-model="other">other</md-checkbox>
+			<md-input-container ng-if="other">
+				<label>Motif name ?</label>
+				<input type="text" ng-model="motifNew" />
+		</fieldset>
+
+		<fieldset class="standard" ng-if="plants">
+			<legend>Plants & FLowers</legend>
+			<md-checkbox ng-repeat="motif in motifs | filter: {Style:'Plants'}" name="selectedMotif[]" value="{{motif.Id}}" ng-model="motif.selected">{{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
+			<md-checkbox ng-model="other">other</md-checkbox>
+			<md-input-container ng-if="other">
+				<label>Motif name ?</label>
+				<input type="text" ng-model="motifNew" />
+		</fieldset>
+		<fieldset class="standard" ng-if="geometrics">
+			<legend>Geometrics</legend>
+			<md-checkbox ng-repeat="motif in motifs | filter:{Style:'Geometrics'}" name="selectedMotif[]" value="{{motif.Id}}" ng-model="motif.selected">{{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
+			<md-checkbox ng-model="other">other</md-checkbox>
+			<md-input-container ng-if="other">
+				<label>Motif name ?</label>
+				<input type="text" ng-model="motifNew" />
+		</fieldset>
+		<fieldset class="standard" ng-if="objects">
+			<legend>Peoples & Objects</legend>
+			<md-checkbox ng-repeat="motif in motifs | filter: {Style:'Objects'}" name="selectedMotif[]" value="{{motif.Id}}" ng-model="motif.selected"> {{motif.JapaneseName}} / {{motif.EnglishName}}</md-checkbox>
+			<md-checkbox ng-model="other">other</md-checkbox>
+			<md-input-container ng-if="other">
+				<label>Motif name ?</label>
+				<input type="text" ng-model="motifNew" />
+			</md-input-container>
+		</fieldset>
+	</div>
+
+	<div class="kitsuke" ng-if="item.what==3">
+		<md-input-container>
+			<label>Which Kimono ?</label>
+			<md-select ng-model="kimono.style">
+				<md-option ng-repeat="style in styles | filter:{Gender:false, ItemType:1}" value="{{style.Name}}">{{style.Name}}</md-option>
+			</md-select>
+		</md-input-container>
+
 		<div>
-			<input class="ng-hide" accept="image/*" id="input-file-id" type="file" ng-file-select="onFileSelect($files)" my-var="imageSrc" />
-			<label for="input-file-id" class="md-button md-raised md-warn">New Avatar</label>
+			<md-radio-group ng-if="kimono.style" ng-model="profile.kimonoChose">
+				<md-radio-button ng-repeat="kimono in profile.kimonos |filter:kimono.style track by $index " value="{{kimono.id}}" aria-label="{{kimono.id}}">
+					<img ng-src="{{kimono.main}}" />
+				</md-radio-button>
+			</md-radio-group>
 		</div>
-		<md-button ng-if='imageSrc' class="md-raised md-warn">OK</md-button>
-
-	</div>
 
 
-	<div class="mainBlock dataUser">
-	     <md-input-container class="md-block" flex-gt-sm>
-            <label>Pseudo</label>
-            <input ng-model="profile.pseudo">
-        </md-input-container>
-         <md-input-container class="md-block" flex-gt-sm>
-            <label>E-mail</label>
-            <input ng-model="profile.mail">
-          </md-input-container>
-		<md-button class="md-raised md-warn">Update</md-button>
-	</div>
+		<md-input-container>
+			<label>Which obi ?</label>
+			<md-select ng-model="obi.style">
+				<md-option ng-repeat="style in styles |filter:{Gender:false, ItemType:2}" value="{{style.Name}}">{{style.Name}}</md-option>
+				<md-option value="Kaku">Kaku</md-option>
+			</md-select>
+		</md-input-container>
 
-
-	<div class="mainBlock stat">
-
-		<p>Kimono : {{nb_kimono}}</p>
-		<p>Obi : {{nb_obi}}</p>
-		<p>Kitsuke : {{nb_kitsuke}}</p>
-	</div>
-
-		<div class="mainBlock bouton">
-
-	<a href="#/tansu/{{profile.pseudo}}/edit/newItem"><md-button class="md-raised md-warn">Add new item</md-button></a>
-	<a href="#/tansu/{{profile.pseudo}}/edit/newKitsuke"><md-button class="md-raised md-warn">Add new Kitsuke</md-button></a>
-	<a href="#/tansu/{{profile.pseudo}}/edit/rmItem"><md-button class="md-raised md-warn">Remove item</md-button></a>
-	<a href="#/tansu/{{profile.pseudo}}/edit/rmKitsuke"><md-button class="md-raised md-warn">Remove Kitsuke</md-button></a>
+		<div>
+			<md-radio-group ng-if="obi.style" ng-model="profile.obiChose">
+				<md-radio-button ng-repeat="obi in profile.obis | filter:obi.style track by $index " value="{{obi.id}}" aria-label="{{obi.id}}">
+					<img ng-src="{{obi.main}}">
+				</md-radio-button>
+			</md-radio-group>
 		</div>
-		<a href="#/profile/{{name}}">
-		<md-button class=" back-button md-raised md-accent"> My profile </md-button>
-		</a>
+
+
+		<md-input-container class="descriptionNewItem md-block">
+			<label>Description</label>
+			<textarea ng-model="newItemDescription" md-maxlength="300" rows="5" md-select-on-focus></textarea>
+		</md-input-container>
+	</div>
+
+	<div class="boutonPhoto" ng-if="item.color && item.style || item.what==3">
+		<div>
+			<input class="ng-hide" id="input-file-id" type="file" accept="image/*" ng-file-select="onFileSelect($files)" my-var="imageSrc" />
+			<label for="input-file-id" class="md-button md-raised md-warn">Photo</label>
+		</div>
+		<img class="overview" ng-if='imageSrc' ng-src="{{imageSrc}}" />
+		<div ng-if="imageSrc">
+			<md-button class=" upload-button md-raised md-warn" ng-click="newItemAdd()"> Upload </md-button>
+		</div>
+	</div>
+
 </section>

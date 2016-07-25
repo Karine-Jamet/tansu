@@ -1,15 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Philosopher:400,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
+
 html, body {
 	margin:0;
 	padding:0;
 	background-image: linear-gradient(to bottom right, white, rgba(73, 10, 61,0.4));
 	background-attachment: fixed;
 	height:100%;
+  font-family: 'Roboto', sans-serif;
+
 }
 
-h2 {
+/*h2 {
 	font-family: "mp";
-}
+}*/
 
 .loading {
 	background-color: rgba(255, 255, 255, 0.3);

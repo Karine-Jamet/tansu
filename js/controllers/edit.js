@@ -1,11 +1,18 @@
 tansu.controller('editController', function($scope, $rootScope, $http, fileReader) {
   $rootScope.loading = true;
+  $scope.imageSrc = "";
+
+  $scope.clearVL = function(){
+    $scope.item.sex =undefined;
+    $scope.item.color =undefined;
+    $scope.item.style = undefined;
+  }
 
   // ----------------- CHARGEMENT DES ELEMENTS ---------------------- //
 
   $http.get("edit.json")
     .then(function(res) {
-      $rootScope.loading = false;
+      /*$rootScope.loading = false;*/
       $scope.profile = res.data;
       $scope.nb_kimono = res.data.kimonos.length;
       $scope.nb_obi = res.data.obis.length;
@@ -18,9 +25,6 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
 
     });
 
-  $scope.imageSrc = "";
-
-  $rootScope.loading = true;
 
   $http.get("http://tansuservice.apphb.com/tansuservice.svc/GetItems", {
       "withCredentials": false
@@ -29,12 +33,8 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
       $rootScope.loading = false;
       $scope.stuffs = res.data.GetItemTypesResult;
 
-
       return res.data.GetItemTypesResult;
     });
-
-
-  $rootScope.loading = true;
 
   $http.get("http://tansuservice.apphb.com/tansuservice.svc/GetMotifs", {
       "withCredentials": false
@@ -46,7 +46,6 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
       return res.data.GetMotifsResult;
     });
 
-  $rootScope.loading = true;
 
   $http.get("http://tansuservice.apphb.com/tansuservice.svc/GetColors", {
       "withCredentials": false
@@ -56,7 +55,6 @@ tansu.controller('editController', function($scope, $rootScope, $http, fileReade
       $scope.colors = res.data.GetColorsResult;
       return res.data.GetColorsResult;
     });
-  $rootScope.loading = true;
 
   $http.get("http://tansuservice.apphb.com/tansuservice.svc/GetStyles", {
       "withCredentials": false
